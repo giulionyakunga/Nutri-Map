@@ -9,7 +9,6 @@ module.exports = {
         autoIncrement: true,
         allowNull: false
       },
-
       region_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
@@ -20,12 +19,15 @@ module.exports = {
         onUpdate: 'CASCADE',
         onDelete: 'RESTRICT'
       },
-
       name: {
         type: Sequelize.STRING(150),
         allowNull: false
       },
-
+      updated_at: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+      },
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,
