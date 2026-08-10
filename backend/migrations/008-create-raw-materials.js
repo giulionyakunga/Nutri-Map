@@ -39,7 +39,7 @@ module.exports = {
       availability: {
         type: Sequelize.STRING(100),
         allowNull: true
-      }
+      },
 
       updated_at: {
         type: Sequelize.DATE,

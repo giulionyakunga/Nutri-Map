@@ -60,7 +60,7 @@ module.exports = {
       verification_date: {
         type: Sequelize.DATEONLY,
         allowNull: true
-      }
+      },
 
       updated_at: {
         type: Sequelize.DATE,
