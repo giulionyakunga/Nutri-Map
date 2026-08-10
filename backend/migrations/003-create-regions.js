@@ -21,6 +21,12 @@ module.exports = {
         defaultValue: 'Tanzania'
       },
 
+      updated_at: {
+        type: Sequelize.DATE,
+        allowNull: false,
+        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+      },
+
       created_at: {
         type: Sequelize.DATE,
         allowNull: false,
