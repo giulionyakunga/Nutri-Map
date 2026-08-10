@@ -1,0 +1,72 @@
+'use strict';
+
+module.exports = {
+  async up(queryInterface, Sequelize) {
+    await queryInterface.createTable('nutrient_profiles', {
+      id: {
+        type: Sequelize.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false
+      },
+
+      product_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'products',
+          key: 'id'
+        },
+        onUpdate: 'CASCADE',
+        onDelete: 'CASCADE'
+      },
+
+      protein: {
+        type: Sequelize.DOUBLE,
+        allowNull: true
+      },
+
+      iron: {
+        type: Sequelize.DOUBLE,
+        allowNull: true
+      },
+
+      zinc: {
+        type: Sequelize.DOUBLE,
+        allowNull: true
+      },
+
+      vitamin_a: {
+        type: Sequelize.DOUBLE,
+        allowNull: true
+      },
+
+      calcium: {
+        type: Sequelize.DOUBLE,
+        allowNull: true
+      },
+
+      energy: {
+        type: Sequelize.DOUBLE,
+        allowNull: true
+      },
+
+      laboratory_verified: {
+        type: Sequelize.BOOLEAN,
+        allowNull: false,
+        defaultValue: false
+      },
+
+      verification_date: {
+        type: Sequelize.DATEONLY,
+        allowNull: true
+      }
+    });
+
+    await queryInterface.addIndex('nutrient_profiles', ['product_id']);
+  },
+
+  async down(queryInterface) {
+    await queryInterface.dropTable('nutrient_profiles');
+  }
+};
