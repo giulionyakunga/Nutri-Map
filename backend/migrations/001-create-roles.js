@@ -14,7 +14,7 @@ module.exports = {
         type: Sequelize.STRING(100),
         allowNull: false,
         unique: true
-      }
+      },
 
       updated_at: {
         type: Sequelize.DATE,
