@@ -1,27 +1,30 @@
-const Sequelize = require('sequelize');
-const { DataTypes } = require('sequelize');
-const sequelize = require('../connection');
-
-module.exports = sequelize.define("role", {
-    id: {
-        type: Sequelize.INTEGER(11),
-        allowNull: false,
+module.exports = (sequelize, DataTypes) => {
+  const Role = sequelize.define(
+    'role',
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
         autoIncrement: true,
-        primaryKey: true
-    },
-    name: {
-        type: Sequelize.STRING(100),
+        allowNull: false
+      },
+      name: {
+        type: DataTypes.STRING(100),
         allowNull: false,
         unique: true
+      }
     },
-    updated_at: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
-    },
-    created_at: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+    {
+      tableName: 'roles',
+      underscored: true,
+      createdAt: 'created_at',
+      updatedAt: 'updated_at'
     }
-});
+  );
+
+  Role.associate = (models) => {
+    Role.hasMany(models.user, { foreignKey: 'role_id' });
+  };
+
+  return Role;
+};

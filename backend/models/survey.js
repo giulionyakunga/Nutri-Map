@@ -1,49 +1,40 @@
-const Sequelize = require('sequelize');
-const { DataTypes } = require('sequelize');
-const sequelize = require('../connection');
-
-module.exports = sequelize.define("survey", {
-    id: {
-        type: Sequelize.INTEGER,
+module.exports = (sequelize, DataTypes) => {
+  const Survey = sequelize.define(
+    'survey',
+    {
+      id: {
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
-    },
-    producer_id: {
-        type: Sequelize.INTEGER,
+      },
+      producer_id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
-        references: {
-          model: 'producers',
-          key: 'id'
-        },
+        references: { model: 'producers', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'CASCADE'
-    },
-    kobotoolbox_submission_id: {
-        type: Sequelize.STRING(150),
+      },
+      kobotoolbox_submission_id: {
+        type: DataTypes.STRING(150),
         allowNull: false,
         unique: true
+      },
+      survey_date: { type: DataTypes.DATEONLY, allowNull: true },
+      enumerator: { type: DataTypes.STRING(255), allowNull: true },
+      json_data: { type: DataTypes.JSONB, allowNull: true }
     },
-    survey_date: {
-        type: Sequelize.DATEONLY,
-        allowNull: true
-    },
-    enumerator: {
-        type: Sequelize.STRING(255),
-        allowNull: true
-    },
-    json_data: {
-        type: Sequelize.JSONB,
-        allowNull: true
-    },
-    updated_at: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
-    },
-    created_at: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+    {
+      tableName: 'surveys',
+      underscored: true,
+      createdAt: 'created_at',
+      updatedAt: 'updated_at'
     }
-});
+  );
+
+  Survey.associate = (models) => {
+    Survey.belongsTo(models.producer, { foreignKey: 'producer_id' });
+  };
+
+  return Survey;
+};

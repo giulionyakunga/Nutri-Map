@@ -163,7 +163,6 @@ module.exports = {
     await queryInterface.addIndex('producers', ['ward_id']);
     await queryInterface.addIndex('producers', ['tin']);
 
-    // PostGIS spatial index
     await queryInterface.sequelize.query(`
       CREATE INDEX producers_location_gist_idx
       ON producers
