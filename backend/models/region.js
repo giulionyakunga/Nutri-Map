@@ -1,31 +1,39 @@
-const Sequelize = require('sequelize');
-const { DataTypes } = require('sequelize');
-const sequelize = require('../connection');
-
-module.exports = sequelize.define("region", {
-    id: {
-        type: Sequelize.INTEGER,
+module.exports = (sequelize, DataTypes) => {
+  const Region = sequelize.define(
+    'region',
+    {
+      id: {
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
-    },
-    name: {
-        type: Sequelize.STRING(150),
+      },
+      name: {
+        type: DataTypes.STRING(150),
         allowNull: false
-    },
-    country: {
-        type: Sequelize.STRING(100),
+      },
+      country: {
+        type: DataTypes.STRING(100),
         allowNull: false,
         defaultValue: 'Tanzania'
+      },
+      boundary: {
+        type: DataTypes.GEOMETRY('MULTIPOLYGON', 4326),
+        allowNull: true
+      }
     },
-    updated_at: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
-    },
-    created_at: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+    {
+      tableName: 'regions',
+      underscored: true,
+      createdAt: 'created_at',
+      updatedAt: 'updated_at'
     }
-});
+  );
+
+  Region.associate = (models) => {
+    Region.hasMany(models.district, { foreignKey: 'region_id' });
+    Region.hasMany(models.producer, { foreignKey: 'region_id' });
+  };
+
+  return Region;
+};

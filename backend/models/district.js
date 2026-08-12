@@ -1,36 +1,42 @@
-const Sequelize = require('sequelize');
-const { DataTypes } = require('sequelize');
-const sequelize = require('../connection');
-
-module.exports = sequelize.define("district", {
-    id: {
-        type: Sequelize.INTEGER,
+module.exports = (sequelize, DataTypes) => {
+  const District = sequelize.define(
+    'district',
+    {
+      id: {
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
-    },
-    region_id: {
-        type: Sequelize.INTEGER,
+      },
+      region_id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
-        references: {
-          model: 'regions',
-          key: 'id'
-        },
+        references: { model: 'regions', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'RESTRICT'
-    },
-    name: {
-        type: Sequelize.STRING(150),
+      },
+      name: {
+        type: DataTypes.STRING(150),
         allowNull: false
+      },
+      boundary: {
+        type: DataTypes.GEOMETRY('MULTIPOLYGON', 4326),
+        allowNull: true
+      }
     },
-    updated_at: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
-    },
-    created_at: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+    {
+      tableName: 'districts',
+      underscored: true,
+      createdAt: 'created_at',
+      updatedAt: 'updated_at'
     }
-});
+  );
+
+  District.associate = (models) => {
+    District.belongsTo(models.region, { foreignKey: 'region_id' });
+    District.hasMany(models.ward, { foreignKey: 'district_id' });
+    District.hasMany(models.producer, { foreignKey: 'district_id' });
+  };
+
+  return District;
+};

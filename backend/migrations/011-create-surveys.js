@@ -58,7 +58,6 @@ module.exports = {
     await queryInterface.addIndex('surveys', ['producer_id']);
     await queryInterface.addIndex('surveys', ['kobotoolbox_submission_id']);
 
-    // Useful for searching inside Kobo submissions
     await queryInterface.sequelize.query(`
       CREATE INDEX surveys_json_data_gin_idx
       ON surveys
