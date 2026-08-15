@@ -1,63 +1,85 @@
-const Sequelize = require('sequelize');
-const { DataTypes } = require('sequelize');
-const sequelize = require('../connection');
-
-module.exports = sequelize.define("user", {
-    id: {
-        type: Sequelize.INTEGER,
+module.exports = (sequelize, DataTypes) => {
+  const User = sequelize.define(
+    'user',
+    {
+      id: {
+        type: DataTypes.INTEGER,
         primaryKey: true,
         autoIncrement: true,
         allowNull: false
-    },
-    first_name: {
-        type: Sequelize.STRING(100),
+      },
+      first_name: {
+        type: DataTypes.STRING(100),
         allowNull: false
-    },
-    middle_name: {
-        type: Sequelize.STRING(100),
+      },
+      middle_name: {
+        type: DataTypes.STRING(100),
         allowNull: true
-    },
-    last_name: {
-        type: Sequelize.STRING(100),
+      },
+      last_name: {
+        type: DataTypes.STRING(100),
         allowNull: false
-    },
-    email: {
-        type: Sequelize.STRING(255),
+      },
+      email: {
+        type: DataTypes.STRING(255),
         allowNull: false,
-        unique: true
-    },
-    phone_number: {
-        type: Sequelize.STRING(30),
+        unique: true,
+        validate: { isEmail: true }
+      },
+      phone_number: {
+        type: DataTypes.STRING(30),
         allowNull: true,
         unique: true
-    },
-    password_hash: {
-        type: Sequelize.STRING(255),
+      },
+      password_hash: {
+        type: DataTypes.STRING(255),
         allowNull: false
-    },
-    role_id: {
-        type: Sequelize.INTEGER,
+      },
+      role_id: {
+        type: DataTypes.INTEGER,
         allowNull: false,
-        references: {
-          model: 'roles',
-          key: 'id'
-        },
+        references: { model: 'roles', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'RESTRICT'
-    },
-    status: {
-        type: Sequelize.STRING(30),
+      },
+      status: {
+        type: DataTypes.STRING(30),
         allowNull: false,
-        defaultValue: 'active'
-    },
-    updated_at: {
-        type: Sequelize.DATE,
+        defaultValue: 'pending_activation',
+        validate: { isIn: [['active', 'inactive', 'suspended', 'pending_activation']] }
+      },
+      failed_login_attempts: {
+        type: DataTypes.INTEGER,
         allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+        defaultValue: 0
+      },
+      locked_until: {
+        type: DataTypes.DATE,
+        allowNull: true
+      },
+      last_login_at: {
+        type: DataTypes.DATE,
+        allowNull: true
+      }
     },
-    created_at: {
-        type: Sequelize.DATE,
-        allowNull: false,
-        defaultValue: Sequelize.literal('CURRENT_TIMESTAMP')
+    {
+      tableName: 'users',
+      underscored: true,
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
+      defaultScope: {
+        attributes: { exclude: ['password_hash'] }
+      },
+      scopes: {
+        withPassword: { attributes: {} }
+      }
     }
-});
+  );
+
+  User.associate = (models) => {
+    User.belongsTo(models.role, { foreignKey: 'role_id' });
+    User.hasMany(models.producer, { foreignKey: 'created_by', as: 'createdProducers' });
+  };
+
+  return User;
+};
