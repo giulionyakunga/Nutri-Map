@@ -8,10 +8,10 @@ const { validate } = require('../../middleware/errorHandler');
 const router = express.Router();
 const WRITE_ROLES = ['administrator', 'data_analyst', 'enumerator'];
 
-router.get('/', authenticate, controller.list);
-router.get('/geojson', authenticate, controller.geojson);
-router.get('/:id', authenticate, param('id').isInt(), validate, controller.getOne);
-router.get('/:id/profile', authenticate, param('id').isInt(), validate, controller.getProfile);
+router.get('/', controller.list);
+router.get('/geojson', controller.geojson);
+router.get('/:id', param('id').isInt(), validate, controller.getOne);
+router.get('/:id/profile', param('id').isInt(), validate, controller.getProfile);
 
 router.post(
   '/',
