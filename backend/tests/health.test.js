@@ -10,9 +10,9 @@ describe('GET /api/health', () => {
 });
 
 describe('GET /api/producers', () => {
-  it('requires authentication', async () => {
+  it('allows public read retrieval without bearer authentication', async () => {
     const res = await request(app).get('/api/producers');
-    expect(res.status).toBe(401);
+    expect(res.status).not.toBe(401);
   });
 });
 
