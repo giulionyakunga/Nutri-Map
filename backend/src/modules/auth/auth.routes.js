@@ -19,8 +19,7 @@ router.post(
       .matches(/[A-Z]/)
       .matches(/[0-9]/)
       .matches(/[^a-zA-Z0-9]/)
-      .withMessage('Password must be at least 10 characters and include upper, lower, number, and symbol'),
-    body('roleId').isInt({ min: 1 })
+      .withMessage('Password must be at least 10 characters and include upper, lower, number, and symbol')
   ],
   validate,
   controller.register
