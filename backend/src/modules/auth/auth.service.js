@@ -43,7 +43,16 @@ async function findUserWithRole(email) {
   });
 }
 
-async function register({ firstName, middleName, lastName, email, phoneNumber, password, roleId }) {
+async function register({ firstName, middleName, lastName, email, phoneNumber, password }) {
+  const defaultRoleName = process.env.DEFAULT_SELF_REGISTER_ROLE || 'viewer';
+  const defaultRole = await db.role.findOne({ where: { name: defaultRoleName } });
+
+  if (!defaultRole) {
+    const err = new Error('Server misconfiguration: default self-registration role not found');
+    err.status = 500;
+    throw err;
+  }
+
   const passwordHash = await bcrypt.hash(password, Number(process.env.BCRYPT_SALT_ROUNDS || 12));
   const user = await db.user.create({
     first_name: firstName,
@@ -52,7 +61,7 @@ async function register({ firstName, middleName, lastName, email, phoneNumber, p
     email,
     phone_number: phoneNumber,
     password_hash: passwordHash,
-    role_id: roleId,
+    role_id: defaultRole.id,
     status: 'pending_activation'
   });
   return { id: user.id, email: user.email, status: user.status };

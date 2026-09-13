@@ -3,6 +3,7 @@ const express = require('express');
 const router = express.Router();
 
 router.use('/auth', require('../modules/auth/auth.routes'));
+router.use('/users', require('../modules/users/users.routes'));
 router.use('/producers', require('../modules/producers/producers.routes'));
 router.use('/products', require('../modules/products/products.routes'));
 router.use('/regions', require('../modules/regions/regions.routes'));

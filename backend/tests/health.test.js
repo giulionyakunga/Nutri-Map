@@ -34,4 +34,19 @@ describe('POST /api/auth/register', () => {
     });
     expect(res.status).toBe(422);
   });
+
+  it('ignores a client-supplied roleId and assigns the configured default self-registration role', async () => {
+    const res = await request(app).post('/api/auth/register').send({
+      firstName: 'Role',
+      lastName: 'Guard',
+      email: 'role-guard@example.com',
+      phoneNumber: '0700000001',
+      password: 'StrongPass123!',
+      roleId: 999
+    });
+
+    expect(res.status).toBe(201);
+    expect(res.body).toHaveProperty('email', 'role-guard@example.com');
+    expect(res.body).toHaveProperty('status', 'pending_activation');
+  });
 });
