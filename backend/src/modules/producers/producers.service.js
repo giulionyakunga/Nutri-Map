@@ -12,6 +12,7 @@ function parseBbox(bboxParam) {
 
 function buildWhere(filters) {
   const where = { status: filters.status || 'active' };
+
   if (filters.regionId) where.region_id = filters.regionId;
   if (filters.districtId) where.district_id = filters.districtId;
   if (filters.wardId) where.ward_id = filters.wardId;
