@@ -139,6 +139,34 @@ async function create(data, userId) {
   return db.producer.create(payload);
 }
 
+async function createFromForm(data, location) {
+  return create({
+    businessName: data.business_name,
+    registrationType: data.registration_type,
+    ownershipStructure: data.ownership_structure,
+    organizationType: data.organization_type,
+    operationalScale: data.operational_scale,
+    phone: data.phone,
+    physicalAddress: data.physical_address,
+    regionId: location.regionId,
+    districtId: location.districtId,
+    wardId: location.wardId,
+    primaryRawMaterials: data.primary_raw_materials,
+    primarySourcingChannels: data.primary_sourcing_channels,
+    shortageMonths: data.shortage_months,
+    storageCapacity: data.storage_capacity,
+    storageCapacityUnit: data.storage_capacity_unit,
+    mainStorageChallenges: data.main_storage_challenges,
+    nutrientDenseCrops: data.nutrient_dense_crops,
+    accessibilityStatus: data.accessibility_status,
+    infrastructureStatus: data.infrastructure_status,
+    sanitaryStatus: data.sanitary_status,
+    latitude: data.latitude,
+    longitude: data.longitude,
+    source: 'mobile_form'
+  }, null);
+}
+
 const UPDATABLE_FIELDS = FIELD_MAP;
 
 async function update(id, data) {
@@ -160,4 +188,4 @@ async function remove(id) {
   return true;
 }
 
-module.exports = { list, listAsGeoJson, getById, getFullProfile, create, update, remove };
+module.exports = { list, listAsGeoJson, getById, getFullProfile, create, createFromForm, update, remove };

@@ -23,6 +23,18 @@ describe('POST /api/auth/login', () => {
   });
 });
 
+describe('POST /api/add_producer', () => {
+  it('validates the mobile form payload before database access', async () => {
+    const res = await request(app).post('/api/add_producer').send({});
+    expect(res.status).toBe(422);
+    expect(res.body.errors).toEqual(expect.arrayContaining([
+      expect.objectContaining({ field: 'business_name' }),
+      expect.objectContaining({ field: 'physical_address' }),
+      expect.objectContaining({ field: 'region' })
+    ]));
+  });
+});
+
 describe('POST /api/auth/register', () => {
   it('rejects a weak password with 422', async () => {
     const res = await request(app).post('/api/auth/register').send({

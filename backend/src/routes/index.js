@@ -9,6 +9,7 @@ router.use('/products', require('../modules/products/products.routes'));
 router.use('/regions', require('../modules/regions/regions.routes'));
 router.use('/districts', require('../modules/districts/districts.routes'));
 router.use('/wards', require('../modules/wards/wards.routes'));
+router.use('/add_producer', require('../modules/producers/producerIntake.routes'));
 
 router.get('/health', (req, res) => res.json({ status: 'ok', timestamp: new Date().toISOString() }));
 

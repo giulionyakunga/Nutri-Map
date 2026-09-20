@@ -7,7 +7,7 @@ const { validate } = require('../../middleware/errorHandler');
 
 const router = express.Router();
 
-router.get('/', authenticate, async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     const where = req.query.districtId ? { district_id: req.query.districtId } : {};
     const wards = await db.ward.findAll({ where, order: [['name', 'ASC']] });

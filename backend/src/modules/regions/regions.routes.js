@@ -7,7 +7,7 @@ const { validate } = require('../../middleware/errorHandler');
 
 const router = express.Router();
 
-router.get('/', authenticate, async (req, res, next) => {
+router.get('/', async (req, res, next) => {
   try {
     const regions = await db.region.findAll({ order: [['name', 'ASC']] });
     res.json({ data: regions });
@@ -16,7 +16,7 @@ router.get('/', authenticate, async (req, res, next) => {
   }
 });
 
-router.get('/:id', authenticate, async (req, res, next) => {
+router.get('/:id', async (req, res, next) => {
   try {
     const region = await db.region.findByPk(req.params.id);
     if (!region) return res.status(404).json({ error: 'Region not found' });
