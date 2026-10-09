@@ -15,24 +15,24 @@ router.get('/:id/profile', param('id').isInt(), validate, controller.getProfile)
 
 router.post(
   '/',
-  authenticate,
-  requireRole(...WRITE_ROLES),
-  [
-    body('registrationType').optional({ nullable: true }).isIn(['formal', 'informal']),
-    body('businessName').trim().notEmpty().isLength({ max: 255 }),
-    body('physicalAddress').trim().notEmpty().isLength({ max: 500 }),
-    body('regionId').isInt({ min: 1 }),
-    body('districtId').optional({ nullable: true }).isInt({ min: 1 }),
-    body('wardId').optional({ nullable: true }).isInt({ min: 1 }),
-    body('latitude').isFloat({ min: -90, max: 90 }),
-    body('longitude').isFloat({ min: -180, max: 180 }),
-    body('productionCapacity').optional({ nullable: true }).isInt({ min: 0 }),
-    body('dailyOutput').optional({ nullable: true }).isInt({ min: 0 }),
-    body('numberOfEmployees').optional({ nullable: true }).isInt({ min: 0 }),
-    body('email').optional({ nullable: true }).isEmail(),
-    body('phone').optional({ nullable: true }).isString().isLength({ max: 30 })
-  ],
-  validate,
+  // authenticate,
+  // requireRole(...WRITE_ROLES),
+  // [
+  //   body('registrationType').optional({ nullable: true }).isIn(['formal', 'informal']),
+  //   body('businessName').trim().notEmpty().isLength({ max: 255 }),
+  //   body('physicalAddress').trim().notEmpty().isLength({ max: 500 }),
+  //   body('regionId').isInt({ min: 1 }),
+  //   body('districtId').optional({ nullable: true }).isInt({ min: 1 }),
+  //   body('wardId').optional({ nullable: true }).isInt({ min: 1 }),
+  //   body('latitude').isFloat({ min: -90, max: 90 }),
+  //   body('longitude').isFloat({ min: -180, max: 180 }),
+  //   body('productionCapacity').optional({ nullable: true }).isInt({ min: 0 }),
+  //   body('dailyOutput').optional({ nullable: true }).isInt({ min: 0 }),
+  //   body('numberOfEmployees').optional({ nullable: true }).isInt({ min: 0 }),
+  //   body('email').optional({ nullable: true }).isEmail(),
+  //   body('phone').optional({ nullable: true }).isString().isLength({ max: 30 })
+  // ],
+  // validate,
   controller.create
 );
 
