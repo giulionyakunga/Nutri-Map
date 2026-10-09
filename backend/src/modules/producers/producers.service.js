@@ -443,6 +443,8 @@ async function create(data, userId) {
 
   console.log('Creating producer record in database...');
 
+  console.log('payload :', payload);
+
   return db.producer.create(payload);
 }
 
