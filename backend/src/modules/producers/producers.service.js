@@ -130,16 +130,319 @@ const FIELD_MAP = {
   sanitaryStatus: 'sanitary_status', dataStatus: 'data_status'
 };
 
-async function create(data, userId) {
-  const payload = { created_by: userId };
-  console.log('Creating producer by user:', userId);
-  for (const [key, column] of Object.entries(FIELD_MAP)) {
-    console.log('key:', key, 'column:', column, 'data[key]:', data[key]);
+// async function create(data, userId) {
+//   const payload = { created_by: userId };
+//   for (const [key, column] of Object.entries(FIELD_MAP)) {
+//     if (data[key] !== undefined) payload[column] = data[key];
+//   }
+//   if (!payload.source) payload.source = 'manual_entry';
+//   return db.producer.create(payload);
+// }
 
-    if (data[key] !== undefined) payload[column] = data[key];
+async function create(data, userId) {
+  console.log('Creating producer from Kobo submission');
+
+  // Safely retrieve the first available, non-empty value.
+  const getValue = (...keys) => {
+    for (const key of keys) {
+      const value = data[key];
+
+      if (
+        value !== undefined &&
+        value !== null &&
+        String(value).trim() !== ''
+      ) {
+        return value;
+      }
+    }
+
+    return undefined;
+  };
+
+  // Convert a numeric value safely.
+  const toNumber = (value) => {
+    if (value === undefined || value === null || value === '') {
+      return undefined;
+    }
+
+    const number = Number(value);
+    return Number.isFinite(number) ? number : undefined;
+  };
+
+  const payload = {
+    created_by: userId ?? null,
+    source: 'kobotoolbox'
+  };
+
+  // Map all fields already supported by your existing FIELD_MAP.
+  for (const [key, column] of Object.entries(FIELD_MAP)) {
+    const value = data[key];
+
+    if (value !== undefined && value !== null && value !== '') {
+      payload[column] = value;
+    }
   }
-  console.log('Here');
-  if (!payload.source) payload.source = 'manual_entry';
+
+  // ---------------------------------------------------
+  // 1. Enterprise/business information
+  // ---------------------------------------------------
+
+  payload.business_name = getValue(
+    'businessName',
+    '_1_3_Name_of_Enterprise_Group'
+  );
+
+  payload.contact_person = getValue(
+    'contactPerson',
+    'group_gt2bp34/Primary_Contact_Person'
+  );
+
+  payload.position_role = getValue(
+    'positionRole',
+    'group_gt2bp34/Position_Role'
+  );
+
+  payload.phone = getValue(
+    'phone',
+    'group_gt2bp34/Phone_Number'
+  );
+
+  payload.email = getValue(
+    'email',
+    'group_gt2bp34/E_mail_address'
+  );
+
+  payload.physical_address = getValue(
+    'physicalAddress',
+    'group_gt2bp34/Physical_Street_Address',
+    'Village_Street'
+  );
+
+  payload.tin = getValue(
+    'tin',
+    'group_gy4oz23/Taxpayer_Identification_Number_TIN'
+  );
+
+  payload.brela_registration_number = getValue(
+    'brelaRegistrationNumber',
+    'group_gy4oz23/BRELA_Business_Registration_Number'
+  );
+
+  payload.tbs_zfda_registration_number = getValue(
+    'tbsZfdaRegistrationNumber',
+    'group_gy4oz23/TBS_ZFDA_License_P_Registration_Number'
+  );
+
+  payload.operational_status = getValue(
+    'operationalStatus',
+    '_1_6_Operational_Status'
+  );
+
+  payload.ownership_structure = getValue(
+    'ownershipStructure',
+    '_1_4_Enterprise_Ownership_and_L'
+  );
+
+  // ---------------------------------------------------
+  // 2. GPS coordinates
+  // ---------------------------------------------------
+
+  let latitude = toNumber(
+    getValue('latitude', '_geolocation_latitude')
+  );
+
+  let longitude = toNumber(
+    getValue('longitude', '_geolocation_longitude')
+  );
+
+  // Kobo geopoint format:
+  // latitude longitude altitude accuracy
+  const coordinateValue = getValue(
+    '_1_2_Coordinate_location',
+    'Coordinate_location',
+    'coordinates'
+  );
+
+  if (
+    (latitude === undefined || longitude === undefined) &&
+    coordinateValue
+  ) {
+    const parts = String(coordinateValue)
+      .trim()
+      .split(/\s+/);
+
+    if (parts.length >= 2) {
+      latitude = toNumber(parts[0]);
+      longitude = toNumber(parts[1]);
+    }
+  }
+
+  // Kobo may also provide its system geolocation array.
+  if (
+    (latitude === undefined || longitude === undefined) &&
+    Array.isArray(data._geolocation) &&
+    data._geolocation.length >= 2
+  ) {
+    latitude = toNumber(data._geolocation[0]);
+    longitude = toNumber(data._geolocation[1]);
+  }
+
+  payload.latitude = latitude;
+  payload.longitude = longitude;
+
+  // ---------------------------------------------------
+  // 3. Region, district and ward foreign keys
+  // ---------------------------------------------------
+
+  // Accept numeric IDs only when supplied explicitly.
+  payload.region_id = toNumber(
+    getValue('regionId', 'region_id')
+  );
+
+  payload.district_id = toNumber(
+    getValue('districtId', 'district_id')
+  );
+
+  payload.ward_id = toNumber(
+    getValue('wardId', 'ward_id')
+  );
+
+  // Kobo sends labels/codes, not database IDs.
+  // Resolve these through your database lookup logic.
+  const regionName = getValue('Region');
+  const districtName = getValue('District');
+  const wardName = getValue('Ward');
+
+  /*
+   * IMPORTANT:
+   * Implement the lookups below using the actual columns
+   * in your region, district and ward models.
+   *
+   * Do not use regionName directly as region_id.
+   */
+
+  if (payload.region_id === undefined && regionName) {
+    // Example only: replace "code" with the actual column
+    // that stores values such as "dar_es_salaam".
+    const region = await db.region.findOne({
+      where: { code: regionName }
+    });
+
+    if (region) {
+      payload.region_id = region.id;
+    }
+  }
+
+  if (payload.district_id === undefined && districtName) {
+    // Example only: adjust field names and association
+    // to match your actual District model.
+    const district = await db.district.findOne({
+      where: { name: districtName }
+    });
+
+    if (district) {
+      payload.district_id = district.id;
+    }
+  }
+
+  if (payload.ward_id === undefined && wardName) {
+    // Example only: adjust field names and association
+    // to match your actual Ward model.
+    const ward = await db.ward.findOne({
+      where: { name: wardName }
+    });
+
+    if (ward) {
+      payload.ward_id = ward.id;
+    }
+  }
+
+  // ---------------------------------------------------
+  // 4. Additional fields
+  // ---------------------------------------------------
+
+  payload.primary_raw_materials = getValue(
+    'primaryRawMaterials',
+    '_2_1_Primary_Raw_Materials_Sour'
+  );
+
+  payload.primary_sourcing_channels = getValue(
+    'primarySourcingChannels',
+    '_2_2_Primary_Sourcing_Channels'
+  );
+
+  payload.shortage_months = getValue(
+    'shortageMonths',
+    'group_bi6dd29/_2_3_1_Months_of_Sev_tage_or_Price_Spikes'
+  );
+
+  payload.production_capacity = toNumber(
+    getValue(
+      'productionCapacity',
+      'group_in2zi20/_3_2_1_Installed_Pro_ing_Capacity_kg_day'
+    )
+  );
+
+  payload.number_of_employees = toNumber(
+    getValue('numberOfEmployees')
+  );
+
+  // ---------------------------------------------------
+  // 5. Validate required database fields
+  // ---------------------------------------------------
+
+  const errors = [];
+
+  if (!payload.business_name) {
+    errors.push('Business name is missing');
+  }
+
+  if (
+    !Number.isInteger(payload.region_id) ||
+    payload.region_id < 1
+  ) {
+    errors.push(
+      `Unable to resolve region "${regionName ?? ''}" to a valid database ID`
+    );
+  }
+
+  if (!payload.physical_address) {
+    errors.push('Physical address is missing');
+  }
+
+  if (
+    payload.latitude === undefined ||
+    payload.latitude < -90 ||
+    payload.latitude > 90
+  ) {
+    errors.push('A valid latitude is required');
+  }
+
+  if (
+    payload.longitude === undefined ||
+    payload.longitude < -180 ||
+    payload.longitude > 180
+  ) {
+    errors.push('A valid longitude is required');
+  }
+
+  if (errors.length > 0) {
+    const error = new Error(errors.join('; '));
+    error.status = 422;
+    error.details = errors;
+    throw error;
+  }
+
+  console.log('Validated Kobo producer payload:', {
+    business_name: payload.business_name,
+    region_id: payload.region_id,
+    district_id: payload.district_id,
+    ward_id: payload.ward_id,
+    physical_address: payload.physical_address,
+    latitude: payload.latitude,
+    longitude: payload.longitude
+  });
+
   return db.producer.create(payload);
 }
 
