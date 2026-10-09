@@ -57,6 +57,8 @@ async function getProfile(req, res, next) {
 }
 
 async function create(req, res, next) {
+  console.log('Kobo submission:', req.body);
+
   try {
     const producer = await service.create(req.body, req.user.sub);
     res.status(201).json(producer);
