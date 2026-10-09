@@ -61,7 +61,7 @@ async function create(req, res, next) {
 
   try {
     // const producer = await service.create(req.body, req.user.sub);
-    const producer = await service.create(req.body, 1);
+    const producer = await service.create(req.body, 5);
     res.status(201).json(producer);
   } catch (err) {
     next(err);
