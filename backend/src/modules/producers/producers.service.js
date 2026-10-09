@@ -331,6 +331,7 @@ async function create(data, userId) {
     } else {
       console.warn(`Region "${regionName}" not found in database`);
       payload.region_id = 0;
+      consoloe.warn('Setting region_id to 0 for debugging purposes');
     }
   }
 
