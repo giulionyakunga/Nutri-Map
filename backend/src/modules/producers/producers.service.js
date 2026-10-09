@@ -132,9 +132,13 @@ const FIELD_MAP = {
 
 async function create(data, userId) {
   const payload = { created_by: userId };
+  console.log('Creating producer by user:', userId);
   for (const [key, column] of Object.entries(FIELD_MAP)) {
+    console.log('key:', key, 'column:', column, 'data[key]:', data[key]);
+
     if (data[key] !== undefined) payload[column] = data[key];
   }
+  console.log('Here');
   if (!payload.source) payload.source = 'manual_entry';
   return db.producer.create(payload);
 }
