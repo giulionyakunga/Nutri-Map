@@ -11,7 +11,7 @@ module.exports = {
     const phoneNumber = '+255766032160';
     const password = 'zy7usH8lK';
     const roleName = 'administrator';
-    const roleId = null;
+    let roleId = null;
 
     // Confirm the role exists.
     const roles = await queryInterface.sequelize.query(
