@@ -295,7 +295,7 @@ async function create(data, userId) {
   // ---------------------------------------------------
 
   // Accept numeric IDs only when supplied explicitly.
-  payload.region_id = toNumber(
+  payload.region_id = toNumber( 
     getValue('regionId', 'region_id')
   );
 
@@ -322,14 +322,15 @@ async function create(data, userId) {
    */
 
   if (payload.region_id === undefined && regionName) {
-    // Example only: replace "code" with the actual column
-    // that stores values such as "dar_es_salaam".
     const region = await db.region.findOne({
-      where: { code: regionName }
+      where: { name: regionName }
     });
 
     if (region) {
       payload.region_id = region.id;
+    } else {
+      console.warn(`Region "${regionName}" not found in database`);
+      payload.region_id = 0;
     }
   }
 
