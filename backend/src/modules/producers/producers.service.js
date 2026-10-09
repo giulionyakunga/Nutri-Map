@@ -328,10 +328,6 @@ async function create(data, userId) {
 
     if (region) {
       payload.region_id = region.id;
-    } else {
-      console.warn(`Region "${regionName}" not found in database`);
-      payload.region_id = 0;
-      consoloe.warn('Setting region_id to 0 for debugging purposes');
     }
   }
 
@@ -444,6 +440,8 @@ async function create(data, userId) {
     latitude: payload.latitude,
     longitude: payload.longitude
   });
+
+  console.log('Creating producer record in database...');
 
   return db.producer.create(payload);
 }
