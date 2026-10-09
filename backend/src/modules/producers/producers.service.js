@@ -139,6 +139,35 @@ const FIELD_MAP = {
 //   return db.producer.create(payload);
 // }
 
+// Convert KoboToolbox values to PostgreSQL string arrays.
+const toStringArray = (value) => {
+  if (value === undefined || value === null || value === '') {
+    return undefined;
+  }
+
+  if (Array.isArray(value)) {
+    return value
+      .filter(item => item !== undefined && item !== null && String(item).trim() !== '')
+      .map(item => String(item).trim());
+  }
+
+  if (typeof value === 'string') {
+    const trimmed = value.trim();
+
+    if (!trimmed) {
+      return undefined;
+    }
+
+    // Kobo select_multiple answers are commonly space-separated.
+    return trimmed.split(/\s+/).filter(Boolean);
+  }
+
+  // Avoid passing numbers, objects, or other invalid types to Sequelize.
+  throw new TypeError(
+    `Expected a string or array for an array field; received ${typeof value}`
+  );
+};
+
 async function create(data, userId) {
   console.log('Creating producer from Kobo submission');
 
@@ -359,19 +388,26 @@ async function create(data, userId) {
   // 4. Additional fields
   // ---------------------------------------------------
 
-  payload.primary_raw_materials = getValue(
-    'primaryRawMaterials',
-    '_2_1_Primary_Raw_Materials_Sour'
+  payload.primary_raw_materials = toStringArray(
+    getValue(
+      'primaryRawMaterials',
+      '_2_1_Primary_Raw_Materials_Sour',
+      'G_1_1_Primary_Nutrient_Dense_C'
+    )
   );
 
-  payload.primary_sourcing_channels = getValue(
-    'primarySourcingChannels',
-    '_2_2_Primary_Sourcing_Channels'
+  payload.primary_sourcing_channels = toStringArray(
+    getValue(
+      'primarySourcingChannels',
+      '_2_2_Primary_Sourcing_Channels'
+    )
   );
 
-  payload.shortage_months = getValue(
-    'shortageMonths',
-    'group_bi6dd29/_2_3_1_Months_of_Sev_tage_or_Price_Spikes'
+  payload.shortage_months = toStringArray(
+    getValue(
+      'shortageMonths',
+      'group_bi6dd29/_2_3_1_Months_of_Sev_tage_or_Price_Spikes'
+    )
   );
 
   payload.production_capacity = toNumber(
