@@ -10,25 +10,22 @@ module.exports = {
     const email = 'julio.nyakunga@telabs.co.tz';
     const phoneNumber = '+255766032160';
     const password = 'zy7usH8lK';
-    const roleId = 'administrator';
-
-    if (!email || !password || !Number.isInteger(roleId) || roleId < 1) {
-      throw new Error(
-        'Set SEED_USER_EMAIL, SEED_USER_PASSWORD and a valid SEED_USER_ROLE_ID before running this seeder.'
-      );
-    }
+    const roleName = 'administrator';
+    const roleId = null;
 
     // Confirm the role exists.
     const roles = await queryInterface.sequelize.query(
-      'SELECT id FROM roles WHERE id = :roleId',
+      'SELECT id FROM roles WHERE name = :roleName',
       {
-        replacements: { roleId },
+        replacements: { roleName },
         type: Sequelize.QueryTypes.SELECT
       }
     );
 
     if (roles.length === 0) {
-      throw new Error(`Role ID ${roleId} does not exist.`);
+      throw new Error(`Role "${roleName}" does not exist.`);
+    } else{
+      roleId = roles[0].id;
     }
 
     // Avoid duplicate users.
