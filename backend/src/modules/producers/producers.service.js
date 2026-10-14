@@ -176,6 +176,8 @@ async function create(data, userId) {
     for (const key of keys) {
       const value = data[key];
 
+      console.log(' >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> key :', key, 'value :', value);
+
       if (
         value !== undefined &&
         value !== null &&
@@ -218,7 +220,8 @@ async function create(data, userId) {
 
   payload.business_name = getValue(
     'businessName',
-    '_1_3_Name_of_Enterprise_Group'
+    '_1_3_Name_of_Enterprise_Group',
+    'group_pn4gh36/_1_3_Name_of_Enterprise_Group'
   );
 
   payload.contact_person = getValue(
@@ -428,7 +431,8 @@ async function create(data, userId) {
   const errors = [];
 
   if (!payload.business_name) {
-    errors.push('Business name is missing');
+    console.log('Creating producer from Kobo submission');
+    errors.push('Business name is missing'); 
   }
 
   if (
