@@ -343,35 +343,32 @@ async function create(data, userId) {
 
   payload.primary_raw_materials = toStringArray(
     getValue(
-      'primaryRawMaterials',
-      '_2_1_Primary_Raw_Materials_Sour',
-      'G_1_1_Primary_Nutrient_Dense_C'
+      'group_ol25s52/_2_1_Primary_Raw_Materials_Sour'
     )
   );
 
   payload.primary_sourcing_channels = toStringArray(
     getValue(
-      'primarySourcingChannels',
-      '_2_2_Primary_Sourcing_Channels'
+      'group_ol25s52/_2_2_Primary_Sourcing_Channels'
     )
   );
 
   payload.shortage_months = toStringArray(
     getValue(
-      'shortageMonths',
-      'group_bi6dd29/_2_3_1_Months_of_Sev_tage_or_Price_Spikes'
+      'group_ol25s52/group_bi6dd29/_2_3_3_Months_of_Sev_tage_or_Price_Spikes'
     )
   );
 
   payload.production_capacity = toNumber(
     getValue(
-      'productionCapacity',
       'group_in2zi20/_3_2_1_Installed_Pro_ing_Capacity_kg_day'
     )
   );
 
   payload.number_of_employees = toNumber(
-    getValue('numberOfEmployees')
+    getValue(
+      'group_mu73u63/group_oe5kd34/_7_3_5_Total_Workforce'
+    )
   );
 
   // ---------------------------------------------------
