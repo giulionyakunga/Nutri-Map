@@ -35,7 +35,7 @@ async function list({ page, limit, offset, filters }) {
   const where = buildWhere(filters);
   const { rows, count } = await db.producer.findAndCountAll({
     where,
-    // limit,
+    limit: 30,
     offset,
     order: [['created_at', 'DESC']],
     include: [
