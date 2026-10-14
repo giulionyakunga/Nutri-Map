@@ -267,43 +267,12 @@ async function create(data, userId) {
   // 2. GPS coordinates
   // ---------------------------------------------------
 
-  let latitude = toNumber(
-    getValue('latitude', '_geolocation_latitude')
-  );
+  const _1_2_Coordinate_location = getValue('group_pn4gh36/_1_3_Name_of_Enterprise_Group');
 
-  let longitude = toNumber(
-    getValue('longitude', '_geolocation_longitude')
-  );
+  let [latitude, longitude] = _1_2_Coordinate_location.split(' ');
 
-  // Kobo geopoint format:
-  // latitude longitude altitude accuracy
-  const coordinateValue = getValue(
-    'group_pn4gh36/group_gt2bp34/Coordinate_location',
-  );
-
-  if (
-    (latitude === undefined || longitude === undefined) &&
-    coordinateValue
-  ) {
-    const parts = String(coordinateValue)
-      .trim()
-      .split(/\s+/);
-
-    if (parts.length >= 2) {
-      latitude = toNumber(parts[0]);
-      longitude = toNumber(parts[1]);
-    }
-  }
-
-  // Kobo may also provide its system geolocation array.
-  if (
-    (latitude === undefined || longitude === undefined) &&
-    Array.isArray(data._geolocation) &&
-    data._geolocation.length >= 2
-  ) {
-    latitude = toNumber(data._geolocation[0]);
-    longitude = toNumber(data._geolocation[1]);
-  }
+  console.log('Latitude:', latitude);
+  console.log('Longitude:', longitude);
 
   payload.latitude = latitude;
   payload.longitude = longitude;
@@ -311,11 +280,6 @@ async function create(data, userId) {
   // ---------------------------------------------------
   // 3. Region, district and ward foreign keys
   // ---------------------------------------------------
-
-  // Accept numeric IDs only when supplied explicitly.
-  payload.region_id = toNumber( 
-    getValue('regionId', 'region_id')
-  );
 
   payload.district_id = toNumber(
     getValue('districtId', 'district_id')
@@ -327,9 +291,9 @@ async function create(data, userId) {
 
   // Kobo sends labels/codes, not database IDs.
   // Resolve these through your database lookup logic.
-  const regionName = getValue('Region');
-  const districtName = getValue('District');
-  const wardName = getValue('Ward');
+  const regionName = getValue('group_tt2fr91/Region');
+  const districtName = getValue('group_tt2fr91/District');
+  const wardName = getValue('group_tt2fr91/Ward');
 
   /*
    * IMPORTANT:
@@ -339,7 +303,7 @@ async function create(data, userId) {
    * Do not use regionName directly as region_id.
    */
 
-  if (payload.region_id === undefined && regionName) {
+  if (regionName) {
     const region = await db.region.findOne({
       where: { name: regionName }
     });
@@ -421,10 +385,7 @@ async function create(data, userId) {
     errors.push('Business name is missing'); 
   }
 
-  if (
-    !Number.isInteger(payload.region_id) ||
-    payload.region_id < 1
-  ) {
+  if (!Number.isInteger(payload.region_id) || payload.region_id < 1) {
     errors.push(
       `Unable to resolve region "${regionName ?? ''}" to a valid database ID`
     );
