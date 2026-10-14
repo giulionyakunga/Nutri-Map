@@ -190,8 +190,6 @@ async function create(data, userId) {
     return undefined;
   };
 
-  console.log(' >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> here 1');
-
 
   // Convert a numeric value safely.
   const toNumber = (value) => {
@@ -202,8 +200,6 @@ async function create(data, userId) {
     const number = Number(value);
     return Number.isFinite(number) ? number : undefined;
   };
-
-  console.log(' >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> here 1');
 
   const payload = {
     created_by: userId ?? null,
@@ -223,66 +219,48 @@ async function create(data, userId) {
   // 1. Enterprise/business information
   // ---------------------------------------------------
 
-  console.log(' >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>. getting business_name');
-
   payload.business_name = getValue(
-    'businessName',
-    '_1_3_Name_of_Enterprise_Group',
     'group_pn4gh36/_1_3_Name_of_Enterprise_Group'
   );
 
-    console.log(' >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Done getting business_name');
-
-
   payload.contact_person = getValue(
-    'contactPerson',
-    'group_gt2bp34/Primary_Contact_Person'
+    'group_pn4gh36/group_gt2bp34/Primary_Contact_Person'
   );
 
   payload.position_role = getValue(
-    'positionRole',
-    'group_gt2bp34/Position_Role'
+    'group_pn4gh36/group_gt2bp34/Position_Role'
   );
 
   payload.phone = getValue(
-    'phone',
-    'group_gt2bp34/Phone_Number'
+    'group_pn4gh36/group_gt2bp34/Phone_Number'
   );
 
   payload.email = getValue(
-    'email',
-    'group_gt2bp34/E_mail_address'
+    'group_pn4gh36/group_gt2bp34/E_mail_address'
   );
 
   payload.physical_address = getValue(
-    'physicalAddress',
-    'group_gt2bp34/Physical_Street_Address',
-    'Village_Street'
+    'group_pn4gh36/group_gt2bp34/Physical_Street_Address'
   );
 
   payload.tin = getValue(
-    'tin',
-    'group_gy4oz23/Taxpayer_Identification_Number_TIN'
+    'group_pn4gh36/group_gy4oz23/Taxpayer_Identification_Number_TIN'
   );
 
   payload.brela_registration_number = getValue(
-    'brelaRegistrationNumber',
-    'group_gy4oz23/BRELA_Business_Registration_Number'
+    'group_pn4gh36/group_gy4oz23/BRELA_Business_Registration_Number'
   );
 
   payload.tbs_zfda_registration_number = getValue(
-    'tbsZfdaRegistrationNumber',
-    'group_gy4oz23/TBS_ZFDA_License_P_Registration_Number'
+    'group_pn4gh36/group_gy4oz23/TBS_ZFDA_License_P_Registration_Number'
   );
 
   payload.operational_status = getValue(
-    'operationalStatus',
-    '_1_6_Operational_Status'
+    'group_pn4gh36/_1_6_Operational_Status'
   );
 
   payload.ownership_structure = getValue(
-    'ownershipStructure',
-    '_1_4_Enterprise_Ownership_and_L'
+    'group_pn4gh36/_1_4_Enterprise_Ownership_and_L'
   );
 
   // ---------------------------------------------------
@@ -300,9 +278,7 @@ async function create(data, userId) {
   // Kobo geopoint format:
   // latitude longitude altitude accuracy
   const coordinateValue = getValue(
-    '_1_2_Coordinate_location',
-    'Coordinate_location',
-    'coordinates'
+    'group_pn4gh36/group_gt2bp34/Coordinate_location',
   );
 
   if (
