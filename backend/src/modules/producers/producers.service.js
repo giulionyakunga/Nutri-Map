@@ -218,11 +218,16 @@ async function create(data, userId) {
   // 1. Enterprise/business information
   // ---------------------------------------------------
 
+  console.log(' >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>. getting business_name');
+
   payload.business_name = getValue(
     'businessName',
     '_1_3_Name_of_Enterprise_Group',
     'group_pn4gh36/_1_3_Name_of_Enterprise_Group'
   );
+
+    console.log(' >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Done getting business_name');
+
 
   payload.contact_person = getValue(
     'contactPerson',
