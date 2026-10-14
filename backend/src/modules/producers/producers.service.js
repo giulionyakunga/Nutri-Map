@@ -291,7 +291,7 @@ async function create(data, userId) {
 
   // Kobo sends labels/codes, not database IDs.
   // Resolve these through your database lookup logic.
-  const regionName = getValue('group_tt2fr91/Region');
+  const regionName = getValue('group_tt2fr91/Region').toLowerCase().trim();
   const districtName = getValue('group_tt2fr91/District');
   const wardName = getValue('group_tt2fr91/Ward');
 
