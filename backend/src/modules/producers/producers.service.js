@@ -267,7 +267,7 @@ async function create(data, userId) {
   // 2. GPS coordinates
   // ---------------------------------------------------
 
-  const _1_2_Coordinate_location = getValue('group_pn4gh36/_1_3_Name_of_Enterprise_Group');
+  const _1_2_Coordinate_location = getValue('group_pn4gh36/_1_2_Coordinate_location');
 
   let [latitude, longitude] = _1_2_Coordinate_location.split(' ');
 
