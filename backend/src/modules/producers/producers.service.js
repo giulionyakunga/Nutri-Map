@@ -174,16 +174,24 @@ async function create(data, userId) {
   // Safely retrieve the first available, non-empty value.
   const getValue = (...keys) => {
     for (const key of keys) {
-      const value = data[key];
 
-      console.log(' >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> key :', key, 'value :', value);
+      
+      let string_value = data[key];
+
+      // 1. Replace hyphens/underscores with spaces
+      // 2. Capitalize the first letter of each word
+      let clean_string_value = string_value
+      .replace(/[-_]+/g, ' ')
+      .replace(/\b\w/g, char => char.toUpperCase());
+
+      console.log(' >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> key :', key, 'value :', string_value);
 
       if (
-        value !== undefined &&
-        value !== null &&
-        String(value).trim() !== ''
+        string_value !== undefined &&
+        string_value !== null &&
+        String(string_value).trim() !== ''
       ) {
-        return value;
+        return string_value;
       }
     }
 
