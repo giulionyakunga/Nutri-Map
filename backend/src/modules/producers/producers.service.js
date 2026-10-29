@@ -459,9 +459,10 @@ async function create(data, userId) {
 
   // return console.log('Stop submission for more checks');
 
-  payload.registration_type = 'na';
+  payload.registration_type = 'formal';
 
   return db.producer.create(payload);
+
 }
 
 async function createFromForm(data, location) {
