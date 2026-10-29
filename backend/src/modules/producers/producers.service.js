@@ -281,19 +281,13 @@ async function create(data, userId) {
   // 3. Region, district and ward foreign keys
   // ---------------------------------------------------
 
-  payload.district_id = toNumber(
-    getValue('districtId', 'district_id')
-  );
-
-  payload.ward_id = toNumber(
-    getValue('wardId', 'ward_id')
-  );
+  payload.ward_id = 0;
 
   // Kobo sends labels/codes, not database IDs.
   // Resolve these through your database lookup logic.
   const regionName = getValue('group_tt2fr91/region').toLowerCase().trim(); 
   const districtName = getValue('group_tt2fr91/district').toLowerCase().trim();
-  const wardName = getValue('group_tt2fr91/ward').toLowerCase().trim();
+  const wardName = getValue('group_tt2fr91/Ward').toLowerCase().trim();
 
   /*
    * IMPORTANT:
@@ -328,21 +322,6 @@ async function create(data, userId) {
     } else {
       console.warn(`District "${districtName}" not found in database`);
       return res.status(422).json({ error: `District "${districtName}" not found in database` });
-    }
-  }
-
-  if (payload.ward_id === undefined && wardName) {
-    // Example only: adjust field names and association
-    // to match your actual Ward model.
-    const ward = await db.ward.findOne({
-      where: { name: wardName }
-    });
-
-    if (ward) {
-      payload.ward_id = ward.id;
-    } else {
-      console.warn(`Ward "${wardName}" not found in database`);
-      return res.status(422).json({ error: `Ward "${wardName}" not found in database` });
     }
   }
 
