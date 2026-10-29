@@ -12,9 +12,8 @@ module.exports = (sequelize, DataTypes) => {
       middle_name: { type: DataTypes.STRING(100), allowNull: true },
       last_name: { type: DataTypes.STRING(100), allowNull: true },
       registration_type: {
-        type: DataTypes.STRING(30),
+        type: DataTypes.STRING(100),
         allowNull: true,
-        validate: { isIn: [[null, 'formal', 'informal']] }
       },
       ownership_structure: { type: DataTypes.STRING(150), allowNull: true },
       organization_type: {
@@ -31,27 +30,9 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
         validate: { isEmail: true }
       },
-      region_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: { model: 'regions', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'RESTRICT'
-      },
-      district_id: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        references: { model: 'districts', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'RESTRICT'
-      },
-      ward_id: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        // references: { model: 'wards', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'RESTRICT'
-      },
+      region: { type: DataTypes.STRING(500), allowNull: false },
+      district: { type: DataTypes.STRING(500), allowNull: false },
+      ward: { type: DataTypes.STRING(500), allowNull: false },
       physical_address: { type: DataTypes.STRING(500), allowNull: false },
       latitude: {
         type: DataTypes.DOUBLE,
@@ -133,9 +114,6 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   Producer.associate = (models) => {
-    Producer.belongsTo(models.region, { foreignKey: 'region_id' });
-    Producer.belongsTo(models.district, { foreignKey: 'district_id' });
-    Producer.belongsTo(models.ward, { foreignKey: 'ward_id' });
     Producer.belongsTo(models.user, { foreignKey: 'created_by', as: 'creator' });
     Producer.hasMany(models.product, { foreignKey: 'producer_id', onDelete: 'CASCADE' });
     Producer.hasMany(models.certification, { foreignKey: 'producer_id', onDelete: 'CASCADE' });

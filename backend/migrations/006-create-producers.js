@@ -28,7 +28,7 @@ module.exports = {
       },
 
       registration_type: {
-        type: Sequelize.STRING(30),
+        type: Sequelize.STRING(100),
         allowNull: false
       },
 
@@ -64,38 +64,9 @@ module.exports = {
         allowNull: true
       },
 
-      region_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'regions',
-          key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'RESTRICT'
-      },
-
-      district_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'districts',
-          key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'RESTRICT'
-      },
-
-      ward_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        // references: {
-        //   model: 'wards',
-        //   key: 'id'
-        // },
-        onUpdate: 'CASCADE',
-        onDelete: 'RESTRICT'
-      },
+      region: { type: DataTypes.STRING(500), allowNull: false },
+      district: { type: DataTypes.STRING(500), allowNull: false },
+      ward: { type: DataTypes.STRING(500), allowNull: false },
 
       physical_address: {
         type: Sequelize.STRING(500),
@@ -196,9 +167,6 @@ module.exports = {
       }
     });
 
-    await queryInterface.addIndex('producers', ['region_id']);
-    await queryInterface.addIndex('producers', ['district_id']);
-    await queryInterface.addIndex('producers', ['ward_id']);
     await queryInterface.addIndex('producers', ['tin']);
 
     await queryInterface.sequelize.query(`
