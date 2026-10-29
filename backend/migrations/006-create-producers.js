@@ -1,7 +1,9 @@
 'use strict';
 
 module.exports = {
-  async up(queryInterface, Sequelize, DataTypes) {
+  async up(queryInterface, Sequelize) {
+    const DataTypes = Sequelize.DataTypes;
+
     await queryInterface.createTable('producers', {
       id: {
         type: Sequelize.INTEGER,
@@ -148,34 +150,34 @@ module.exports = {
       },
 
       created_by: {
-        type: Sequelize.STRING(150), allowNull: true
+        type: DataTypes.STRING(150), allowNull: true
       },
-      position_role: { type: Sequelize.STRING(150), allowNull: true },
-      brela_registration_number: { type: Sequelize.STRING(50), allowNull: true },
-      tbs_zfda_registration_number: { type: Sequelize.STRING(50), allowNull: true },
-      sido_registration_number: { type: Sequelize.STRING(50), allowNull: true },
-      operational_scale: { type: Sequelize.STRING(100), allowNull: true },
-      operational_status: { type: Sequelize.STRING(100), allowNull: true },
-      primary_raw_materials: { type: DataTypes.ARRAY(Sequelize.STRING), allowNull: true },
-      primary_sourcing_channels: { type: DataTypes.ARRAY(Sequelize.STRING), allowNull: true },
-      shortage_months: { type: DataTypes.ARRAY(Sequelize.STRING), allowNull: true },
+      position_role: { type: DataTypes.STRING(150), allowNull: true },
+      brela_registration_number: { type: DataTypes.STRING(50), allowNull: true },
+      tbs_zfda_registration_number: { type: DataTypes.STRING(50), allowNull: true },
+      sido_registration_number: { type: DataTypes.STRING(50), allowNull: true },
+      operational_scale: { type: DataTypes.STRING(100), allowNull: true },
+      operational_status: { type: DataTypes.STRING(100), allowNull: true },
+      primary_raw_materials: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
+      primary_sourcing_channels: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
+      shortage_months: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
       post_harvest_loss_percent: { type: DataTypes.DOUBLE, allowNull: true, validate: { min: 0, max: 100 } },
       storage_capacity: { type: DataTypes.DOUBLE, allowNull: true, validate: { min: 0 } },
-      storage_capacity_unit: { type: Sequelize.STRING(50), allowNull: true },
-      main_storage_challenges: { type: DataTypes.ARRAY(Sequelize.STRING), allowNull: true },
-      nutrient_dense_crops: { type: DataTypes.ARRAY(Sequelize.STRING), allowNull: true },
+      storage_capacity_unit: { type: DataTypes.STRING(50), allowNull: true },
+      main_storage_challenges: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
+      nutrient_dense_crops: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
       total_area_harvest_scale: { type: DataTypes.DOUBLE, allowNull: true, validate: { min: 0 } },
-      area_harvest_unit: { type: Sequelize.STRING(50), allowNull: true },
+      area_harvest_unit: { type: DataTypes.STRING(50), allowNull: true },
       average_yield: { type: DataTypes.DOUBLE, allowNull: true, validate: { min: 0 } },
-      yield_unit: { type: Sequelize.STRING(50), allowNull: true },
-      harvest_cycles_per_year: { type: Sequelize.STRING(50), allowNull: true },
+      yield_unit: { type: DataTypes.STRING(50), allowNull: true },
+      harvest_cycles_per_year: { type: DataTypes.STRING(50), allowNull: true },
       proximity_major_road_km: { type: DataTypes.DOUBLE, allowNull: true, validate: { min: 0 } },
       proximity_market_km: { type: DataTypes.DOUBLE, allowNull: true, validate: { min: 0 } },
-      accessibility_status: { type: Sequelize.STRING(50), allowNull: true },
-      infrastructure_status: { type: Sequelize.STRING(50), allowNull: true },
-      sanitary_status: { type: Sequelize.STRING(50), allowNull: true },
+      accessibility_status: { type: DataTypes.STRING(50), allowNull: true },
+      infrastructure_status: { type: DataTypes.STRING(50), allowNull: true },
+      sanitary_status: { type: DataTypes.STRING(50), allowNull: true },
       data_status: {
-        type: Sequelize.STRING(50),
+        type: DataTypes.STRING(50),
         allowNull: false,
         defaultValue: 'production',
         validate: { isIn: [['production', 'hypothetical_testing']] }
