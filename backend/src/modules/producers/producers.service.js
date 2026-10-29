@@ -317,6 +317,8 @@ async function create(data, userId) {
     }
   }
 
+  console.log('Here 10');
+
   if (payload.district_id === undefined && districtName) {
     // Example only: adjust field names and association
     // to match your actual District model.
@@ -330,6 +332,8 @@ async function create(data, userId) {
       return console.warn(`District "${districtName}" not found in database`);
     }
   }
+
+  console.log('Here 12');
 
   // ---------------------------------------------------
   // 4. Additional fields
