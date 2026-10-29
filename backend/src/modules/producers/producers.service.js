@@ -290,12 +290,17 @@ async function create(data, userId) {
   payload.longitude = longitude;
 
 
-  const _geolocation = getValue('group_pn4gh36/_1_2_Coordinate_location');
+
   const _geolocation2 = data['_geolocation'];
 
-  console.log('_geolocation:', _geolocation);
-  console.log('_geolocation2:', _geolocation2);
-  return;
+const latitude2 = _geolocation2[0];
+const longitude2 = _geolocation2[1];
+
+console.log('Latitude:', latitude2);
+console.log('Longitude:', longitude2);
+
+  
+  return
 
   
 
