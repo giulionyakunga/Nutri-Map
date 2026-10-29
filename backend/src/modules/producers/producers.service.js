@@ -369,20 +369,26 @@ async function create(data, userId) {
 
   const errors = [];
 
+  console.log('Here 1');
+
   if (!payload.business_name) {
     console.log('Creating producer from Kobo submission');
     errors.push('Business name is missing'); 
   }
+
+  console.log('Here 2');
 
   if (!Number.isInteger(payload.region_id) || payload.region_id < 1) {
     errors.push(
       `Unable to resolve region "${regionName ?? ''}" to a valid database ID`
     );
   }
+  console.log('Here 3');
 
   if (!payload.physical_address) {
     errors.push('Physical address is missing');
   }
+  console.log('Here 4');
 
   if (
     payload.latitude === undefined ||
@@ -391,6 +397,7 @@ async function create(data, userId) {
   ) {
     errors.push('A valid latitude is required');
   }
+  console.log('Here 5');
 
   if (
     payload.longitude === undefined ||
@@ -399,6 +406,7 @@ async function create(data, userId) {
   ) {
     errors.push('A valid longitude is required');
   }
+  console.log('Here 6');
 
   if (errors.length > 0) {
     const error = new Error(errors.join('; '));
@@ -406,6 +414,7 @@ async function create(data, userId) {
     error.details = errors;
     throw error;
   }
+  console.log('Here 7');
 
   console.log('Validated Kobo producer payload:', {
     business_name: payload.business_name,
