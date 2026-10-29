@@ -4,12 +4,13 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     const regions = [
-      'dar_es_salaam',
-      'mwanza',
-      'arusha',
-      'mbeya',
-      'unguja_zanzibar',
-      'pemba_zanzibar'
+      'Dar es Salaam',
+      'Mwanza',
+      'Arusha',
+      'Mbeya',
+      'Mjini Magharibi (Zanzibar)',
+      'Kaskazini Unguja (Zanzibar)',
+      'Kusini Unguja (Zanzibar)'
     ];
 
     const now = new Date();
@@ -38,16 +39,7 @@ module.exports = {
     }
   },
 
-  async down(queryInterface) {
-    await queryInterface.bulkDelete('regions', {
-      name: [
-        'dar_es_salaam',
-        'mwanza',
-        'arusha',
-        'mbeya',
-        'unguja_zanzibar',
-        'pemba_zanzibar'
-      ]
-    });
+  async down(queryInterface, Sequelize) {
+    await queryInterface.dropTable("regions")
   }
 };
