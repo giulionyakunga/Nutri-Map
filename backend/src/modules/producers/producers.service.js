@@ -295,6 +295,8 @@ async function create(data, userId) {
   const districtName = getValue('group_tt2fr91/district').toLowerCase().trim();
   const wardName = getValue('group_tt2fr91/Ward').toLowerCase().trim();
 
+  console.log('regionName:', regionName);
+
   /*
    * IMPORTANT:
    * Implement the lookups below using the actual columns
