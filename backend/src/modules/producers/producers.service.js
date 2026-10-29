@@ -38,11 +38,6 @@ async function list({ page, limit, offset, filters }) {
     limit: 100,
     offset,
     order: [['created_at', 'DESC']],
-    include: [
-      { model: db.region, attributes: ['id', 'name'] },
-      { model: db.district, attributes: ['id', 'name'] },
-      { model: db.ward, attributes: ['id', 'name'] }
-    ]
   });
   return buildPaginatedResponse(rows, count, page, limit);
 }
