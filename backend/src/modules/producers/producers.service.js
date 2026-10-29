@@ -455,6 +455,8 @@ async function create(data, userId) {
 
   console.log('Creating producer record in database...');
 
+  payload.daily_output = 10;
+
   console.log('payload :', payload);
 
   // return console.log('Stop submission for more checks');
