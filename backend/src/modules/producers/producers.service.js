@@ -317,22 +317,16 @@ async function create(data, userId) {
    */
 
   if (regionName) {
-    console.log('Here xx10');
     const region = await db.region.findOne({
       where: { name: regionName }
     });
-    console.log('Here xx20');
 
     if (region) {
-      console.log('Here xx30');
       payload.region_id = region.id;
     } else {
-      console.log('Here xx40');
       return console.warn(`Region "${regionName}" not found in database`);
     }
   }
-
-  console.log('Here 10');
 
   if (payload.district_id === undefined && districtName) {
     // Example only: adjust field names and association
