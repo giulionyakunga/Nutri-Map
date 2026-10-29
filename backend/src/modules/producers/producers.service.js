@@ -460,6 +460,7 @@ async function create(data, userId) {
   // return console.log('Stop submission for more checks');
 
   payload.registration_type = 'formal';
+  payload.daily_output = 70;
 
   return db.producer.create(payload);
 
