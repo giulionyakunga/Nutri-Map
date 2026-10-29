@@ -279,30 +279,16 @@ async function create(data, userId) {
   // 2. GPS coordinates
   // ---------------------------------------------------
 
-  const _1_2_Coordinate_location = getValue('group_pn4gh36/_1_2_Coordinate_location');
+  const _geolocation2 = data['_geolocation'];
 
-  let [latitude, longitude] = _1_2_Coordinate_location.split(' ');
+  const latitude = _geolocation2[0];
+  const longitude = _geolocation2[1];
 
   console.log('Latitude:', latitude);
   console.log('Longitude:', longitude);
 
   payload.latitude = latitude;
   payload.longitude = longitude;
-
-
-
-  const _geolocation2 = data['_geolocation'];
-
-const latitude2 = _geolocation2[0];
-const longitude2 = _geolocation2[1];
-
-console.log('Latitude:', latitude2);
-console.log('Longitude:', longitude2);
-
-  
-  return
-
-  
 
   // ---------------------------------------------------
   // 3. Region, district and ward foreign keys
