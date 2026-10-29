@@ -459,6 +459,8 @@ async function create(data, userId) {
 
   // return console.log('Stop submission for more checks');
 
+  payload.registration_type = 'na';
+
   return db.producer.create(payload);
 }
 
