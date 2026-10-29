@@ -317,7 +317,7 @@ async function create(data, userId) {
    */
 
   if (regionName) {
-    
+    console.log('Here xxx12');
     const region = await db.region.findOne({
       where: db.Sequelize.where(
         db.Sequelize.fn('LOWER', db.Sequelize.col('name')),
@@ -332,9 +332,11 @@ async function create(data, userId) {
       return;
     }
     
-
+    console.log('Here yyy12');
 
   }
+
+  console.log('Here kk12');
 
   if (payload.district_id === undefined && districtName) {
     // Example only: adjust field names and association
