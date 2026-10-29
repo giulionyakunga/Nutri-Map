@@ -317,15 +317,23 @@ async function create(data, userId) {
    */
 
   if (regionName) {
+    
     const region = await db.region.findOne({
-      where: { name: regionName }
+      where: db.Sequelize.where(
+        db.Sequelize.fn('LOWER', db.Sequelize.col('name')),
+        regionName.trim().toLowerCase()
+      )
     });
 
     if (region) {
       payload.region_id = region.id;
     } else {
-      return console.warn(`Region "${regionName}" not found in database`);
+      console.warn(`Region "${regionName}" not found in database`);
+      return;
     }
+    
+
+
   }
 
   if (payload.district_id === undefined && districtName) {
