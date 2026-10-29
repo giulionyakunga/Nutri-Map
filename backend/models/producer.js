@@ -48,7 +48,7 @@ module.exports = (sequelize, DataTypes) => {
       ward_id: {
         type: DataTypes.INTEGER,
         allowNull: true,
-        references: { model: 'wards', key: 'id' },
+        // references: { model: 'wards', key: 'id' },
         onUpdate: 'CASCADE',
         onDelete: 'RESTRICT'
       },

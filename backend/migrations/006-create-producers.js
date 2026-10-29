@@ -89,10 +89,10 @@ module.exports = {
       ward_id: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        references: {
-          model: 'wards',
-          key: 'id'
-        },
+        // references: {
+        //   model: 'wards',
+        //   key: 'id'
+        // },
         onUpdate: 'CASCADE',
         onDelete: 'RESTRICT'
       },
