@@ -19,10 +19,6 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(150),
         allowNull: false
       },
-      boundary: {
-        type: DataTypes.GEOMETRY('MULTIPOLYGON', 4326),
-        allowNull: true
-      }
     },
     {
       tableName: 'districts',

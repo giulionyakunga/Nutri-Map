@@ -56,7 +56,6 @@ module.exports = {
       .filter(name => !existingNames.has(name))
       .map(name => ({
         name,
-        country: 'Tanzania',
         created_at: now,
         updated_at: now
       }));
