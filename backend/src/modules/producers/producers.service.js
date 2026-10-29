@@ -148,7 +148,12 @@ const toStringArray = (value) => {
   if (Array.isArray(value)) {
     return value
       .filter(item => item !== undefined && item !== null && String(item).trim() !== '')
-      .map(item => String(item).trim());
+      .map(item => String(item)
+      .trim()
+      .toLowerCase()                                // 1. Make everything lowercase first
+      .replace(/[-_]+/g, ' ')                       // 2. Replace hyphens/underscores with spaces
+      .replace(/\b\w/g, char => char.toUpperCase()) // 3. Capitalize the first letter of each word
+    );
   }
 
   if (typeof value === 'string') {
@@ -177,6 +182,11 @@ async function create(data, userId) {
 
       let string_value = data[key];
 
+      if (Array.isArray(string_value)) {
+        console.log(key, ' is Array');
+        return string_value;
+      }
+
       let clean_string_value = string_value
       .toLowerCase()                                // 1. Make everything lowercase first
       .replace(/[-_]+/g, ' ')                       // 2. Replace hyphens/underscores with spaces
@@ -189,6 +199,7 @@ async function create(data, userId) {
         clean_string_value !== null &&
         String(clean_string_value).trim() !== ''
       ) {
+        clean_string_value = clean_string_value.trim();
         return clean_string_value;
       }
     }
@@ -291,9 +302,9 @@ async function create(data, userId) {
 
   // Kobo sends labels/codes, not database IDs.
   // Resolve these through your database lookup logic.
-  const regionName = getValue('group_tt2fr91/region').toLowerCase().trim(); 
-  const districtName = getValue('group_tt2fr91/district').toLowerCase().trim();
-  const wardName = getValue('group_tt2fr91/Ward').toLowerCase().trim();
+  const regionName = getValue('group_tt2fr91/region'); 
+  const districtName = getValue('group_tt2fr91/district');
+  const wardName = getValue('group_tt2fr91/Ward');
 
   console.log('regionName:', regionName);
 
