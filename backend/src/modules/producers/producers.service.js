@@ -140,15 +140,22 @@ const toStringArray = (value) => {
     return undefined;
   }
 
+  const normalize = (item) =>
+    String(item)
+      .trim()
+      .toLowerCase()
+      .replace(/[-_]+/g, ' ')
+      .replace(/\b\w/g, char => char.toUpperCase());
+
   if (Array.isArray(value)) {
     return value
-      .filter(item => item !== undefined && item !== null && String(item).trim() !== '')
-      .map(item => String(item)
-      .trim()
-      .toLowerCase()                                // 1. Make everything lowercase first
-      .replace(/[-_]+/g, ' ')                       // 2. Replace hyphens/underscores with spaces
-      .replace(/\b\w/g, char => char.toUpperCase()) // 3. Capitalize the first letter of each word
-    );
+      .filter(
+        item =>
+          item !== undefined &&
+          item !== null &&
+          String(item).trim() !== ''
+      )
+      .map(normalize);
   }
 
   if (typeof value === 'string') {
@@ -158,11 +165,9 @@ const toStringArray = (value) => {
       return undefined;
     }
 
-    // Kobo select_multiple answers are commonly space-separated.
-    return trimmed.split(/\s+/).filter(Boolean);
+    return trimmed.split(/\s+/).filter(Boolean).map(normalize);
   }
 
-  // Avoid passing numbers, objects, or other invalid types to Sequelize.
   throw new TypeError(
     `Expected a string or array for an array field; received ${typeof value}`
   );
@@ -383,9 +388,6 @@ async function create(data, userId) {
   );
 
   console.log('primary_raw_materials : ',  payload.primary_raw_materials);
-
-
-  
 
   payload.primary_sourcing_channels = toStringArray(
     getValue(
