@@ -408,6 +408,12 @@ async function create(data, userId) {
     )
   );
 
+  payload.daily_output = toNumber(
+    getValue(
+      'group_in2zi20/_3_2_1_Installed_Pro_ing_Capacity_kg_day'
+    )
+  );
+
   payload.number_of_employees = toNumber(
     getValue(
       'group_mu73u63/group_oe5kd34/_7_3_5_Total_Workforce'
@@ -472,8 +478,6 @@ async function create(data, userId) {
   });
 
   console.log('Creating producer record in database...');
-
-  payload.daily_output = 10;
 
   console.log('payload :', payload);
 
