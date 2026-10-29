@@ -28,5 +28,10 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
+  District.associate = (models) => {
+    District.belongsTo(models.region, { foreignKey: 'region_id' });
+    District.hasMany(models.ward, { foreignKey: 'district_id' });
+  };
+
   return District;
 };
