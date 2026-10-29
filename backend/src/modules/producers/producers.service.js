@@ -177,11 +177,6 @@ async function create(data, userId) {
 
       let string_value = data[key];
 
-      if (Array.isArray(string_value)) {
-        console.log(key, ' is Array');
-        return string_value;
-      }
-
       let clean_string_value = string_value
       .toLowerCase()                                // 1. Make everything lowercase first
       .replace(/[-_]+/g, ' ')                       // 2. Replace hyphens/underscores with spaces
@@ -202,6 +197,25 @@ async function create(data, userId) {
     return undefined;
   };
 
+    // Safely retrieve the first available, non-empty value.
+  const getValue2 = (...keys) => {
+    for (const key of keys) {
+
+      let string_value = data[key];
+
+      console.log(' >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> key :', key, 'value :', string_value);
+
+      if (
+        string_value !== undefined &&
+        string_value !== null &&
+        String(string_value).trim() !== ''
+      ) {
+        return string_value;
+      }
+    }
+
+    return undefined;
+  };
 
   // Convert a numeric value safely.
   const toNumber = (value) => {
@@ -363,7 +377,7 @@ async function create(data, userId) {
   // ---------------------------------------------------
 
   payload.primary_raw_materials = toStringArray(
-    getValue(
+    getValue2(
       'group_ol25s52/_2_1_Primary_Raw_Materials_Sour'
     )
   );
