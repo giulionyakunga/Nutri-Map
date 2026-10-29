@@ -30,7 +30,7 @@ module.exports = {
         allowNull: false
       },
 
-      ownership_structure: { type: DataTypes.STRING(150), allowNull: true }, 
+      ownership_structure: { type: Sequelize.STRING(150), allowNull: true }, 
     
       organization_type: {
         type: Sequelize.STRING(50),
