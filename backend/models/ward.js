@@ -28,10 +28,5 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
 
-  Ward.associate = (models) => {
-    Ward.belongsTo(models.district, { foreignKey: 'district_id' });
-    Ward.hasMany(models.producer, { foreignKey: 'ward_id' });
-  };
-
   return Ward;
 };
