@@ -17,10 +17,6 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         defaultValue: 'Tanzania'
       },
-      boundary: {
-        type: DataTypes.GEOMETRY('MULTIPOLYGON', 4326),
-        allowNull: true
-      }
     },
     {
       tableName: 'regions',
