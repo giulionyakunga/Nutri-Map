@@ -291,9 +291,9 @@ async function create(data, userId) {
 
   // Kobo sends labels/codes, not database IDs.
   // Resolve these through your database lookup logic.
-  const regionName = getValue('group_tt2fr91/Region').toLowerCase().trim();
-  const districtName = getValue('group_tt2fr91/District');
-  const wardName = getValue('group_tt2fr91/Ward');
+  const regionName = getValue('group_tt2fr91/region').toLowerCase().trim(); 
+  const districtName = getValue('group_tt2fr91/district').toLowerCase().trim();
+  const wardName = getValue('group_tt2fr91/ward').toLowerCase().trim();
 
   /*
    * IMPORTANT:
@@ -310,6 +310,9 @@ async function create(data, userId) {
 
     if (region) {
       payload.region_id = region.id;
+    } else {
+      console.warn(`Region "${regionName}" not found in database`);
+      return res.status(422).json({ error: `Region "${regionName}" not found in database` });
     }
   }
 
@@ -322,6 +325,9 @@ async function create(data, userId) {
 
     if (district) {
       payload.district_id = district.id;
+    } else {
+      console.warn(`District "${districtName}" not found in database`);
+      return res.status(422).json({ error: `District "${districtName}" not found in database` });
     }
   }
 
@@ -334,6 +340,9 @@ async function create(data, userId) {
 
     if (ward) {
       payload.ward_id = ward.id;
+    } else {
+      console.warn(`Ward "${wardName}" not found in database`);
+      return res.status(422).json({ error: `Ward "${wardName}" not found in database` });
     }
   }
 
@@ -428,6 +437,9 @@ async function create(data, userId) {
   console.log('Creating producer record in database...');
 
   console.log('payload :', payload);
+
+  console.log('Stop submission for more checks');
+  return ;
 
   return db.producer.create(payload);
 }
