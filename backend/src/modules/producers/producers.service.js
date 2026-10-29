@@ -313,8 +313,7 @@ async function create(data, userId) {
     if (region) {
       payload.region_id = region.id;
     } else {
-      console.warn(`Region "${regionName}" not found in database`);
-      return res.status(422).json({ error: `Region "${regionName}" not found in database` });
+      return console.warn(`Region "${regionName}" not found in database`);
     }
   }
 
@@ -328,8 +327,7 @@ async function create(data, userId) {
     if (district) {
       payload.district_id = district.id;
     } else {
-      console.warn(`District "${districtName}" not found in database`);
-      return res.status(422).json({ error: `District "${districtName}" not found in database` });
+      return console.warn(`District "${districtName}" not found in database`);
     }
   }
 
@@ -425,8 +423,7 @@ async function create(data, userId) {
 
   console.log('payload :', payload);
 
-  console.log('Stop submission for more checks');
-  return res.status(422).json({ error: `Prevented submission for more checks` });
+  return console.log('Stop submission for more checks');
 
   return db.producer.create(payload);
 }
