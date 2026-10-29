@@ -207,6 +207,7 @@ async function create(data, userId) {
     for (const key of keys) {
 
       let string_value = data[key];
+      string_value = string_value.replace(/___/g, ' ');
 
       console.log(' >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> key :', key, 'value :', string_value);
 
