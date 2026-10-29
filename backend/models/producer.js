@@ -81,11 +81,7 @@ module.exports = (sequelize, DataTypes) => {
         validate: { isIn: [['active', 'inactive']] }
       },
       created_by: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
-        references: { model: 'users', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'SET NULL'
+        type: DataTypes.STRING(150), allowNull: true
       },
       position_role: { type: DataTypes.STRING(150), allowNull: true },
       brela_registration_number: { type: DataTypes.STRING(50), allowNull: true },
