@@ -382,6 +382,11 @@ async function create(data, userId) {
     )
   );
 
+  console.log('primary_raw_materials : ',  payload.primary_raw_materials);
+
+
+  
+
   payload.primary_sourcing_channels = toStringArray(
     getValue(
       'group_ol25s52/_2_2_Primary_Sourcing_Channels'
