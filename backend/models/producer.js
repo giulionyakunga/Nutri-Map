@@ -30,9 +30,9 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: true,
         validate: { isEmail: true }
       },
-      region: { type: DataTypes.STRING(500), allowNull: false },
-      district: { type: DataTypes.STRING(500), allowNull: false },
-      ward: { type: DataTypes.STRING(500), allowNull: false },
+      region: { type: DataTypes.STRING(50), allowNull: false },
+      district: { type: DataTypes.STRING(50), allowNull: false },
+      ward: { type: DataTypes.STRING(50), allowNull: false },
       physical_address: { type: DataTypes.STRING(500), allowNull: false },
       latitude: {
         type: DataTypes.DOUBLE,

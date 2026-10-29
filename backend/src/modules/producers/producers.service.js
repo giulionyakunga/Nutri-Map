@@ -318,41 +318,43 @@ async function create(data, userId) {
 
   if (regionName) {
     console.log('Here xxx12');
-    const region = await db.region.findOne({
-      where: db.Sequelize.where(
-        db.Sequelize.fn('LOWER', db.Sequelize.col('name')),
-        regionName.trim().toLowerCase()
-      )
-    });
+    // const region = await db.region.findOne({
+    //   where: db.Sequelize.where(
+    //     db.Sequelize.fn('LOWER', db.Sequelize.col('name')),
+    //     regionName.trim().toLowerCase()
+    //   )
+    // });
 
-    if (region) {
-      payload.region_id = region.id;
-    } else {
-      console.warn(`Region "${regionName}" not found in database`);
-      return;
-    }
+    // if (region) {
+    //   payload.region_id = region.id;
+    // } else {
+    //   console.warn(`Region "${regionName}" not found in database`);
+    //   return;
+    // }
+
+    payload.region = regionName;
     
     console.log('Here yyy12');
-
+  } else {
+    console.warn(`Region name not specified`);
+    payload.region = 'N/A';
   }
 
   console.log('Here kk12');
 
-  payload.district_id = 1;
+  if (districtName) {
+    payload.district = districtName;
+  } else {
+    console.warn(`District name not specified`);
+    payload.district = 'N/A';
+  }
 
-  // if (payload.district_id === undefined && districtName) {
-  //   // Example only: adjust field names and association
-  //   // to match your actual District model.
-  //   const district = await db.district.findOne({
-  //     where: { name: districtName }
-  //   });
-
-  //   if (district) {
-  //     payload.district_id = district.id;
-  //   } else {
-  //     return console.warn(`District "${districtName}" not found in database`);
-  //   }
-  // }
+  if (wardName) {
+    payload.ward = wardName;    
+  } else {
+    console.warn(`Ward name not specified`);
+    payload.ward = 'N/A';
+  }
 
   console.log('Here 12');
 
