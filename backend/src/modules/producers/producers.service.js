@@ -338,19 +338,21 @@ async function create(data, userId) {
 
   console.log('Here kk12');
 
-  if (payload.district_id === undefined && districtName) {
-    // Example only: adjust field names and association
-    // to match your actual District model.
-    const district = await db.district.findOne({
-      where: { name: districtName }
-    });
+  payload.district_id = 1;
 
-    if (district) {
-      payload.district_id = district.id;
-    } else {
-      return console.warn(`District "${districtName}" not found in database`);
-    }
-  }
+  // if (payload.district_id === undefined && districtName) {
+  //   // Example only: adjust field names and association
+  //   // to match your actual District model.
+  //   const district = await db.district.findOne({
+  //     where: { name: districtName }
+  //   });
+
+  //   if (district) {
+  //     payload.district_id = district.id;
+  //   } else {
+  //     return console.warn(`District "${districtName}" not found in database`);
+  //   }
+  // }
 
   console.log('Here 12');
 
