@@ -175,23 +175,21 @@ async function create(data, userId) {
   const getValue = (...keys) => {
     for (const key of keys) {
 
-      
       let string_value = data[key];
 
-      // 1. Replace hyphens/underscores with spaces
-      // 2. Capitalize the first letter of each word
       let clean_string_value = string_value
-      .replace(/[-_]+/g, ' ')
-      .replace(/\b\w/g, char => char.toUpperCase());
+      .toLowerCase()                                // 1. Make everything lowercase first
+      .replace(/[-_]+/g, ' ')                       // 2. Replace hyphens/underscores with spaces
+      .replace(/\b\w/g, char => char.toUpperCase()); // 3. Capitalize the first letter of each word
 
-      console.log(' >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> key :', key, 'value :', string_value);
+      console.log(' >>>>>>>>>>>>>>>>>>>>>>>>>>>>>> key :', key, 'value :', clean_string_value);
 
       if (
-        string_value !== undefined &&
-        string_value !== null &&
-        String(string_value).trim() !== ''
+        clean_string_value !== undefined &&
+        clean_string_value !== null &&
+        String(clean_string_value).trim() !== ''
       ) {
-        return string_value;
+        return clean_string_value;
       }
     }
 
