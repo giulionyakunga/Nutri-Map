@@ -457,7 +457,7 @@ async function create(data, userId) {
 
   console.log('payload :', payload);
 
-  return console.log('Stop submission for more checks');
+  // return console.log('Stop submission for more checks');
 
   return db.producer.create(payload);
 }
