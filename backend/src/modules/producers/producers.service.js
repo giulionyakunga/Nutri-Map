@@ -358,10 +358,8 @@ async function create(data, userId) {
 
   console.log('Here 12');
 
-  payload.registration_type = toStringArray(
-    getValue(
-      'sme_screening/registration'
-    )
+  payload.registration_type = getValue(
+    'sme_screening/registration'
   );
 
   // ---------------------------------------------------
