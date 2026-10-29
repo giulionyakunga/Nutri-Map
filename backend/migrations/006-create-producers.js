@@ -64,9 +64,9 @@ module.exports = {
         allowNull: true
       },
 
-      region: { type: DataTypes.STRING(500), allowNull: false },
-      district: { type: DataTypes.STRING(500), allowNull: false },
-      ward: { type: DataTypes.STRING(500), allowNull: false },
+      region: { type: DataTypes.STRING(50), allowNull: false },
+      district: { type: DataTypes.STRING(50), allowNull: false },
+      ward: { type: DataTypes.STRING(50), allowNull: false },
 
       physical_address: {
         type: Sequelize.STRING(500),
