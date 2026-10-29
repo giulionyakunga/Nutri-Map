@@ -405,13 +405,6 @@ async function create(data, userId) {
     errors.push('Business name is missing'); 
   }
 
-  console.log('Here 2');
-
-  if (!Number.isInteger(payload.region_id) || payload.region_id < 1) {
-    errors.push(
-      `Unable to resolve region "${regionName ?? ''}" to a valid database ID`
-    );
-  }
   console.log('Here 3');
 
   if (!payload.physical_address) {
@@ -441,8 +434,9 @@ async function create(data, userId) {
     const error = new Error(errors.join('; '));
     error.status = 422;
     error.details = errors;
-    throw error;
+    throw error; 
   }
+
   console.log('Here 7');
 
   console.log('Validated Kobo producer payload:', {
