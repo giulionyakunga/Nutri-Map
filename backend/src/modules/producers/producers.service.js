@@ -439,7 +439,7 @@ async function create(data, userId) {
   console.log('payload :', payload);
 
   console.log('Stop submission for more checks');
-  return ;
+  return res.status(422).json({ error: `Prevented submission for more checks` });
 
   return db.producer.create(payload);
 }
