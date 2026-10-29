@@ -9,16 +9,16 @@ module.exports = {
         autoIncrement: true,
         allowNull: false
       },
-      region_id: {
-        type: Sequelize.INTEGER,
-        allowNull: false,
-        references: {
-          model: 'regions',
-          key: 'id'
-        },
-        onUpdate: 'CASCADE',
-        onDelete: 'RESTRICT'
-      },
+      // region_id: {
+      //   type: Sequelize.INTEGER,
+      //   allowNull: false,
+      //   references: {
+      //     model: 'regions',
+      //     key: 'id'
+      //   },
+      //   onUpdate: 'CASCADE',
+      //   onDelete: 'RESTRICT'
+      // },
       name: {
         type: Sequelize.STRING(150),
         allowNull: false
@@ -35,16 +35,16 @@ module.exports = {
       }
     });
 
-    await queryInterface.addIndex('districts', ['region_id']);
+    // await queryInterface.addIndex('districts', ['region_id']);
 
-    await queryInterface.addIndex(
-      'districts',
-      ['region_id', 'name'],
-      {
-        unique: true,
-        name: 'districts_region_name_unique'
-      }
-    );
+    // await queryInterface.addIndex(
+    //   'districts',
+    //   ['region_id', 'name'],
+    //   {
+    //     unique: true,
+    //     name: 'districts_region_name_unique'
+    //   }
+    // );
   },
 
   async down(queryInterface) {

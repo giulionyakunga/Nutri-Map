@@ -8,13 +8,13 @@ module.exports = (sequelize, DataTypes) => {
         autoIncrement: true,
         allowNull: false
       },
-      region_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        references: { model: 'regions', key: 'id' },
-        onUpdate: 'CASCADE',
-        onDelete: 'RESTRICT'
-      },
+      // region_id: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: false,
+      //   references: { model: 'regions', key: 'id' },
+      //   onUpdate: 'CASCADE',
+      //   onDelete: 'RESTRICT'
+      // },
       name: {
         type: DataTypes.STRING(150),
         allowNull: false
@@ -29,7 +29,7 @@ module.exports = (sequelize, DataTypes) => {
   );
 
   District.associate = (models) => {
-    District.belongsTo(models.region, { foreignKey: 'region_id' });
+    // District.belongsTo(models.region, { foreignKey: 'region_id' });
     District.hasMany(models.ward, { foreignKey: 'district_id' });
     District.hasMany(models.producer, { foreignKey: 'district_id' });
   };
