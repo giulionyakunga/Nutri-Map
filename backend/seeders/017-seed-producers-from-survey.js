@@ -3,6 +3,7 @@
 const producersData = [
   {
     "business_name": "Bakhresa Food Products Ltd.",
+    "registration_type": "Registered",
     "ownership_structure": "Large-Scale Commercial Enterprise",
     "contact_person": "Baraka Kweka",
     "position_role": "Group Chairperson",
