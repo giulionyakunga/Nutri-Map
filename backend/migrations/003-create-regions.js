@@ -12,7 +12,8 @@ module.exports = {
 
       name: {
         type: Sequelize.STRING(150),
-        allowNull: false
+        allowNull: false,
+        unique: true
       },
 
       country: {
