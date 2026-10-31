@@ -93,7 +93,9 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         defaultValue: 'production',
         validate: { isIn: [['production', 'hypothetical_testing']] }
-      }
+      },
+
+      score_percent: { type: DataTypes.DOUBLE, allowNull: true, validate: { min: 0, max: 100 } },
     },
     {
       tableName: 'producers',

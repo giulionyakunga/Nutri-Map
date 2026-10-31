@@ -154,6 +154,8 @@ module.exports = {
         validate: { isIn: [['production', 'hypothetical_testing']] }
       },
 
+      score_percent: { type: DataTypes.DOUBLE, allowNull: true, validate: { min: 0, max: 100 } },
+
       updated_at: {
         type: Sequelize.DATE,
         allowNull: false,
