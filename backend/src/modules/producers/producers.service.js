@@ -477,6 +477,8 @@ async function create(data, userId) {
     longitude: payload.longitude
   });
 
+  payload.percentage_score = 54;
+
   console.log('Creating producer record in database...');
 
   console.log('payload :', payload);
