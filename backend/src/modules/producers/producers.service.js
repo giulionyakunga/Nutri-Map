@@ -786,25 +786,24 @@ mapText(
   console.log('Creating producer record...');
   console.log('Producer payload:', payload);
 
-  // const producer = await db.producer.create(payload);
+  const producer = await db.producer.create(payload);
 
   // ---------------------------------------------------
   // 16. Save Kobo survey metadata
   // ---------------------------------------------------
 
   const survey_payload = {
-    producer_id: 5,
+    producer_id: producer.id,
     kobotoolbox_submission_id: getValue('_id'),
     enumerator: getValue('group_tt2fr91/Enumerator_s_name'),
     data_stream_source: getValue('group_tt2fr91/Data_Stream_Source'),
   };
 
-  // await db.survey.create(survey_payload);
-  console.log('survey successfully created >>>>>>>>>>>>>>>>>');
+  await db.survey.create(survey_payload);
 
-  // console.log('Producer successfully created:', producer.id);
+  console.log('Producer successfully created:', producer.id);
 
-  return "  Producer creation process completed successfully.";
+  return producer;
 }
 
 
