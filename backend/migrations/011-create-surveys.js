@@ -37,7 +37,7 @@ module.exports = {
         allowNull: true
       },
 
-      data_stream_source: { type: DataTypes.STRING(255), allowNull: true },
+      data_stream_source: { type: DataTypes.STRING(500), allowNull: true },
 
       updated_at: {
         type: Sequelize.DATE,

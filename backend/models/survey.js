@@ -22,7 +22,7 @@ module.exports = (sequelize, DataTypes) => {
       },
       survey_date: { type: DataTypes.DATEONLY, allowNull: true },
       enumerator: { type: DataTypes.STRING(255), allowNull: true },
-      data_stream_source: { type: DataTypes.STRING(255), allowNull: true },
+      data_stream_source: { type: DataTypes.STRING(500), allowNull: true },
     },
     {
       tableName: 'surveys',
