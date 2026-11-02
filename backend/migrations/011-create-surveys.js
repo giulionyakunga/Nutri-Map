@@ -37,10 +37,7 @@ module.exports = {
         allowNull: true
       },
 
-      json_data: {
-        type: Sequelize.JSONB,
-        allowNull: true
-      },
+      data_stream_source: { type: DataTypes.STRING(255), allowNull: true },
 
       updated_at: {
         type: Sequelize.DATE,
@@ -58,11 +55,6 @@ module.exports = {
     await queryInterface.addIndex('surveys', ['producer_id']);
     await queryInterface.addIndex('surveys', ['kobotoolbox_submission_id']);
 
-    await queryInterface.sequelize.query(`
-      CREATE INDEX surveys_json_data_gin_idx
-      ON surveys
-      USING GIN (json_data);
-    `);
   },
 
   async down(queryInterface) {
