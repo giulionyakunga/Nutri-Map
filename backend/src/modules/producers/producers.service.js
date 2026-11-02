@@ -242,6 +242,20 @@ async function create(data, userId) {
     if (value !== undefined) payload[column] = value;
   };
 
+  const mapDoubleNumber = (column, key) => {
+    const rawValue = getValue(key);
+
+    if (rawValue === undefined || rawValue === 'None' || rawValue === 'NA') {
+      return;
+    }
+
+    const value = Number(rawValue);
+
+    if (Number.isFinite(value)) {
+      payload[column] = value;
+    }
+  };
+
   // ---------------------------------------------------
   // 3. Enterprise information
   // ---------------------------------------------------
@@ -293,6 +307,35 @@ async function create(data, userId) {
 
   mapText('business_owner_email',
     'group_tt2fr91/group_gt2bp34/E_mail_address_of_an_owner');
+
+  
+
+
+
+
+mapText(
+  'ownership_structure_other',
+  'group_tt2fr91/_1_4b_Specify_other_ered_legal_structure'
+);
+mapText(
+  'facility_exterior_photo',
+  'group_ms1ds36/Photo_1_Facility_Exterior'
+);
+
+mapText(
+  'processing_floor_photo',
+  'group_ms1ds36/Photo_2_Processing_Floor'
+);
+
+mapText(
+  'packaged_end_product_photo',
+  'group_ms1ds36/Photo_3_Packaged_End_Product'
+);
+
+mapText(
+  'raw_material_storage_photo',
+  'group_ms1ds36/Photo_4_Raw_Material_Storage'
+);
 
   // ---------------------------------------------------
   // 4. GPS coordinates
@@ -501,14 +544,14 @@ async function create(data, userId) {
   // 8. Production and processing
   // ---------------------------------------------------
 
-  mapNumber('production_capacity',
+  mapDoubleNumber('production_capacity',
     'group_in2zi20/_3_2_1_Installed_Pro_ing_Capacity_kg_day');
 
-  mapNumber('production_capacity_ton_month',
+  mapDoubleNumber('production_capacity_ton_month',
     'group_in2zi20/_3_2_2_Installed_pro_g_capacity_ton_month');
 
-  mapNumber('actual_operational_output_ton_month',
-    'group_in2zi20/group_in2zi20/_3_2_3_Actual_Operat_al_Output_ton_month');
+  mapDoubleNumber('actual_operational_output_ton_month',
+    'group_in2zi20/_3_2_3_Actual_Operat_al_Output_ton_month');
 
   mapText('machinery_grade_and_processing_setup',
     'group_in2zi20/_3_3_1_Machinery_Grad_and_Processing_Setup');
@@ -532,28 +575,28 @@ async function create(data, userId) {
   mapText('nutritional_fact_panel_nfp',
     'group_kt9nn55/group_lh3ly24/Nutritional_Fact_Panel_NFP_001');
 
-  mapNumber('total_energy_density',
+  mapDoubleNumber('total_energy_density',
     'group_kt9nn55/group_vp5fe72/Total_Energy_Density_kcal_100g_');
 
-  mapNumber('crude_protein_content',
+  mapDoubleNumber('crude_protein_content',
     'group_kt9nn55/group_vp5fe72/Crude_Protein_Conten_dry_weight_g_100g');
 
-  mapNumber('total_crude_fat',
+  mapDoubleNumber('total_crude_fat',
     'group_kt9nn55/group_vp5fe72/Total_Crude_Fat_Li_y_weight_g_100g');
 
-  mapNumber('total_carbohydrates',
+  mapDoubleNumber('total_carbohydrates',
     'group_kt9nn55/group_vp5fe72/Total_Carbohydrates_g_100g');
 
-  mapNumber('crude_fiber_target',
+  mapDoubleNumber('crude_fiber_target',
     'group_kt9nn55/group_vp5fe72/Crude_Fiber_Target_g_infants_g_100g');
 
-  mapNumber('moisture_content',
+  mapDoubleNumber('moisture_content',
     'group_kt9nn55/group_vp5fe72/Moisture_Content_Ta_ability_and_safety_');
 
-  mapNumber('iodine_content',
+  mapDoubleNumber('iodine_content',
     'group_kt9nn55/group_lh3ly24/Iodine_I_g_100g');
 
-  mapNumber('folate_content',
+  mapDoubleNumber('folate_content',
     'group_kt9nn55/group_lh3ly24/Folate_Vitamin_B9_g_100g');
 
   mapText('polyunsaturated_fatty_acids',
@@ -596,7 +639,7 @@ async function create(data, userId) {
   mapArray('quality_control_infrastructure',
     'group_vz9uu61/group_rc6ev70/_5_3_Quality_Control_sting_Infrastructure');
 
-  mapText('quality_control_testing_protocols',
+  mapText('quality_control_testing_protocols', 
     'group_vz9uu61/group_rc6ev70/_5_4_Quality_Control_ty_Testing_Protocols');
 
   mapText('external_specialized_testing_utilization',
@@ -676,6 +719,21 @@ async function create(data, userId) {
 
   mapText('specify_financial_inclusiveness_infrastructure',
     'group_mu73u63/Specify_Financial_In_iness_Infrastructure');
+
+  mapText(
+    'financial_remarks',
+    'group_mu73u63/remarks_group_mu73u63'
+  );
+
+  mapText(
+    'innovation_awareness',
+    'group_nw4oo06/Do_you_know_any_othe_a_groundnuts_senene'
+  );
+
+  mapText(
+    'innovation_remarks',
+    'group_nw4oo06/remarks_group_nw4oo06'
+  );
 
   // ---------------------------------------------------
   // 14. Validate required fields

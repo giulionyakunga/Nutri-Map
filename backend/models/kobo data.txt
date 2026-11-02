@@ -1,0 +1,1443 @@
+
+
+this is the submitted data
+
+Kobo submission: {
+   _id: 906368801,
+   'formhub/uuid': 'cd4db032252e4e8fba35b92d57377bfa',
+   start: '2026-11-02T14:57:28.211+03:00',
+   end: '2026-11-02T17:08:33.384+03:00',
+   'group_tt2fr91/Enumerator_s_name': 'crispin_dionice',
+   'group_tt2fr91/region': 'dar_es_salaam',
+   'group_tt2fr91/district': 'temeke',
+   'group_tt2fr91/Ward': 'Kitunda',
+   'group_tt2fr91/Village_Street': 'Kiyombo',
+   'group_tt2fr91/_1_2_Coordinate_location': '-2.527954 32.907506 0 500',
+   'group_tt2fr91/Date_and_Time_of_Survey': '2026-11-02T15:00:00.000+03:00',
+   'group_tt2fr91/Data_Stream_Source': 'tbs',
+   'group_tt2fr91/enterprise_company_select': 'co_long_life_group_company_limited',
+   'group_tt2fr91/enterprise_name_final': 'Long Life Group Company Limited',
+   'group_tt2fr91/_1_4_Enterprise_Ownership_and_L': 'other',
+   'group_tt2fr91/_1_4b_Specify_other_ered_legal_structure': 'Registered and Certified by TBS',
+   'group_tt2fr91/group_gt2bp34/Primary_Contact_Person': 'Method Thomas Misalaba',
+   'group_tt2fr91/group_gt2bp34/Position_Role': 'Company Director',
+   'group_tt2fr91/group_gt2bp34/Phone_Number': '+255678508817',
+   'group_tt2fr91/group_gt2bp34/Physical_Street_Address': 'Kiyombo Street-Kitunda',
+   'group_tt2fr91/group_gt2bp34/Name_s_of_the_Business_owner_s': '1. Method Thomas Misalaba 2. Charles Thomas Misalaba',
+   'group_tt2fr91/group_gt2bp34/E_mail_address_of_an_owner': 'longlifenaturalfoods@gmail.com',
+   'group_tt2fr91/group_gt2bp34/Landmark_response_methods': 'text',
+   'group_tt2fr91/group_gt2bp34/Landmark_description': 'The company started in 2014 and currently has grown producing 4 different flour products which are all certified by TBS, the other 3 products are on process of getting certification',
+   'group_tt2fr91/remarks_group_tt2fr91': 'The company started in 2014 and currently has grown, producing 4 different flour products which are all certified by TBS, the other 3 products are in process of getting certification',
+   'sme_screening/registration': 'brela sido tbs',
+   'sme_screening/product_types': 'complementary',
+   'sme_screening/age_market': 'yes',
+   'sme_screening/upf_share': '0',
+   'sme_screening/free_from_additives': 'yes',
+   'sme_screening/legal_pass': '1',
+   'sme_screening/scope_pass': '1',
+   'sme_screening/additive_pass': '1',
+   'sme_screening/eligibility_pass': '1',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_nutrition/formulation': 'composite',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_nutrition/sme_upf_scoring': 'low_clean',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_nutrition/nutrition_score': '20',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_safety/certification': 'incubation',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_safety/ssop_logs': 'complete',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_safety/safety_score': '12',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_technical/equipment': 'semi',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_technical/qualified_staff': 'qualified',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_technical/technical_score': '20',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_supply/sourcing': 'adhoc',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_supply/logistics': 'limited',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_supply/supply_score': '3',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_financial/sme_assessment_region': 'mainland',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_financial/turnover_tzs': '2400000000',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_financial/capacity_mt': '40',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_financial/sme_financial_band': 'medium',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_financial/financial_score': '10',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_management/management': 'owner',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_management/records': 'active',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_management/willingness': 'high',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_management/management_score': '10',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_equity/female_owner': 'no',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_equity/youth_owner': 'yes',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_equity/women_suppliers': 'yes',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_equity/female_workforce': 'yes',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_equity/equity_count': '2',
+   'sme_screening/sme_scoring_only_if_eligible/sme_cat_equity/equity_score': '3',
+   'sme_screening/sme_scoring_only_if_eligible/total_score': '78',
+   'sme_screening/sme_scoring_only_if_eligible/selection_tier': 'Tier 4 - 75–100 points',
+   'sme_screening/sme_scoring_only_if_eligible/applicable_tiers': 'Tier 4',
+   'sme_screening/remarks_sme_screening': 'None',
+   'group_pn4gh36/_1_6_Operational_Status': 'Active_(Operating_year-round)',
+   'group_pn4gh36/group_gy4oz23/Taxpayer_Identification_Number_TIN': '195718773',
+   'group_pn4gh36/group_gy4oz23/BRELA_Business_Registration_Number': 'NA',
+   'group_pn4gh36/group_gy4oz23/TBS_ZFDA_License_P_Registration_Number': 'TZS 1607/EAS 782',
+   'group_pn4gh36/group_gy4oz23/Sectoral_Regulatory_ry_Board_Milk_Board': 'NA',
+   'group_pn4gh36/group_xo08u06/Mainland_Production_ng_Sector_Thresholds': 'medium_scale__tsh_2_billion___tsh_10_bil',
+   'group_pn4gh36/remarks_group_pn4gh36': 'None',
+   'group_ol25s52/_2_1_Primary_Raw_Materials_Sour': 'soybeans maize sorghum___finger_millet__ulezi cassava___plantain other',
+   'group_ol25s52/_2_1b_Specify_other_Primary_Ra': 'Chia Seeds, Pumpkin seeds',
+   'group_ol25s52/_2_2_Primary_Sourcing_Channels': 'formal_contract___supply_network__establ reliable_procurement_source__reliable_pr open_market_purchasing__ad_hoc_open_mark',
+   'group_ol25s52/group_bi6dd29/_2_3_1_Adequate_wareh_ld_storage_available': 'yes',
+   'group_ol25s52/group_bi6dd29/storage_facilities_details': 'Dry goods warehouse',
+   'group_ol25s52/group_bi6dd29/_2_3_2_Functional_dis_logistics_available': 'yes',
+   'group_ol25s52/group_bi6dd29/_2_3_3_Months_of_Sev_tage_or_Price_Spikes': 'january february november december',
+   'group_ol25s52/group_bi6dd29/_2_3_4_Total_quantit_red_per_season_month': '50',
+   'group_ol25s52/group_bi6dd29/quantity_handled_stored_low_season': '30',
+   'group_ol25s52/group_bi6dd29/_2_3_2_Unit_stored_per_season_': 'ton',
+   'group_ol25s52/group_bi6dd29/_2_3_6_Quantity_lost_or_spoiled': 'None',
+   'group_ol25s52/group_bi6dd29/Unit_lost_or_spoiled': 'ton',
+   'group_ol25s52/group_bi6dd29/_2_3_4_Raw_Material_Storage_Ca': 'tons',
+   'group_ol25s52/group_bi6dd29/_2_3_8_Main_Storage_Challenges': 'none',
+   'group_ol25s52/G_1_1_Primary_Nutrient_Dense_C': 'bambara_groundnuts__njugu_mawe',
+   'group_ol25s52/group_gx2yj41/Total_Area_of_crops_Cultivated_acre': 'NA',
+   'group_ol25s52/group_gx2yj41/Total_area_harvested_acre': 'NA',
+   'group_ol25s52/group_gx2yj41/Ropes_for_Seaweed_harvested': 'NA',
+   'group_ol25s52/group_gx2yj41/Amount_of_seaweed_harvested_kg': 'NA',
+   'group_ol25s52/group_gx2yj41/Number_of_Boats_for_Dagaa': 'NA',
+   'group_ol25s52/group_gx2yj41/Average_crop_yield_per_harvest_kg': 'NA',
+   'group_ol25s52/group_gx2yj41/Number_of_Harvest_Cycles_per_Year': 'year___round',
+   'group_ol25s52/group_ge33v43/G_2_1_Source_of_Seed_terial_Fingerlings': 'other',
+   'group_ol25s52/group_ge33v43/other_g2_1_source': 'NA',
+   'group_ol25s52/group_ge33v43/G_2_2_Good_Agricultu_ctices_GAP_Applied': 'other',
+   'group_ol25s52/group_ge33v43/other_g2_2_practice': 'NA',
+   'group_ol25s52/group_ax9vm71/G_3_1_How_do_you_dry_roduce_after_harvest': 'other',
+   'group_ol25s52/group_ax9vm71/other_g3_1_method': 'NA',
+   'group_ol25s52/group_ax9vm71/group_qb6sl57/A_Total_harvest_amount': 'NA',
+   'group_ol25s52/group_ax9vm71/group_qb6sl57/Unit_of_total_harvest_amount': 'other',
+   'group_ol25s52/group_ax9vm71/group_qb6sl57/Specify_other_unit_o_total_harvest_amount': 'NA',
+   'group_ol25s52/group_ax9vm71/group_qb6sl57/B_Amount_lost_or_spoiled': 'NA',
+   'group_ol25s52/group_ax9vm71/group_qb6sl57/Unit_of_amount_lost_or_spoiled': 'other',
+   'group_ol25s52/group_ax9vm71/Specify_other_unit_o_unt_lost_or_spaoiled': 'NA',
+   'group_ol25s52/G_3_3_Main_causes_of_ss_at_the_farm_level': 'other',
+   'group_ol25s52/Specify_other_cause_ss_at_the_farm_level': 'NA',
+   'group_ol25s52/G_4_1_Who_buys_your_produce': 'other',
+   'group_ol25s52/Specify_other_buyers_of_your_produce': 'NA',
+   'group_ol25s52/group_pp1qb95/Average_Selling_Price_per_Unit': '5000',
+   'group_ol25s52/group_pp1qb95/Price_unit': 'kg',
+   'group_ol25s52/group_pp1qb95/Payment_terms': 'immediate_cash mobile_money',
+   'group_ol25s52/group_eo8qx62/G_5_1_Farmer_Harvester_Ownership_Status': 'other',
+   'group_ol25s52/group_eo8qx62/G_5_1_Farmer_Harvester_Ownership_Status_other_specify': 'NA',
+   'group_ol25s52/group_eo8qx62/G_5_2_Top_3_Challeng_Production_Expansion': 'Market competition constrain the expansion',
+   'group_ol25s52/remarks_group_ol25s52': 'None',
+   'group_in2zi20/_3_1_Finished_Product_Categorie': 'unfortified_single_grain_flour',
+   'group_in2zi20/Specify_the_ingredients': 'Yellow maize, Soybeans, Chia Seeds, Groundnuts, Pumpkin seeds, Wheat, Rice, Carrot powder, Cassava flour',
+   'group_in2zi20/Commercial_Brand_T_Name_s_of_Products': 'Uji Lishe, Afya Meal, Unga wa Uji, Mixed Porridge Flour, Donna lishe, Uji Virutubisho, Dose',
+   'group_in2zi20/commercial_product_1': 'Uji Lishe Blended Flour',
+   'group_in2zi20/_3_2_1_Installed_Pro_ing_Capacity_kg_day': '2000',
+   'group_in2zi20/_3_2_2_Installed_pro_g_capacity_ton_month': '40000',
+   'group_in2zi20/_3_2_3_Actual_Operat_al_Output_ton_month': '40000',
+   'group_in2zi20/_3_3_1_Machinery_Grad_and_Processing_Setup': 'moderate_grade__semi_automated_machinery',
+   'group_in2zi20/_3_3_2_Equipment_Inst_Check_all_that_apply': 'hammer_mill___disc_mill solar_dryer___cabinet_dryer roasting___thermal_processing_machine automatic_pouch_sealer___packaging_line other',
+   'group_in2zi20/equipment_other_specify': 'Packaging machine',
+   'group_in2zi20/_3_3b_Facility_Type': 'privately_owned_factory',
+   'group_in2zi20/group_xb7se72/_3_5_Processing_Pre_t_i_Nutrient_Reduction': 'soaking___dehusking___de_hulling roasting___thermal_inactivation',
+   'group_in2zi20/remarks_group_in2zi20': 'None',
+   'group_kt9nn55/group_vp5fe72/Nutritional_Fact_Panel_NFP': 'present',
+   'group_kt9nn55/group_vp5fe72/Total_Energy_Density_kcal_100g_': '486.1',
+   'group_kt9nn55/group_vp5fe72/Crude_Protein_Conten_dry_weight_g_100g': '17',
+   'group_kt9nn55/group_vp5fe72/Total_Crude_Fat_Li_y_weight_g_100g': '8.87',
+   'group_kt9nn55/group_vp5fe72/Total_Carbohydrates_g_100g': '67.7',
+   'group_kt9nn55/group_vp5fe72/Crude_Fiber_Target_g_infants_g_100g': 'None',
+   'group_kt9nn55/group_vp5fe72/Moisture_Content_Ta_ability_and_safety_': 'None',
+   'group_kt9nn55/group_lh3ly24/Nutritional_Fact_Panel_NFP_001': 'present',
+   'group_kt9nn55/group_lh3ly24/Iron_Fe_WHO_RDA_6_1_mg_day_mg_100g': '10.1',
+   'group_kt9nn55/group_lh3ly24/Zinc_Zn_WHO_RDA_mg_day_mg_100g': 'None',
+   'group_kt9nn55/group_lh3ly24/Vitamin_A_Beta_Caro_g_day_g_RAE_100g': 'None',
+   'group_kt9nn55/group_lh3ly24/Calcium_Ca_Target_0_mg_day_mg_100g': '0.74',
+   'group_kt9nn55/group_lh3ly24/Iodine_I_g_100g': 'None',
+   'group_kt9nn55/group_lh3ly24/Folate_Vitamin_B9_g_100g': 'None',
+   'group_kt9nn55/group_uu6rr68/Polyunsaturated_Fatty_Acids_PUFAs': 'none___not_tested',
+   'group_kt9nn55/group_uu6rr68/Pro_Vitamin_A_Biofortification_Source': 'other',
+   'group_kt9nn55/group_uu6rr68/Pro_Vitamin_A_Biofortification_Source_other_specify': 'Not tested',
+   'group_kt9nn55/group_lw3my57/Has_laboratory_molar_on_finished_product': 'no',
+   'group_kt9nn55/group_ml11l40/Recommended_Frequency_of_Consumption': '4__times_day',
+   'group_kt9nn55/remarks_group_kt9nn55': 'None',
+   'group_vz9uu61/group_rc6ev70/group_rn6pd43/_5_1_Certification_an_ng_20_Points_Total': 'certified___haccp__valid_tbs___zfda_cert',
+   'group_vz9uu61/group_rc6ev70/group_rn6pd43/TBS_Certification_Tanzania_Bu': 'fully_certified',
+   'group_vz9uu61/group_rc6ev70/group_rn6pd43/If_full_certified_state_the_st': 'other',
+   'group_vz9uu61/group_rc6ev70/group_rn6pd43/If_full_certified_state_the_st_other_specify': 'TZS 1607/EAS',
+   'group_vz9uu61/group_rc6ev70/group_rn6pd43/ZFDA_Registration_Z_Food_and_Drug_Agency': 'na',
+   'group_vz9uu61/group_rc6ev70/group_rn6pd43/Sector_Board_Complia_t_Board_Milk_Board': 'no',
+   'group_vz9uu61/group_rc6ev70/group_rn6pd43/TBS_Expiry_Date': '2026-10-02',
+   'group_vz9uu61/group_rc6ev70/group_rn6pd43/Incubation_Status': 'non_sido',
+   'group_vz9uu61/group_rc6ev70/group_ed6sx51/Does_the_enterprise_ND_batch_record_logs': 'yes___complete_written_ssops_and_batch_r',
+   'group_vz9uu61/group_rc6ev70/_5_3_Quality_Control_sting_Infrastructure': 'in_house_moisture_content_testing external_lab_testing_for_aflatoxins__b1_ microbial_safety_testing__e__coli__salmo implementation_of_formal_standard_operat formal_haccp_system_implemented',
+   'group_vz9uu61/group_rc6ev70/_5_4_Quality_Control_ty_Testing_Protocols': 'in_house_moisture_content_testing external_lab_testing_for_aflatoxins__b1_ implementation_of_formal_standard_operat',
+   'group_vz9uu61/group_rc6ev70/External_Specialized_Testing_Utilization': 'option_7',
+   'group_vz9uu61/group_rc6ev70/group_dj46v51/Type_of_packaging_cu_the_finished_product': 'flexible_laminated_pouch plastic_pouch_bag',
+   'group_vz9uu61/group_rc6ev70/group_dj46v51/Packaging_material_c_aterial_or_structure': 'pet_pe_laminate',
+   'group_vz9uu61/group_rc6ev70/group_dj46v51/group_xv65w58/Is_the_packaging_des_roduct_from_moisture': 'yes',
+   'group_vz9uu61/group_rc6ev70/group_dj46v51/group_xv65w58/Is_the_packaging_des_product_from_oxygen': 'yes',
+   'group_vz9uu61/group_rc6ev70/group_dj46v51/group_xv65w58/Is_the_packaging_des_e_product_from_light': 'yes',
+   'group_vz9uu61/group_rc6ev70/group_dj46v51/group_xv65w58/Is_the_packaging_res_th_high_fat_products': 'yes',
+   'group_vz9uu61/group_rc6ev70/group_dj46v51/group_xv65w58/Is_any_packaging_material_spec': 'no',
+   'group_vz9uu61/group_rc6ev70/group_dj46v51/group_xv65w58/If_yes_attach_photo_of_packagi_response_methods': 'upload',
+   'group_vz9uu61/group_rc6ev70/group_dj46v51/group_xv65w58/If_yes_attach_photo_of_packagi': 'WhatsApp Image 2026-11-02 at 3.10.20 PM-16_15_51.jpeg',
+   'group_vz9uu61/group_rc6ev70/group_dj46v51/Has_the_suitability_ted_with_the_product': 'yes___laboratory_testing',
+   'group_vz9uu61/group_rc6ev70/group_dj46v51/Primary_method_used_to_seal_the_package': 'heat_sealing',
+   'group_vz9uu61/group_rc6ev70/group_dj46v51/Stated_Product_Shelf_Life_Months': '6',
+   'group_vz9uu61/group_rc6ev70/group_dj46v51/Vulnerability_to_Ran_ty_Lipid_Oxidation': 'low',
+   'group_vz9uu61/group_rc6ev70/group_dj46v51/Traceability_Integration': 'gs1_barcode_present',
+   'group_vz9uu61/remarks_group_vz9uu61': 'None',
+   'group_pg1io48/_6_1_Distribution_Channels_Place': 'direct_facility_gate_sales neighborhood_informal_kiosks open_air_local_public_markets sido_incubation_outlets___retail_shops institutional_buyers__health_centers__sc',
+   'group_pg1io48/_6_1_1_Geographic_Distribution_Scope': 'local___district_level regional___multi_district national_coverage',
+   'group_pg1io48/group_wg2bc77/retail_product_1_group/_6_2_1_Retail_Price_per_Pack_TZS': '5000',
+   'group_pg1io48/group_wg2bc77/retail_product_1_group/_6_2_2_Net_Weight_per_Unit': '0.9',
+   'group_pg1io48/group_wg2bc77/retail_product_1_group/_6_2_3_Net_weight_unit': 'kg',
+   'group_pg1io48/group_wg2bc77/retail_product_1_group/retail_product_1_cost_50g_kg': '277.78',
+   'group_pg1io48/group_wg2bc77/retail_product_2_group/retail_product_2_price': '5000',
+   'group_pg1io48/group_wg2bc77/retail_product_2_group/retail_product_2_weight': '0.9',
+   'group_pg1io48/group_wg2bc77/retail_product_2_group/retail_product_2_unit': 'kg',
+   'group_pg1io48/group_wg2bc77/retail_product_2_group/retail_product_2_cost_50g_kg': '277.78',
+   'group_pg1io48/group_wg2bc77/retail_product_3_group/retail_product_3_price': '5000',
+   'group_pg1io48/group_wg2bc77/retail_product_3_group/retail_product_3_weight': '0.9',
+   'group_pg1io48/group_wg2bc77/retail_product_3_group/retail_product_3_unit': 'kg',
+   'group_pg1io48/group_wg2bc77/retail_product_3_group/retail_product_3_cost_50g_kg': '277.78',
+   'group_pg1io48/packaging_labelling_compliance/group_ga2fx66_row_11_status': 'yes',
+   'group_pg1io48/packaging_labelling_compliance/group_ga2fx66_row_1_status': 'yes',
+   'group_pg1io48/packaging_labelling_compliance/group_ga2fx66_row_3_status': 'yes',
+   'group_pg1io48/packaging_labelling_compliance/group_ga2fx66_row_9_status': 'yes',
+   'group_pg1io48/packaging_labelling_compliance/group_ga2fx66_row_14_status': 'yes',
+   'group_pg1io48/packaging_labelling_compliance/group_ga2fx66_row_12_status': 'yes',
+   'group_pg1io48/packaging_labelling_compliance/group_ga2fx66_row_4_status': 'yes',
+   'group_pg1io48/packaging_labelling_compliance/group_ga2fx66_row_7_status': 'yes',
+   'group_pg1io48/packaging_labelling_compliance/group_ga2fx66_row_16_status': 'yes',
+   'group_pg1io48/packaging_labelling_compliance/group_ga2fx66_row_status': 'yes',
+   'group_pg1io48/packaging_labelling_compliance/group_ga2fx66_row_8_status': 'yes',
+   'group_pg1io48/packaging_labelling_compliance/group_ga2fx66_row_5_status': 'yes',
+   'group_pg1io48/packaging_labelling_compliance/group_ga2fx66_row_10_status': 'yes',
+   'group_pg1io48/packaging_labelling_compliance/group_ga2fx66_row_15_status': 'yes',
+   'group_pg1io48/packaging_labelling_compliance/group_ga2fx66_row_13_status': 'yes',
+   'group_pg1io48/packaging_labelling_compliance/group_ga2fx66_row_2_status': 'yes',
+   'group_pg1io48/packaging_labelling_compliance/group_ga2fx66_row_6_status': 'yes',
+   'group_pg1io48/_6_4_Where_does_the_enterprise_': 'local_packaging_manufacturer packaging_wholesaler_distribut',
+   'group_pg1io48/_6_5_How_easy_is_it_t_packaging_materials': 'very_easy',
+   'group_pg1io48/_6_6_Packaging_supply_constraints': 'limited_access_to_customised_printing',
+   'group_pg1io48/remarks_group_pg1io48': 'None',
+   'group_mu73u63/group_oe5kd34/_7_3_1_Permanent_Male_Employees': '37',
+   'group_mu73u63/group_oe5kd34/_7_3_2_Permanent_Female_Employees': '18',
+   'group_mu73u63/group_oe5kd34/_7_3_3_Casual_Male_Employees': '0',
+   'group_mu73u63/group_oe5kd34/_7_3_4_Casual_Female_Employees': '0',
+   'group_mu73u63/group_oe5kd34/_7_3_5_Total_Workforce': '55',
+   'group_mu73u63/_7_4_Financial_Inclus_iness_Infrastructure': 'formal_registered_business_bank_account active_mobile_money_business_till___payb',
+   'group_mu73u63/Specify_Financial_In_iness_Infrastructure': 'None',
+   'group_mu73u63/remarks_group_mu73u63': 'None',
+   'group_nw4oo06/Do_you_know_any_othe_a_groundnuts_senene': 'no',
+   'group_nw4oo06/remarks_group_nw4oo06': 'None',
+   'group_ms1ds36/Photo_1_Facility_Exterior_response_methods': 'upload',
+   'group_ms1ds36/Photo_1_Facility_Exterior': 'WhatsApp Image 2026-11-02 at 4.36.23 PM-16_38_42.jpeg',
+   'group_ms1ds36/Photo_2_Processing_Floor_response_methods': 'upload',
+   'group_ms1ds36/Photo_2_Processing_Floor': 'WhatsApp Image 2026-11-02 at 5.07.50 PM-17_8_28.jpeg',
+   'group_ms1ds36/Photo_3_Packaged_End_Product_response_methods': 'upload',
+   'group_ms1ds36/Photo_3_Packaged_End_Product': 'WhatsApp Image 2026-11-02 at 4.34.09 PM (2)-16_40_49.jpeg',
+   'group_ms1ds36/Photo_4_Raw_Material_Storage_response_methods': 'upload',
+   'group_ms1ds36/Photo_4_Raw_Material_Storage': 'WhatsApp Image 2026-11-02 at 4.34.09 PM (1)-16_39_51.jpeg',
+   __version__: 'vBW9Xfx8JSffkFnGnx89iw',
+   'meta/instanceID': 'uuid:ebbd8f12-ec46-4482-8342-f810acddf702',
+   _xform_id_string: 'aDwsFFDmg7QtWPF83vUnm7',
+   _uuid: 'ebbd8f12-ec46-4482-8342-f810acddf702',
+   'meta/rootUuid': 'uuid:ebbd8f12-ec46-4482-8342-f810acddf702',
+   _attachments: [
+     {
+       download_url: 'https://kf.kobotoolbox.org/api/v2/assets/aDwsFFDmg7QtWPF83vUnm7/data/906368801/attachments/attTFjSJ6fcZmL2YpFFaGbTn/',
+       mimetype: 'image/jpeg',
+       filename: 'ffa_mit/attachments/cd4db032252e4e8fba35b92d57377bfa/ebbd8f12-ec46-4482-8342-f810acddf702/WhatsApp_Image_2026-11-02_at_4.34.09_PM_1-16_39_51.jpeg',
+       media_file_basename: 'WhatsApp Image 2026-11-02 at 4.34.09 PM (1)-16_39_51.jpeg',
+       uid: 'attTFjSJ6fcZmL2YpFFaGbTn',
+       is_deleted: false,
+       download_large_url: 'https://kf.kobotoolbox.org/api/v2/assets/aDwsFFDmg7QtWPF83vUnm7/data/906368801/attachments/attTFjSJ6fcZmL2YpFFaGbTn/large/',
+       download_medium_url: 'https://kf.kobotoolbox.org/api/v2/assets/aDwsFFDmg7QtWPF83vUnm7/data/906368801/attachments/attTFjSJ6fcZmL2YpFFaGbTn/medium/',
+       download_small_url: 'https://kf.kobotoolbox.org/api/v2/assets/aDwsFFDmg7QtWPF83vUnm7/data/906368801/attachments/attTFjSJ6fcZmL2YpFFaGbTn/small/',
+       question_xpath: 'group_ms1ds36/Photo_4_Raw_Material_Storage'
+     },
+     {
+       download_url: 'https://kf.kobotoolbox.org/api/v2/assets/aDwsFFDmg7QtWPF83vUnm7/data/906368801/attachments/attZ54tdkLP3TAgFeeRSh9jH/',
+       mimetype: 'image/jpeg',
+       filename: 'ffa_mit/attachments/cd4db032252e4e8fba35b92d57377bfa/ebbd8f12-ec46-4482-8342-f810acddf702/WhatsApp_Image_2026-11-02_at_4.34.09_PM_2-16_40_49.jpeg',
+       media_file_basename: 'WhatsApp Image 2026-11-02 at 4.34.09 PM (2)-16_40_49.jpeg',
+       uid: 'attZ54tdkLP3TAgFeeRSh9jH',
+       is_deleted: false,
+       download_large_url: 'https://kf.kobotoolbox.org/api/v2/assets/aDwsFFDmg7QtWPF83vUnm7/data/906368801/attachments/attZ54tdkLP3TAgFeeRSh9jH/large/',
+       download_medium_url: 'https://kf.kobotoolbox.org/api/v2/assets/aDwsFFDmg7QtWPF83vUnm7/data/906368801/attachments/attZ54tdkLP3TAgFeeRSh9jH/medium/',
+       download_small_url: 'https://kf.kobotoolbox.org/api/v2/assets/aDwsFFDmg7QtWPF83vUnm7/data/906368801/attachments/attZ54tdkLP3TAgFeeRSh9jH/small/',
+       question_xpath: 'group_ms1ds36/Photo_3_Packaged_End_Product'
+     },
+     {
+       download_url: 'https://kf.kobotoolbox.org/api/v2/assets/aDwsFFDmg7QtWPF83vUnm7/data/906368801/attachments/att2P9PwivuZR5eHRpTnQ4AL/',
+       mimetype: 'image/jpeg',
+       filename: 'ffa_mit/attachments/cd4db032252e4e8fba35b92d57377bfa/ebbd8f12-ec46-4482-8342-f810acddf702/WhatsApp_Image_2026-11-02_at_5.07.50_PM-17_8_28.jpeg',
+       media_file_basename: 'WhatsApp Image 2026-11-02 at 5.07.50 PM-17_8_28.jpeg',
+       uid: 'att2P9PwivuZR5eHRpTnQ4AL',
+       is_deleted: false,
+       download_large_url: 'https://kf.kobotoolbox.org/api/v2/assets/aDwsFFDmg7QtWPF83vUnm7/data/906368801/attachments/att2P9PwivuZR5eHRpTnQ4AL/large/',
+       download_medium_url: 'https://kf.kobotoolbox.org/api/v2/assets/aDwsFFDmg7QtWPF83vUnm7/data/906368801/attachments/att2P9PwivuZR5eHRpTnQ4AL/medium/',
+       download_small_url: 'https://kf.kobotoolbox.org/api/v2/assets/aDwsFFDmg7QtWPF83vUnm7/data/906368801/attachments/att2P9PwivuZR5eHRpTnQ4AL/small/',
+       question_xpath: 'group_ms1ds36/Photo_2_Processing_Floor'
+     },
+     {
+       download_url: 'https://kf.kobotoolbox.org/api/v2/assets/aDwsFFDmg7QtWPF83vUnm7/data/906368801/attachments/att3AbxcatkiMZ8boUHoVvkp/',
+       mimetype: 'image/jpeg',
+       filename: 'ffa_mit/attachments/cd4db032252e4e8fba35b92d57377bfa/ebbd8f12-ec46-4482-8342-f810acddf702/WhatsApp_Image_2026-11-02_at_4.36.23_PM-16_38_42.jpeg',
+       media_file_basename: 'WhatsApp Image 2026-11-02 at 4.36.23 PM-16_38_42.jpeg',
+       uid: 'att3AbxcatkiMZ8boUHoVvkp',
+       is_deleted: false,
+       download_large_url: 'https://kf.kobotoolbox.org/api/v2/assets/aDwsFFDmg7QtWPF83vUnm7/data/906368801/attachments/att3AbxcatkiMZ8boUHoVvkp/large/',
+       download_medium_url: 'https://kf.kobotoolbox.org/api/v2/assets/aDwsFFDmg7QtWPF83vUnm7/data/906368801/attachments/att3AbxcatkiMZ8boUHoVvkp/medium/',
+       download_small_url: 'https://kf.kobotoolbox.org/api/v2/assets/aDwsFFDmg7QtWPF83vUnm7/data/906368801/attachments/att3AbxcatkiMZ8boUHoVvkp/small/',
+       question_xpath: 'group_ms1ds36/Photo_1_Facility_Exterior'
+     },
+     {
+       download_url: 'https://kf.kobotoolbox.org/api/v2/assets/aDwsFFDmg7QtWPF83vUnm7/data/906368801/attachments/attssVvfbFQK9BaZLWTochUN/',
+       mimetype: 'image/jpeg',
+       filename: 'ffa_mit/attachments/cd4db032252e4e8fba35b92d57377bfa/ebbd8f12-ec46-4482-8342-f810acddf702/WhatsApp_Image_2026-11-02_at_3.10.20_PM-16_15_51.jpeg',
+       media_file_basename: 'WhatsApp Image 2026-11-02 at 3.10.20 PM-16_15_51.jpeg',
+       uid: 'attssVvfbFQK9BaZLWTochUN',
+       is_deleted: false,
+       download_large_url: 'https://kf.kobotoolbox.org/api/v2/assets/aDwsFFDmg7QtWPF83vUnm7/data/906368801/attachments/attssVvfbFQK9BaZLWTochUN/large/',
+       download_medium_url: 'https://kf.kobotoolbox.org/api/v2/assets/aDwsFFDmg7QtWPF83vUnm7/data/906368801/attachments/attssVvfbFQK9BaZLWTochUN/medium/',
+       download_small_url: 'https://kf.kobotoolbox.org/api/v2/assets/aDwsFFDmg7QtWPF83vUnm7/data/906368801/attachments/attssVvfbFQK9BaZLWTochUN/small/',
+       question_xpath: 'group_vz9uu61/group_rc6ev70/group_dj46v51/group_xv65w58/If_yes_attach_photo_of_packagi'
+     }
+   ],
+   _status: 'submitted_via_web',
+   _geolocation: [ -2.527954, 32.907506 ],
+   _submission_time: '2026-11-02T14:08:43',
+   _validation_status: {},
+   _submitted_by: null
+ }
+
+ Creating producer from Kobo submission
+ Location: {
+   region: 'Dar Es Salaam',
+   district: 'Temeke',
+   ward: 'Kitunda',
+   latitude: -2.527954,
+   longitude: 32.907506
+ }
+ Validated Kobo producer payload: {
+   business_name: 'Long Life Group Company Limited',
+   region: 'Dar Es Salaam',
+   district: 'Temeke',
+   ward: 'Kitunda',
+   latitude: -2.527954,
+   longitude: 32.907506,
+   percentage_score: 78,
+   selection_tier: 'Tier 4 - 75–100 points'
+ }
+ Creating producer record...
+ Producer payload: {
+   created_by: 5,
+   source: 'kobotoolbox',
+   business_name: 'Long Life Group Company Limited',
+   ownership_structure: 'other',
+   operational_status: 'Active_(Operating_year-round)',
+   tin: '195718773',
+   brela_registration_number: 'NA',
+   tbs_zfda_registration_number: 'TZS 1607/EAS 782',
+   contact_person: 'Method Thomas Misalaba',
+   position_role: 'Company Director',
+   phone: '+255678508817',
+   physical_address: 'Kiyombo Street-Kitunda',
+   business_owner: '1. Method Thomas Misalaba 2. Charles Thomas Misalaba',
+   business_owner_email: 'longlifenaturalfoods@gmail.com',
+   latitude: -2.527954,
+   longitude: 32.907506,
+   region: 'Dar Es Salaam',
+   district: 'Temeke',
+   ward: 'Kitunda',
+   street: 'Kiyombo',
+   registration_type: [ 'brela sido tbs' ],
+   age_market: 'yes',
+   upf_share: '0',
+   free_from_additives: 'yes',
+   formulation: 'composite',
+   sme_upf_scoring: 'low_clean',
+   certification: 'incubation',
+   ssop_logs: 'complete',
+   equipment: 'semi',
+   qualified_staff: 'qualified',
+   sourcing: 'adhoc',
+   logistics: 'limited',
+   sme_assessment_region: 'mainland',
+   turnover_tzs: '2400000000',
+   capacity_mt: '40',
+   sme_financial_band: 'medium',
+   management: 'owner',
+   records: 'active',
+   willingness: 'high',
+   female_owner: 'no',
+   youth_owner: 'yes',
+   female_workforce: 'yes',
+   women_suppliers: 'yes',
+   percentage_score: 78,
+   selection_tier: 'Tier 4 - 75–100 points',
+   legal_pass: '1',
+   scope_pass: '1',
+   additive_pass: '1',
+   eligibility_pass: '1',
+   nutrition_score: 20,
+   safety_score: 12,
+   technical_score: 20,
+   supply_score: 3,
+   financial_score: 10,
+   management_score: 10,
+   equity_count: 2,
+   equity_score: 3,
+   applicable_tiers: [ 'Tier 4' ],
+   remarks_sme_screening: 'None',
+   product_types: [ 'complementary' ],
+   primary_raw_materials: [
+     'soybeans maize sorghum',
+     'finger_millet__ulezi cassava',
+     'plantain other'
+   ],
+   primary_sourcing_channels: [
+     'formal_contract',
+     'supply_network__establ reliable_procurement_source__reliable_pr open_market_purchasing__ad_hoc_open_mark'
+   ],
+   adequate_warehouse_storage_available: 'yes',
+   storage_facilities_details: 'Dry goods warehouse',
+   functional_dis_logistics_available: 'yes',
+   shortage_months: [ 'january february november december' ],
+   production_capacity: 2000,
+   production_capacity_ton_month: 40000,
+   machinery_grade_and_processing_setup: 'moderate_grade__semi_automated_machinery',
+   equipment_installed: [
+     'hammer_mill',
+     'disc_mill solar_dryer',
+     'cabinet_dryer roasting',
+     'thermal_processing_machine automatic_pouch_sealer',
+     'packaging_line other'
+   ],
+   facility_type: [ 'privately_owned_factory' ],
+   processing_pre_t_i_nutrient_reduction: 'soaking___dehusking___de_hulling roasting___thermal_inactivation',
+   finished_product_categories: 'unfortified_single_grain_flour',
+   nutritional_fact_panel_nfp: 'present',
+   total_energy_density: 486.1,
+   crude_protein_content: 17,
+   total_crude_fat: 8.87,
+   total_carbohydrates: 67.7,
+   polyunsaturated_fatty_acids: 'none___not_tested',
+   pro_vitamin_a_biofortification_source: [ 'other' ],
+   has_laboratory_molar_on_finished_product: 'no',
+   recommended_frequency_of_consumption: '4__times_day',
+   tbs_certification_tanzania_business: 'certified___haccp__valid_tbs___zfda_cert',
+   if_full_certified_state_the_standard: 'other',
+   zfda_registration_z_food_and_drug_agency: 'na',
+   sectoral_regulatory_board_milk_board: 'no',
+   tbs_expiry_date: '2026-10-02',
+   incubation_status: 'non_sido',
+   nd_batch_record_logs: 'yes___complete_written_ssops_and_batch_r',
+   quality_control_infrastructure: [
+     'in_house_moisture_content_testing external_lab_testing_for_aflatoxins__b1_ microbial_safety_testing__e__coli__salmo implementation_of_formal_standard_operat formal_haccp_system_implemented'
+   ],
+   quality_control_testing_protocols: 'in_house_moisture_content_testing external_lab_testing_for_aflatoxins__b1_ implementation_of_formal_standard_operat',
+   external_specialized_testing_utilization: 'option_7',
+   type_of_packaging_currently_used: 'flexible_laminated_pouch plastic_pouch_bag',
+   packaging_material: 'pet_pe_laminate',
+   is_packaging_designed_to_protect_product_from_moisture: 'yes',
+   is_packaging_designed_to_protect_product_from_oxygen: 'yes',
+   is_packaging_designed_to_protect_product_from_light: 'yes',
+   is_packaging_designed_for_high_fat_products: 'yes',
+   is_any_packaging_material_specified: 'no',
+   has_the_suitability_tested_with_the_product: [ 'yes', 'laboratory_testing' ],
+   primary_method_used_to_seal_the_package: 'heat_sealing',
+   vulnerability_to_rancidity_lipid_oxidation: 'low',
+   traceability_integration: 'gs1_barcode_present',
+   distribution_channels: [
+     'direct_facility_gate_sales neighborhood_informal_kiosks open_air_local_public_markets sido_incubation_outlets',
+     'retail_shops institutional_buyers__health_centers__sc'
+   ],
+   geographic_distribution_scope: [
+     'local',
+     'district_level regional',
+     'multi_district national_coverage'
+   ],
+   packaging_supply_constraints: 'limited_access_to_customised_printing',
+   number_of_employees: 55,
+   permanent_male_employees: 37,
+   permanent_female_employees: 18,
+   casual_male_employees: 0,
+   casual_female_employees: 0,
+   financial_inclusiveness_infrastructure: 'formal_registered_business_bank_account active_mobile_money_business_till___payb',
+   specify_financial_inclusiveness_infrastructure: 'None'
+ }
+
+
+ error: value too long for type character varying(100) {"method":"POST","path":"/api/producers/","timestamp":"2026-11-02T15:29:34.111Z"}
+ 54.173.119.119 - kobo_integration [02/Nov/2026:15:29:34 +0000] "POST /api/producers/ HTTP/1.1" 500 33 "-" "KoboToolbox external service #hwBXTYqnRhJpAdFLmmQufY"
+
+
+ below is my create method, add all the missing fields to the payload object and ensure that the data is correctly mapped from the Kobo submission to the payload.
+also add the missing fields to the producer model below
+
+
+async function create(data, userId) {
+  console.log('Creating producer from Kobo submission');
+
+  // ---------------------------------------------------
+  // 1. Safe value extraction helpers
+  // ---------------------------------------------------
+
+  const ARRAY_SEPARATOR = '|||KOBO_OPTION|||';
+
+  const getValue = (...keys) => {
+    for (const key of keys) {
+      const value = data?.[key];
+
+      if (value !== undefined && value !== null &&
+          String(value).trim() !== '') {
+        return String(value).trim();
+      }
+    }
+    return undefined;
+  };
+
+  // Preserve Kobo's multi-select delimiter.
+  // Do not replace it with an ordinary space before splitting.
+  const getValue2 = (...keys) => {
+    for (const key of keys) {
+      const value = data?.[key];
+
+      if (value === undefined || value === null ||
+          String(value).trim() === '') {
+        continue;
+      }
+
+      return String(value)
+        .trim()
+        .replace(/___/g, ARRAY_SEPARATOR);
+    }
+
+    return undefined;
+  };
+
+  const toStringArray = (value) => {
+    if (value === undefined || value === null || value === '') {
+      return undefined;
+    }
+
+    if (Array.isArray(value)) {
+      return value.map(v => String(v).trim()).filter(Boolean);
+    }
+
+    return String(value)
+      .split(ARRAY_SEPARATOR)
+      .map(v => v.trim())
+      .filter(Boolean);
+  };
+
+  const toNumber = (value) => {
+    if (value === undefined || value === null ||
+        String(value).trim() === '') {
+      return undefined;
+    }
+
+    const number = Number(value);
+    return Number.isFinite(number) ? number : undefined;
+  };
+
+  // Convert location codes such as dar_es_salaam to Dar Es Salaam.
+  const toTitleCase = (value) => {
+    if (!value) return value;
+
+    return String(value)
+      .replace(/[-_]+/g, ' ')
+      .toLowerCase()
+      .replace(/\b\w/g, char => char.toUpperCase());
+  };
+
+  const payload = {
+    created_by: userId ?? null,
+    source: 'kobotoolbox'
+  };
+
+  // ---------------------------------------------------
+  // 2. Existing FIELD_MAP mappings
+  // ---------------------------------------------------
+
+  for (const [key, column] of Object.entries(FIELD_MAP)) {
+    const value = data?.[key];
+
+    if (value !== undefined && value !== null && value !== '') {
+      payload[column] = value;
+    }
+  }
+
+  // Helper for mapping fields without repeating checks.
+  const mapText = (column, key) => {
+    const value = getValue(key);
+    if (value !== undefined) payload[column] = value;
+  };
+
+  const mapArray = (column, key) => {
+    const value = toStringArray(getValue2(key));
+    if (value !== undefined) payload[column] = value;
+  };
+
+  const mapNumber = (column, key) => {
+    const value = toNumber(getValue(key));
+    if (value !== undefined) payload[column] = value;
+  };
+
+  const mapDoubleNumber = (column, key) => {
+    const rawValue = getValue(key);
+    const value = parseFloat(rawValue);
+
+    if (!isNaN(value)) {
+      payload[column] = value;
+    }
+  };
+
+  // ---------------------------------------------------
+  // 3. Enterprise information
+  // ---------------------------------------------------
+
+  // IMPORTANT: This is the actual key in the new Kobo form.
+  payload.business_name = getValue(
+    'group_tt2fr91/enterprise_name_final'
+  );
+
+  payload.ownership_structure = getValue(
+    'group_tt2fr91/_1_4_Enterprise_Ownership_and_L'
+  );
+
+  payload.operational_status = getValue(
+    'group_pn4gh36/_1_6_Operational_Status'
+  );
+
+  payload.tin = getValue(
+    'group_pn4gh36/group_gy4oz23/Taxpayer_Identification_Number_TIN'
+  );
+
+  payload.brela_registration_number = getValue(
+    'group_pn4gh36/group_gy4oz23/BRELA_Business_Registration_Number'
+  );
+
+  payload.tbs_zfda_registration_number = getValue(
+    'group_pn4gh36/group_gy4oz23/TBS_ZFDA_License_P_Registration_Number'
+  );
+
+  // These fields are not present in this particular submission.
+  // They will remain undefined rather than receiving fabricated values.
+  mapText('contact_person',
+    'group_tt2fr91/group_gt2bp34/Primary_Contact_Person');
+
+  mapText('position_role',
+    'group_tt2fr91/group_gt2bp34/Position_Role');
+
+  mapText('phone',
+    'group_tt2fr91/group_gt2bp34/Phone_Number');
+
+  mapText('email',
+    'group_pn4gh36/group_gt2bp34/E_mail_address');
+
+  mapText('physical_address',
+    'group_tt2fr91/group_gt2bp34/Physical_Street_Address');
+
+  mapText('business_owner',
+    'group_tt2fr91/group_gt2bp34/Name_s_of_the_Business_owner_s');
+
+  mapText('business_owner_email',
+    'group_tt2fr91/group_gt2bp34/E_mail_address_of_an_owner');
+
+  // ---------------------------------------------------
+  // 4. GPS coordinates
+  // ---------------------------------------------------
+
+  let latitude;
+  let longitude;
+
+  if (Array.isArray(data?._geolocation)) {
+    latitude = toNumber(data._geolocation[0]);
+    longitude = toNumber(data._geolocation[1]);
+  }
+
+  // Fallback to the coordinate string if necessary.
+  if (latitude === undefined || longitude === undefined) {
+    const coordinateString = getValue(
+      'group_tt2fr91/_1_2_Coordinate_location'
+    );
+
+    if (coordinateString) {
+      const coordinates = coordinateString.trim().split(/\s+/);
+
+      latitude = toNumber(coordinates[0]);
+      longitude = toNumber(coordinates[1]);
+    }
+  }
+
+  payload.latitude = latitude;
+  payload.longitude = longitude;
+
+  // ---------------------------------------------------
+  // 5. Region, district, ward and street
+  // ---------------------------------------------------
+
+  const regionName = getValue('group_tt2fr91/region');
+  const districtName = getValue('group_tt2fr91/district');
+  const wardName = getValue('group_tt2fr91/Ward');
+  const streetName = getValue('group_tt2fr91/Village_Street');
+
+  payload.region = regionName ? toTitleCase(regionName) : 'N/A';
+  payload.district = districtName ? toTitleCase(districtName) : 'N/A';
+  payload.ward = wardName || 'N/A';
+  payload.street = streetName || 'N/A';
+
+  // Do not assign ward_id = 0.
+  // Your current Producer model does not define ward_id.
+
+  console.log('Location:', {
+    region: payload.region,
+    district: payload.district,
+    ward: payload.ward,
+    latitude,
+    longitude
+  });
+
+  // ---------------------------------------------------
+  // 6. SME screening information
+  // ---------------------------------------------------
+
+  mapArray('registration_type',
+    'sme_screening/registration');
+
+  mapText('registration_type_other',
+    'sme_screening/registration_other');
+
+  mapText('age_market',
+    'sme_screening/age_market');
+
+  mapText('upf_share',
+    'sme_screening/upf_share');
+
+  mapText('free_from_additives',
+    'sme_screening/free_from_additives');
+
+  // New nested SME scoring paths.
+  const SME = 'sme_screening/sme_scoring_only_if_eligible/';
+
+  mapText('formulation',
+    SME + 'sme_cat_nutrition/formulation');
+
+  mapText('sme_upf_scoring',
+    SME + 'sme_cat_nutrition/sme_upf_scoring');
+
+  mapText('certification',
+    SME + 'sme_cat_safety/certification');
+
+  mapText('ssop_logs',
+    SME + 'sme_cat_safety/ssop_logs');
+
+  mapText('equipment',
+    SME + 'sme_cat_technical/equipment');
+
+  mapText('qualified_staff',
+    SME + 'sme_cat_technical/qualified_staff');
+
+  mapText('sourcing',
+    SME + 'sme_cat_supply/sourcing');
+
+  mapText('logistics',
+    SME + 'sme_cat_supply/logistics');
+
+  mapText('sme_assessment_region',
+    SME + 'sme_cat_financial/sme_assessment_region');
+
+  mapText('turnover_tzs',
+    SME + 'sme_cat_financial/turnover_tzs');
+
+  mapText('capacity_mt',
+    SME + 'sme_cat_financial/capacity_mt');
+
+  mapText('sme_financial_band',
+    SME + 'sme_cat_financial/sme_financial_band');
+
+  mapText('management',
+    SME + 'sme_cat_management/management');
+
+  mapText('records',
+    SME + 'sme_cat_management/records');
+
+  mapText('willingness',
+    SME + 'sme_cat_management/willingness');
+
+  mapText('female_owner',
+    SME + 'sme_cat_equity/female_owner');
+
+  mapText('youth_owner',
+    SME + 'sme_cat_equity/youth_owner');
+
+  mapText('female_workforce',
+    SME + 'sme_cat_equity/female_workforce');
+
+  mapText('women_suppliers',
+    SME + 'sme_cat_equity/women_suppliers');
+
+  mapNumber('percentage_score',
+    SME + 'total_score');
+
+  mapText('selection_tier',
+    SME + 'selection_tier');
+
+  // Additional SME screening results.
+  mapText('legal_pass', 'sme_screening/legal_pass');
+  mapText('scope_pass', 'sme_screening/scope_pass');
+  mapText('additive_pass', 'sme_screening/additive_pass');
+  mapText('eligibility_pass', 'sme_screening/eligibility_pass');
+
+  mapNumber('nutrition_score',
+    SME + 'sme_cat_nutrition/nutrition_score');
+
+  mapNumber('safety_score',
+    SME + 'sme_cat_safety/safety_score');
+
+  mapNumber('technical_score',
+    SME + 'sme_cat_technical/technical_score');
+
+  mapNumber('supply_score',
+    SME + 'sme_cat_supply/supply_score');
+
+  mapNumber('financial_score',
+    SME + 'sme_cat_financial/financial_score');
+
+  mapNumber('management_score',
+    SME + 'sme_cat_management/management_score');
+
+  mapNumber('equity_count',
+    SME + 'sme_cat_equity/equity_count');
+
+  mapNumber('equity_score',
+    SME + 'sme_cat_equity/equity_score');
+
+  mapArray('applicable_tiers',
+    SME + 'applicable_tiers');
+
+  mapText('remarks_sme_screening',
+    'sme_screening/remarks_sme_screening');
+
+  mapText('zanzibar_general_trade_thresholds',
+    'group_pn4gh36/group_xo08u06/Zanzibar_General_Trade_Thresholds');
+
+  // ---------------------------------------------------
+  // 7. Raw materials and sourcing
+  // ---------------------------------------------------
+
+  mapArray('product_types',
+    'sme_screening/product_types');
+
+  mapArray('primary_raw_materials',
+    'group_ol25s52/_2_1_Primary_Raw_Materials_Sour');
+
+  mapArray('primary_sourcing_channels',
+    'group_ol25s52/_2_2_Primary_Sourcing_Channels');
+
+  mapText('adequate_warehouse_storage_available',
+    'group_ol25s52/group_bi6dd29/_2_3_1_Adequate_wareh_ld_storage_available');
+
+  mapText('storage_facilities_details',
+    'group_ol25s52/group_bi6dd29/storage_facilities_details');
+
+  mapText('functional_dis_logistics_available',
+    'group_ol25s52/group_bi6dd29/_2_3_2_Functional_dis_logistics_available');
+
+  mapArray('shortage_months',
+    'group_ol25s52/group_bi6dd29/_2_3_3_Months_of_Sev_tage_or_Price_Spikes');
+
+  // ---------------------------------------------------
+  // 8. Production and processing
+  // ---------------------------------------------------
+
+  mapDoubleNumber('production_capacity',
+    'group_in2zi20/_3_2_1_Installed_Pro_ing_Capacity_kg_day');
+
+  mapDoubleNumber('production_capacity_ton_month',
+    'group_in2zi20/_3_2_2_Installed_pro_g_capacity_ton_month');
+
+  mapDoubleNumber('actual_operational_output_ton_month',
+    'group_in2zi20/group_in2zi20/_3_2_3_Actual_Operat_al_Output_ton_month');
+
+  mapText('machinery_grade_and_processing_setup',
+    'group_in2zi20/_3_3_1_Machinery_Grad_and_Processing_Setup');
+
+  mapArray('equipment_installed',
+    'group_in2zi20/_3_3_2_Equipment_Inst_Check_all_that_apply');
+
+  mapArray('facility_type',
+    'group_in2zi20/_3_3b_Facility_Type');
+
+  mapText('processing_pre_t_i_nutrient_reduction',
+    'group_in2zi20/group_xb7se72/_3_5_Processing_Pre_t_i_Nutrient_Reduction');
+
+  mapText('finished_product_categories',
+    'group_in2zi20/_3_1_Finished_Product_Categorie');
+
+  // ---------------------------------------------------
+  // 9. Nutritional information
+  // ---------------------------------------------------
+
+  mapText('nutritional_fact_panel_nfp',
+    'group_kt9nn55/group_lh3ly24/Nutritional_Fact_Panel_NFP_001');
+
+  mapDoubleNumber('total_energy_density',
+    'group_kt9nn55/group_vp5fe72/Total_Energy_Density_kcal_100g_');
+
+  mapDoubleNumber('crude_protein_content',
+    'group_kt9nn55/group_vp5fe72/Crude_Protein_Conten_dry_weight_g_100g');
+
+  mapDoubleNumber('total_crude_fat',
+    'group_kt9nn55/group_vp5fe72/Total_Crude_Fat_Li_y_weight_g_100g');
+
+  mapDoubleNumber('total_carbohydrates',
+    'group_kt9nn55/group_vp5fe72/Total_Carbohydrates_g_100g');
+
+  mapDoubleNumber('crude_fiber_target',
+    'group_kt9nn55/group_vp5fe72/Crude_Fiber_Target_g_infants_g_100g');
+
+  mapDoubleNumber('moisture_content',
+    'group_kt9nn55/group_vp5fe72/Moisture_Content_Ta_ability_and_safety_');
+
+  mapDoubleNumber('iodine_content',
+    'group_kt9nn55/group_lh3ly24/Iodine_I_g_100g');
+
+  mapDoubleNumber('folate_content',
+    'group_kt9nn55/group_lh3ly24/Folate_Vitamin_B9_g_100g');
+
+  mapText('polyunsaturated_fatty_acids',
+    'group_kt9nn55/group_uu6rr68/Polyunsaturated_Fatty_Acids_PUFAs');
+
+  mapArray('pro_vitamin_a_biofortification_source',
+    'group_kt9nn55/group_uu6rr68/Pro_Vitamin_A_Biofortification_Source');
+
+  mapText('has_laboratory_molar_on_finished_product',
+    'group_kt9nn55/group_lw3my57/Has_laboratory_molar_on_finished_product');
+
+  mapText('recommended_frequency_of_consumption',
+    'group_kt9nn55/group_ml11l40/Recommended_Frequency_of_Consumption');
+
+  // ---------------------------------------------------
+  // 10. Certification and regulatory compliance
+  // ---------------------------------------------------
+
+  mapText('tbs_certification_tanzania_business',
+    'group_vz9uu61/group_rc6ev70/group_rn6pd43/_5_1_Certification_an_ng_20_Points_Total');
+
+  mapText('if_full_certified_state_the_standard',
+    'group_vz9uu61/group_rc6ev70/group_rn6pd43/If_full_certified_state_the_st');
+
+  mapText('zfda_registration_z_food_and_drug_agency',
+    'group_vz9uu61/group_rc6ev70/group_rn6pd43/ZFDA_Registration_Z_Food_and_Drug_Agency');
+
+  mapText('sectoral_regulatory_board_milk_board',
+    'group_vz9uu61/group_rc6ev70/group_rn6pd43/Sector_Board_Complia_t_Board_Milk_Board');
+
+  mapText('tbs_expiry_date',
+    'group_vz9uu61/group_rc6ev70/group_rn6pd43/TBS_Expiry_Date');
+
+  mapText('incubation_status',
+    'group_vz9uu61/group_rc6ev70/group_rn6pd43/Incubation_Status');
+
+  mapText('nd_batch_record_logs',
+    'group_vz9uu61/group_rc6ev70/group_ed6sx51/Does_the_enterprise_ND_batch_record_logs');
+
+  mapArray('quality_control_infrastructure',
+    'group_vz9uu61/group_rc6ev70/_5_3_Quality_Control_sting_Infrastructure');
+
+  mapText('quality_control_testing_protocols',
+    'group_vz9uu61/group_rc6ev70/_5_4_Quality_Control_ty_Testing_Protocols');
+
+  mapText('external_specialized_testing_utilization',
+    'group_vz9uu61/group_rc6ev70/External_Specialized_Testing_Utilization');
+
+  // ---------------------------------------------------
+  // 11. Packaging
+  // ---------------------------------------------------
+
+  mapText('type_of_packaging_currently_used',
+    'group_vz9uu61/group_rc6ev70/group_dj46v51/Type_of_packaging_cu_the_finished_product');
+
+  mapText('packaging_material',
+    'group_vz9uu61/group_rc6ev70/group_dj46v51/Packaging_material_c_aterial_or_structure');
+
+  mapText('is_packaging_designed_to_protect_product_from_moisture',
+    'group_vz9uu61/group_rc6ev70/group_dj46v51/group_xv65w58/Is_the_packaging_des_roduct_from_moisture');
+
+  mapText('is_packaging_designed_to_protect_product_from_oxygen',
+    'group_vz9uu61/group_rc6ev70/group_dj46v51/group_xv65w58/Is_the_packaging_des_product_from_oxygen');
+
+  mapText('is_packaging_designed_to_protect_product_from_light',
+    'group_vz9uu61/group_rc6ev70/group_dj46v51/group_xv65w58/Is_the_packaging_des_e_product_from_light');
+
+  mapText('is_packaging_designed_for_high_fat_products',
+    'group_vz9uu61/group_rc6ev70/group_dj46v51/group_xv65w58/Is_the_packaging_res_th_high_fat_products');
+
+  mapText('is_any_packaging_material_specified',
+    'group_vz9uu61/group_rc6ev70/group_dj46v51/group_xv65w58/Is_any_packaging_material_spec');
+
+  mapArray('has_the_suitability_tested_with_the_product',
+    'group_vz9uu61/group_rc6ev70/group_dj46v51/Has_the_suitability_ted_with_the_product');
+
+  mapText('primary_method_used_to_seal_the_package',
+    'group_vz9uu61/group_rc6ev70/group_dj46v51/Primary_method_used_to_seal_the_package');
+
+  mapText('vulnerability_to_rancidity_lipid_oxidation',
+    'group_vz9uu61/group_rc6ev70/group_dj46v51/Vulnerability_to_Ran_ty_Lipid_Oxidation');
+
+  mapText('traceability_integration',
+    'group_vz9uu61/group_rc6ev70/group_dj46v51/Traceability_Integration');
+
+  // ---------------------------------------------------
+  // 12. Distribution
+  // ---------------------------------------------------
+
+  mapArray('distribution_channels',
+    'group_pg1io48/_6_1_Distribution_Channels_Place');
+
+  mapArray('geographic_distribution_scope',
+    'group_pg1io48/_6_1_1_Geographic_Distribution_Scope');
+
+  mapText('packaging_supply_constraints',
+    'group_pg1io48/_6_6_Packaging_supply_constraints');
+
+  // ---------------------------------------------------
+  // 13. Workforce
+  // ---------------------------------------------------
+
+  mapNumber('number_of_employees',
+    'group_mu73u63/group_oe5kd34/_7_3_5_Total_Workforce');
+
+  mapNumber('permanent_male_employees',
+    'group_mu73u63/group_oe5kd34/_7_3_1_Permanent_Male_Employees');
+
+  mapNumber('permanent_female_employees',
+    'group_mu73u63/group_oe5kd34/_7_3_2_Permanent_Female_Employees');
+
+  mapNumber('casual_male_employees',
+    'group_mu73u63/group_oe5kd34/_7_3_3_Casual_Male_Employees');
+
+  mapNumber('casual_female_employees',
+    'group_mu73u63/group_oe5kd34/_7_3_4_Casual_Female_Employees');
+
+  mapText('financial_inclusiveness_infrastructure',
+    'group_mu73u63/_7_4_Financial_Inclus_iness_Infrastructure');
+
+  mapText('specify_financial_inclusiveness_infrastructure',
+    'group_mu73u63/Specify_Financial_In_iness_Infrastructure');
+
+  // ---------------------------------------------------
+  // 14. Validate required fields
+  // ---------------------------------------------------
+
+  const errors = [];
+
+  if (!payload.business_name) {
+    errors.push('Business name is missing');
+  }
+
+  if (
+    payload.latitude === undefined ||
+    payload.latitude < -90 ||
+    payload.latitude > 90
+  ) {
+    errors.push('A valid latitude is required');
+  }
+
+  if (
+    payload.longitude === undefined ||
+    payload.longitude < -180 ||
+    payload.longitude > 180
+  ) {
+    errors.push('A valid longitude is required');
+  }
+
+  if (errors.length > 0) {
+    const error = new Error(errors.join('; '));
+    error.status = 422;
+    error.details = errors;
+    throw error;
+  }
+
+  // ---------------------------------------------------
+  // 15. Create producer
+  // ---------------------------------------------------
+
+  console.log('Validated Kobo producer payload:', {
+    business_name: payload.business_name,
+    region: payload.region,
+    district: payload.district,
+    ward: payload.ward,
+    latitude: payload.latitude,
+    longitude: payload.longitude,
+    percentage_score: payload.percentage_score,
+    selection_tier: payload.selection_tier
+  });
+
+  console.log('Creating producer record...');
+  console.log('Producer payload:', payload);
+
+  const producer = await db.producer.create(payload);
+
+  // ---------------------------------------------------
+  // 16. Save Kobo survey metadata
+  // ---------------------------------------------------
+
+  const survey_payload = {
+    producer_id: producer.id,
+    kobotoolbox_submission_id: getValue('_id'),
+    enumerator: getValue('group_tt2fr91/Enumerator_s_name'),
+    data_stream_source: getValue('group_tt2fr91/Data_Stream_Source'),
+    source: 'kobotoolbox'
+  };
+
+  await db.survey.create(survey_payload);
+
+  console.log('Producer successfully created:', producer.id);
+
+  return producer;
+}
+
+
+below in my producer model
+what a re the missing field from the kobo data
+
+module.exports = (sequelize, DataTypes) => {
+  const Producer = sequelize.define(
+    'producer',
+    {
+      id: {
+        type: DataTypes.INTEGER,
+        primaryKey: true,
+        autoIncrement: true,
+        allowNull: false
+      },
+
+      first_name: { type: DataTypes.STRING(100), allowNull: true },
+      middle_name: { type: DataTypes.STRING(100), allowNull: true },
+      last_name: { type: DataTypes.STRING(100), allowNull: true },
+      
+      registration_type: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
+      registration_type_other: { type: DataTypes.STRING(255), allowNull: true },
+
+      ownership_structure: { type: DataTypes.STRING(150), allowNull: true },
+      business_owner: { type: DataTypes.STRING(150), allowNull: true },
+      business_owner_email: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+      },
+      organization_type: {
+        type: DataTypes.STRING(50),
+        allowNull: true,
+        validate: { isIn: [[null, 'company', 'cooperative', 'farmer_group', 'youth_group', 'women_group']] }
+      },
+      business_name: { type: DataTypes.STRING(255), allowNull: true },
+      tin: { type: DataTypes.STRING(50), allowNull: true },
+      contact_person: { type: DataTypes.STRING(255), allowNull: true },
+      phone: { type: DataTypes.STRING(30), allowNull: true },
+      email: {
+        type: DataTypes.STRING(255),
+        allowNull: true,
+        validate: { isEmail: true }
+      },
+      region: { type: DataTypes.STRING(50), allowNull: false },
+      district: { type: DataTypes.STRING(50), allowNull: false },
+      ward: { type: DataTypes.STRING(50), allowNull: false },
+      street: { type: DataTypes.STRING(500), allowNull: true },
+      physical_address: { type: DataTypes.STRING(500), allowNull: true },
+      latitude: {
+        type: DataTypes.DOUBLE,
+        allowNull: false,
+        validate: { min: -90, max: 90 }
+      },
+      longitude: {
+        type: DataTypes.DOUBLE,
+        allowNull: false,
+        validate: { min: -180, max: 180 }
+      },
+      location: { type: DataTypes.GEOMETRY('POINT', 4326), allowNull: true },
+      production_capacity: { type: DataTypes.DOUBLE, allowNull: true, validate: { min: 0 } },
+      production_capacity_ton_month: { type: DataTypes.DOUBLE, allowNull: true, validate: { min: 0 } },
+      actual_operational_output_ton_month: { type: DataTypes.DOUBLE, allowNull: true, validate: { min: 0 } },
+      machinery_grade_and_processing_setup: { type: DataTypes.STRING(100), allowNull: true },
+      equipment_installed: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
+      facility_type: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
+      processing_pre_t_i_nutrient_reduction: { type: DataTypes.STRING(100), allowNull: true },
+      nutritional_fact_panel_nfp: { type: DataTypes.STRING(100), allowNull: true },
+      total_energy_density: { type: DataTypes.DOUBLE, allowNull: true },
+      crude_protein_content: { type: DataTypes.DOUBLE, allowNull: true },
+      total_crude_fat: { type: DataTypes.DOUBLE, allowNull: true },
+      total_carbohydrates: { type: DataTypes.DOUBLE, allowNull: true },
+      crude_fiber_target: { type: DataTypes.DOUBLE, allowNull: true },
+      moisture_content: { type: DataTypes.DOUBLE, allowNull: true },
+      iodine_content: { type: DataTypes.DOUBLE, allowNull: true },
+      folate_content: { type: DataTypes.DOUBLE, allowNull: true },
+      polyunsaturated_fatty_acids: { type: DataTypes.STRING(100), allowNull: true },
+      pro_vitamin_a_biofortification_source: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
+      has_laboratory_molar_on_finished_product: { type: DataTypes.STRING(10), allowNull: true },
+      recommended_frequency_of_consumption: { type: DataTypes.STRING(20), allowNull: true },
+      tbs_certification_tanzania_business: { type: DataTypes.STRING(100), allowNull: true },
+      if_full_certified_state_the_standard: { type: DataTypes.STRING(100), allowNull: true },
+      zfda_registration_z_food_and_drug_agency: { type: DataTypes.STRING(100), allowNull: true },
+      sectoral_regulatory_board_milk_board: { type: DataTypes.STRING(100), allowNull: true },
+      tbs_expiry_date: { type: DataTypes.STRING(20), allowNull: true },
+      incubation_status: { type: DataTypes.STRING(100), allowNull: true },
+      nd_batch_record_logs: { type: DataTypes.STRING(100), allowNull: true },
+      quality_control_infrastructure: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
+      
+      quality_control_testing_protocols: { type: DataTypes.STRING(100), allowNull: true },
+      external_specialized_testing_utilization: { type: DataTypes.STRING(100), allowNull: true },
+      type_of_packaging_currently_used: { type: DataTypes.STRING(100), allowNull: true },
+      packaging_material: { type: DataTypes.STRING(100), allowNull: true },
+      is_packaging_designed_to_protect_product_from_moisture: { type: DataTypes.STRING(20), allowNull: true },
+      is_packaging_designed_to_protect_product_from_oxygen: { type: DataTypes.STRING(20), allowNull: true },
+      is_packaging_designed_to_protect_product_from_light: { type: DataTypes.STRING(20), allowNull: true },
+      is_packaging_designed_for_high_fat_products: { type: DataTypes.STRING(20), allowNull: true },
+      is_any_packaging_material_specified: { type: DataTypes.STRING(20), allowNull: true },
+      has_the_suitability_tested_with_the_product: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
+
+      primary_method_used_to_seal_the_package: { type: DataTypes.STRING(100), allowNull: true },
+      vulnerability_to_rancidity_lipid_oxidation: { type: DataTypes.STRING(50), allowNull: true },
+      traceability_integration: { type: DataTypes.STRING(100), allowNull: true },
+      distribution_channels: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
+      geographic_distribution_scope: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
+
+
+// ---------------------------------------------------
+// Additional SME screening fields
+// ---------------------------------------------------
+
+legal_pass: {
+  type: DataTypes.STRING(10),
+  allowNull: true
+},
+
+scope_pass: {
+  type: DataTypes.STRING(10),
+  allowNull: true
+},
+
+additive_pass: {
+  type: DataTypes.STRING(10),
+  allowNull: true
+},
+
+eligibility_pass: {
+  type: DataTypes.STRING(10),
+  allowNull: true
+},
+
+nutrition_score: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+safety_score: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+technical_score: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+supply_score: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+financial_score: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+management_score: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+equity_count: {
+  type: DataTypes.INTEGER,
+  allowNull: true
+},
+
+equity_score: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+applicable_tiers: {
+  type: DataTypes.ARRAY(DataTypes.STRING),
+  allowNull: true
+},
+
+remarks_sme_screening: {
+  type: DataTypes.TEXT,
+  allowNull: true
+},
+
+zanzibar_general_trade_thresholds: {
+  type: DataTypes.STRING(255),
+  allowNull: true
+},
+
+// ---------------------------------------------------
+// Additional production information
+// ---------------------------------------------------
+
+finished_product_categories: {
+  type: DataTypes.STRING(255),
+  allowNull: true
+},
+
+// ---------------------------------------------------
+// Additional distribution information
+// ---------------------------------------------------
+
+packaging_supply_constraints: {
+  type: DataTypes.STRING(255),
+  allowNull: true
+},
+
+// ---------------------------------------------------
+// Employee breakdown
+// ---------------------------------------------------
+
+permanent_male_employees: {
+  type: DataTypes.INTEGER,
+  allowNull: true
+},
+
+permanent_female_employees: {
+  type: DataTypes.INTEGER,
+  allowNull: true
+},
+
+casual_male_employees: {
+  type: DataTypes.INTEGER,
+  allowNull: true
+},
+
+casual_female_employees: {
+  type: DataTypes.INTEGER,
+  allowNull: true
+},
+
+financial_inclusiveness_infrastructure: {
+  type: DataTypes.STRING(255),
+  allowNull: true
+},
+
+specify_financial_inclusiveness_infrastructure: {
+  type: DataTypes.STRING(255),
+  allowNull: true
+},
+
+
+
+
+      number_of_employees: { type: DataTypes.INTEGER, allowNull: true, validate: { min: 0 } },
+      verification_status: {
+        type: DataTypes.STRING(50),
+        allowNull: false,
+        defaultValue: 'pending_field_validation',
+        validate: { isIn: [['pending_field_validation', 'field_validated', 'rejected', 'needs_review']] }
+      },
+      source: { type: DataTypes.STRING(100), allowNull: false },
+      status: {
+        type: DataTypes.STRING(30),
+        allowNull: false,
+        defaultValue: 'active',
+        validate: { isIn: [['active', 'inactive']] }
+      },
+      created_by: {
+        type: DataTypes.STRING(150), allowNull: true
+      },
+      position_role: { type: DataTypes.STRING(150), allowNull: true },
+      brela_registration_number: { type: DataTypes.STRING(50), allowNull: true },
+      tbs_zfda_registration_number: { type: DataTypes.STRING(50), allowNull: true },
+      sido_registration_number: { type: DataTypes.STRING(50), allowNull: true },
+      sectoral_regulatory_board_milk_board: { type: DataTypes.STRING(100), allowNull: true },
+      operational_scale: { type: DataTypes.STRING(100), allowNull: true },
+      operational_status: { type: DataTypes.STRING(100), allowNull: true },
+      product_types: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },  
+      age_market: { type: DataTypes.STRING(10), allowNull: true },
+      upf_share: { type: DataTypes.STRING(10), allowNull: true },
+      free_from_additives: { type: DataTypes.STRING(10), allowNull: true },
+      formulation: { type: DataTypes.STRING(100), allowNull: true },
+      certification: { type: DataTypes.STRING(100), allowNull: true },
+      ssop_logs: { type: DataTypes.STRING(100), allowNull: true },
+      sme_upf_scoring: { type: DataTypes.STRING(100), allowNull: true },
+      equipment: { type: DataTypes.STRING(100), allowNull: true },
+      qualified_staff: { type: DataTypes.STRING(100), allowNull: true },
+      turnover_tzs: { type: DataTypes.STRING(100), allowNull: true },
+      capacity_mt: { type: DataTypes.STRING(100), allowNull: true },
+      sme_financial_band: { type: DataTypes.STRING(100), allowNull: true },
+      management: { type: DataTypes.STRING(100), allowNull: true },
+      records: { type: DataTypes.STRING(100), allowNull: true },
+      willingness: { type: DataTypes.STRING(100), allowNull: true },
+      female_owner: { type: DataTypes.STRING(100), allowNull: true },
+      youth_owner: { type: DataTypes.STRING(100), allowNull: true },
+      female_workforce: { type: DataTypes.STRING(100), allowNull: true },
+      women_suppliers: { type: DataTypes.STRING(100), allowNull: true },
+      selection_tier: { type: DataTypes.STRING(100), allowNull: true },
+      sourcing: { type: DataTypes.STRING(100), allowNull: true },
+      logistics: { type: DataTypes.STRING(100), allowNull: true },
+      sme_assessment_region: { type: DataTypes.STRING(100), allowNull: true },
+      primary_raw_materials: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
+      primary_sourcing_channels: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
+      adequate_warehouse_storage_available: { type: DataTypes.STRING(10), allowNull: true },
+      storage_facilities_details: { type: DataTypes.STRING(100), allowNull: true },
+      functional_dis_logistics_available: { type: DataTypes.STRING(100), allowNull: true },
+      shortage_months: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
+      post_harvest_loss_percent: { type: DataTypes.DOUBLE, allowNull: true, validate: { min: 0, max: 100 } },
+      storage_capacity: { type: DataTypes.DOUBLE, allowNull: true, validate: { min: 0 } },
+      storage_capacity_unit: { type: DataTypes.STRING(50), allowNull: true },
+      main_storage_challenges: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
+      nutrient_dense_crops: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
+      total_area_harvest_scale: { type: DataTypes.DOUBLE, allowNull: true, validate: { min: 0 } },
+      area_harvest_unit: { type: DataTypes.STRING(50), allowNull: true },
+      average_yield: { type: DataTypes.DOUBLE, allowNull: true, validate: { min: 0 } },
+      yield_unit: { type: DataTypes.STRING(50), allowNull: true },
+      harvest_cycles_per_year: { type: DataTypes.STRING(50), allowNull: true },
+      proximity_major_road_km: { type: DataTypes.DOUBLE, allowNull: true, validate: { min: 0 } },
+      proximity_market_km: { type: DataTypes.DOUBLE, allowNull: true, validate: { min: 0 } },
+      accessibility_status: { type: DataTypes.STRING(50), allowNull: true },
+      infrastructure_status: { type: DataTypes.STRING(50), allowNull: true },
+      sanitary_status: { type: DataTypes.STRING(50), allowNull: true },
+      data_status: {
+        type: DataTypes.STRING(50),
+        allowNull: false,
+        defaultValue: 'production',
+        validate: { isIn: [['production', 'hypothetical_testing']] }
+      },
+
+      percentage_score: { type: DataTypes.DOUBLE, allowNull: true, validate: { min: 0, max: 100 } },
+    },
+    {
+      tableName: 'producers',
+      underscored: true,
+      createdAt: 'created_at',
+      updatedAt: 'updated_at',
+      hooks: {
+        beforeValidate: (producer) => {
+          if (producer.latitude !== undefined && producer.longitude !== undefined) {
+            producer.location = {
+              type: 'Point',
+              coordinates: [producer.longitude, producer.latitude]
+            };
+          }
+        }
+      }
+    }
+  );
+
+  Producer.associate = (models) => {
+    Producer.belongsTo(models.user, { foreignKey: 'created_by', as: 'creator' });
+    Producer.hasMany(models.product, { foreignKey: 'producer_id', onDelete: 'CASCADE' });
+    Producer.hasMany(models.certification, { foreignKey: 'producer_id', onDelete: 'CASCADE' });
+    Producer.hasMany(models.survey, { foreignKey: 'producer_id', onDelete: 'CASCADE' });
+  };
+
+  return Producer;
+};

@@ -55,23 +55,22 @@ module.exports = {
         validate: { min: -180, max: 180 }
       },
       location: { type: DataTypes.GEOMETRY('POINT', 4326), allowNull: true },
-      production_capacity: { type: DataTypes.INTEGER, allowNull: true, validate: { min: 0 } },
-      production_capacity_ton_month: { type: DataTypes.INTEGER, allowNull: true, validate: { min: 0 } },
-      actual_operational_output_ton_month: { type: DataTypes.INTEGER, allowNull: true, validate: { min: 0 } },
+      production_capacity: { type: DataTypes.DOUBLE, allowNull: true, validate: { min: 0 } },
+      production_capacity_ton_month: { type: DataTypes.DOUBLE, allowNull: true, validate: { min: 0 } },
+      actual_operational_output_ton_month: { type: DataTypes.DOUBLE, allowNull: true, validate: { min: 0 } },
       machinery_grade_and_processing_setup: { type: DataTypes.STRING(100), allowNull: true },
       equipment_installed: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
       facility_type: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
       processing_pre_t_i_nutrient_reduction: { type: DataTypes.STRING(100), allowNull: true },
       nutritional_fact_panel_nfp: { type: DataTypes.STRING(100), allowNull: true },
-      total_energy_density: { type: DataTypes.INTEGER, allowNull: true },
-      crude_protein_content: { type: DataTypes.INTEGER, allowNull: true },
-      total_crude_fat: { type: DataTypes.INTEGER, allowNull: true },
-      total_carbohydrates: { type: DataTypes.INTEGER, allowNull: true },
-      crude_fiber_target: { type: DataTypes.INTEGER, allowNull: true },
-      moisture_content: { type: DataTypes.INTEGER, allowNull: true },
-      iodine_content: { type: DataTypes.INTEGER, allowNull: true },
-      folate_content: { type: DataTypes.INTEGER, allowNull: true },
-      folate_content: { type: DataTypes.INTEGER, allowNull: true },
+      total_energy_density: { type: DataTypes.DOUBLE, allowNull: true },
+      crude_protein_content: { type: DataTypes.DOUBLE, allowNull: true },
+      total_crude_fat: { type: DataTypes.DOUBLE, allowNull: true },
+      total_carbohydrates: { type: DataTypes.DOUBLE, allowNull: true },
+      crude_fiber_target: { type: DataTypes.DOUBLE, allowNull: true },
+      moisture_content: { type: DataTypes.DOUBLE, allowNull: true },
+      iodine_content: { type: DataTypes.DOUBLE, allowNull: true },
+      folate_content: { type: DataTypes.DOUBLE, allowNull: true },
       polyunsaturated_fatty_acids: { type: DataTypes.STRING(100), allowNull: true },
       pro_vitamin_a_biofortification_source: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
       has_laboratory_molar_on_finished_product: { type: DataTypes.STRING(10), allowNull: true },
@@ -85,7 +84,8 @@ module.exports = {
       nd_batch_record_logs: { type: DataTypes.STRING(100), allowNull: true },
       quality_control_infrastructure: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
 
-      quality_control_testing_protocols: { type: DataTypes.STRING(100), allowNull: true },
+      
+      quality_control_testing_protocols: { type: DataTypes.STRING(500), allowNull: true },
       external_specialized_testing_utilization: { type: DataTypes.STRING(100), allowNull: true },
       type_of_packaging_currently_used: { type: DataTypes.STRING(100), allowNull: true },
       packaging_material: { type: DataTypes.STRING(100), allowNull: true },
@@ -234,6 +234,44 @@ specify_financial_inclusiveness_infrastructure: {
   allowNull: true
 },
 
+
+financial_remarks: {
+  type: DataTypes.TEXT,
+  allowNull: true
+},
+
+innovation_awareness: {
+  type: DataTypes.STRING(100),
+  allowNull: true
+},
+
+innovation_remarks: {
+  type: DataTypes.TEXT,
+  allowNull: true
+},
+ownership_structure_other: {
+  type: DataTypes.TEXT,
+  allowNull: true
+},
+facility_exterior_photo: {
+  type: DataTypes.STRING(500),
+  allowNull: true
+},
+
+processing_floor_photo: {
+  type: DataTypes.STRING(500),
+  allowNull: true
+},
+
+packaged_end_product_photo: {
+  type: DataTypes.STRING(500),
+  allowNull: true
+},
+
+raw_material_storage_photo: {
+  type: DataTypes.STRING(500),
+  allowNull: true
+},
 
 
 
