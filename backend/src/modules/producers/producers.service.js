@@ -804,7 +804,7 @@ mapText(
 
   console.log('Producer successfully created:', producer.id);
 
-  return producer;
+  return "  Producer creation process completed successfully.";
 }
 
 
