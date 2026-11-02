@@ -134,46 +134,6 @@ const FIELD_MAP = {
 //   return db.producer.create(payload);
 // }
 
-// Convert KoboToolbox values to PostgreSQL string arrays.
-const toStringArray2 = (value) => {
-  if (value === undefined || value === null || value === '') {
-    return undefined;
-  }
-
-  const normalize = (item) =>
-    String(item)
-      .trim()
-      .toLowerCase()
-      .replace(/[-_]+/g, ' ')
-      .replace(/\b\w/g, char => char.toUpperCase());
-
-  if (Array.isArray(value)) {
-    return value
-      .filter(
-        item =>
-          item !== undefined &&
-          item !== null &&
-          String(item).trim() !== ''
-      )
-      .map(normalize);
-  }
-
-  if (typeof value === 'string') {
-    const trimmed = value.trim();
-
-    if (!trimmed) {
-      return undefined;
-    }
-
-    return trimmed.split(/\s+/).filter(Boolean).map(normalize);
-  }
-
-  throw new TypeError(
-    `Expected a string or array for an array field; received ${typeof value}`
-  );
-};
-
-
 async function create(data, userId) {
   console.log('Creating producer from Kobo submission');
 
