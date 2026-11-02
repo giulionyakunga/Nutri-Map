@@ -799,10 +799,10 @@ mapText(
     data_stream_source: getValue('group_tt2fr91/Data_Stream_Source'),
   };
 
-  await db.survey.create(survey_payload);
+  // await db.survey.create(survey_payload);
   console.log('survey successfully created >>>>>>>>>>>>>>>>>');
 
-  console.log('Producer successfully created:', producer.id);
+  // console.log('Producer successfully created:', producer.id);
 
   return "  Producer creation process completed successfully.";
 }
