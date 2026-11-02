@@ -83,7 +83,8 @@ module.exports = {
       tbs_expiry_date: { type: DataTypes.STRING(20), allowNull: true },
       incubation_status: { type: DataTypes.STRING(100), allowNull: true },
       nd_batch_record_logs: { type: DataTypes.STRING(100), allowNull: true },
-      quality_control_infrastructure: { type: DataTypes.STRING(100), allowNull: true },
+      quality_control_infrastructure: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
+
       quality_control_testing_protocols: { type: DataTypes.STRING(100), allowNull: true },
       external_specialized_testing_utilization: { type: DataTypes.STRING(100), allowNull: true },
       type_of_packaging_currently_used: { type: DataTypes.STRING(100), allowNull: true },
@@ -93,7 +94,8 @@ module.exports = {
       is_packaging_designed_to_protect_product_from_light: { type: DataTypes.STRING(20), allowNull: true },
       is_packaging_designed_for_high_fat_products: { type: DataTypes.STRING(20), allowNull: true },
       is_any_packaging_material_specified: { type: DataTypes.STRING(20), allowNull: true },
-      has_the_suitability_tested_with_the_product: { type: DataTypes.STRING(100), allowNull: true },
+      has_the_suitability_tested_with_the_product: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
+
       primary_method_used_to_seal_the_package: { type: DataTypes.STRING(100), allowNull: true },
       vulnerability_to_rancidity_lipid_oxidation: { type: DataTypes.STRING(50), allowNull: true },
       traceability_integration: { type: DataTypes.STRING(100), allowNull: true },

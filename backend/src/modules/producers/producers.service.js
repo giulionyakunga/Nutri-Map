@@ -593,7 +593,7 @@ async function create(data, userId) {
   mapText('nd_batch_record_logs',
     'group_vz9uu61/group_rc6ev70/group_ed6sx51/Does_the_enterprise_ND_batch_record_logs');
 
-  mapText('quality_control_infrastructure',
+  mapArray('quality_control_infrastructure',
     'group_vz9uu61/group_rc6ev70/_5_3_Quality_Control_sting_Infrastructure');
 
   mapText('quality_control_testing_protocols',
