@@ -125,14 +125,112 @@ const FIELD_MAP = {
   sanitaryStatus: 'sanitary_status', dataStatus: 'data_status'
 };
 
-// async function create(data, userId) {
-//   const payload = { created_by: userId };
-//   for (const [key, column] of Object.entries(FIELD_MAP)) {
-//     if (data[key] !== undefined) payload[column] = data[key];
-//   }
-//   if (!payload.source) payload.source = 'manual_entry';
-//   return db.producer.create(payload);
-// }
+
+const downloadKoboImages = async (data) => {
+  const imageDirectory = path.resolve(process.cwd(), 'images');
+
+  await fs.mkdir(imageDirectory, { recursive: true });
+
+  const imageMappings = {
+    facility_exterior_photo:
+      'group_ms1ds36/Photo_1_Facility_Exterior',
+
+    processing_floor_photo:
+      'group_ms1ds36/Photo_2_Processing_Floor',
+
+    packaged_end_product_photo:
+      'group_ms1ds36/Photo_3_Packaged_End_Product',
+
+    raw_material_storage_photo:
+      'group_ms1ds36/Photo_4_Raw_Material_Storage'
+  };
+
+  const attachments = Array.isArray(data?._attachments)
+    ? data._attachments
+    : [];
+
+  const downloadedPhotos = {};
+
+  for (const [column, questionXPath] of Object.entries(imageMappings)) {
+
+    const attachment = attachments.find(
+      item =>
+        item.question_xpath === questionXPath &&
+        item.is_deleted !== true
+    );
+
+    if (!attachment) {
+      console.warn(`No Kobo attachment found for ${column}`);
+      continue;
+    }
+
+    const downloadUrl = attachment.download_medium_url;
+
+    if (!downloadUrl) {
+      console.warn(`No download_medium_url for ${column}`);
+      continue;
+    }
+
+    // Preserve the original filename.
+    const originalFilename = path.basename(
+      attachment.media_file_basename ||
+      attachment.filename ||
+      `${column}.jpg`
+    );
+
+    const destination = path.join(
+      imageDirectory,
+      originalFilename
+    );
+
+    try {
+      // Avoid downloading an existing file again.
+      try {
+        await fs.access(destination);
+        console.log(`Image already exists: ${originalFilename}`);
+
+        downloadedPhotos[column] = `images/${originalFilename}`;
+        continue;
+      } catch {
+        // File does not exist; continue downloading.
+      }
+
+      const response = await fetch(downloadUrl, {
+        headers: process.env.KOBO_API_TOKEN
+          ? {
+              Authorization: `Token ${process.env.KOBO_API_TOKEN}`
+            }
+          : {}
+      });
+
+      if (!response.ok) {
+        throw new Error(
+          `HTTP ${response.status}: ${response.statusText}`
+        );
+      }
+
+      const imageBuffer = Buffer.from(
+        await response.arrayBuffer()
+      );
+
+      await fs.writeFile(destination, imageBuffer);
+
+      downloadedPhotos[column] = `images/${originalFilename}`;
+
+      console.log(
+        `Downloaded ${column}: ${originalFilename}`
+      );
+
+    } catch (error) {
+      console.error(
+        `Failed to download ${column}:`,
+        error.message
+      );
+    }
+  }
+
+  return downloadedPhotos;
+};
 
 async function create(data, userId) {
   console.log('Creating producer from Kobo submission');
@@ -189,6 +287,22 @@ async function create(data, userId) {
       .filter(Boolean);
   };
 
+  const toKoboArray = (value) => {
+    if (value === undefined || value === null) {
+      return undefined;
+    }
+
+    const raw = String(value).trim();
+
+    if (!raw || raw === 'None' || raw === 'NA') {
+      return undefined;
+    }
+
+    return raw
+      .split(/\s+/)
+      .filter(Boolean);
+  };
+
   const toNumber = (value) => {
     if (value === undefined || value === null ||
         String(value).trim() === '') {
@@ -235,6 +349,14 @@ async function create(data, userId) {
   const mapArray = (column, key) => {
     const value = toStringArray(getValue2(key));
     if (value !== undefined) payload[column] = value;
+  };
+
+  const mapKoboArray = (column, key) => {
+    const value = toKoboArray(data?.[key]);
+
+    if (value !== undefined) {
+      payload[column] = value;
+    }
   };
 
   const mapNumber = (column, key) => {
@@ -308,35 +430,361 @@ async function create(data, userId) {
   mapText('business_owner_email',
     'group_tt2fr91/group_gt2bp34/E_mail_address_of_an_owner');
 
+  mapText(
+    'ownership_structure_other',
+    'group_tt2fr91/_1_4b_Specify_other_ered_legal_structure'
+  );
+
+
+
+
+
+
+
+
+
+  // ---------------------------------------------------
+  // Additional enterprise and product information
+  // ---------------------------------------------------
+
+  mapText(
+    'nutrient_dense_crops',
+    'group_ol25s52/G_1_1_Primary_Nutrient_Dense_C'
+  );
+
+  mapText(
+    'ingredients',
+    'group_in2zi20/Specify_the_ingredients'
+  );
+
+  mapKoboArray(
+    'commercial_brand_names',
+    'group_in2zi20/Commercial_Brand_T_Name_s_of_Products'
+  );
+
+  mapText(
+    'commercial_product_1',
+    'group_in2zi20/commercial_product_1'
+  );
+
+  // ---------------------------------------------------
+  // Additional storage information
+  // ---------------------------------------------------
+
+  mapNumber(
+    'total_quantity_required_per_season_month',
+    'group_ol25s52/group_bi6dd29/_2_3_4_Total_quantit_red_per_season_month'
+  );
+
+  mapNumber(
+    'quantity_handled_stored_low_season',
+    'group_ol25s52/group_bi6dd29/quantity_handled_stored_low_season'
+  );
+
+  mapText(
+    'quantity_stored_unit',
+    'group_ol25s52/group_bi6dd29/_2_3_2_Unit_stored_per_season_'
+  );
+
+  mapText(
+    'quantity_lost_or_spoiled',
+    'group_ol25s52/group_bi6dd29/_2_3_6_Quantity_lost_or_spoiled'
+  );
+
+  mapText(
+    'unit_lost_or_spoiled',
+    'group_ol25s52/group_bi6dd29/Unit_lost_or_spoiled'
+  );
+
+  mapText(
+    'main_storage_capacity_unit',
+    'group_ol25s52/group_bi6dd29/_2_3_4_Raw_Material_Storage_Ca'
+  );
+
+  mapKoboArray(
+    'main_storage_challenges',
+    'group_ol25s52/group_bi6dd29/_2_3_8_Main_Storage_Challenges'
+  );
+
+  // ---------------------------------------------------
+  // Agricultural production information
+  // ---------------------------------------------------
+
+  mapText(
+    'total_area_crops_cultivated',
+    'group_ol25s52/group_gx2yj41/Total_Area_of_crops_Cultivated_acre'
+  );
+
+  mapText(
+    'total_area_harvested',
+    'group_ol25s52/group_gx2yj41/Total_area_harvested_acre'
+  );
+
+  mapText(
+    'ropes_for_seaweed_harvested',
+    'group_ol25s52/group_gx2yj41/Ropes_for_Seaweed_harvested'
+  );
+
+  mapText(
+    'amount_of_seaweed_harvested',
+    'group_ol25s52/group_gx2yj41/Amount_of_seaweed_harvested_kg'
+  );
+
+  mapText(
+    'number_of_boats_for_dagaa',
+    'group_ol25s52/group_gx2yj41/Number_of_Boats_for_Dagaa'
+  );
+
+  mapText(
+    'average_crop_yield_per_harvest',
+    'group_ol25s52/group_gx2yj41/Average_crop_yield_per_harvest_kg'
+  );
+
+  mapText(
+    'harvest_cycles_per_year',
+    'group_ol25s52/group_gx2yj41/Number_of_Harvest_Cycles_per_Year'
+  );
+
+  mapText(
+    'source_of_seed_material',
+    'group_ol25s52/group_ge33v43/G_2_1_Source_of_Seed_terial_Fingerlings'
+  );
+
+  mapText(
+    'other_seed_source',
+    'group_ol25s52/group_ge33v43/other_g2_1_source'
+  );
+
+  mapText(
+    'good_agricultural_practices',
+    'group_ol25s52/group_ge33v43/G_2_2_Good_Agricultu_ctices_GAP_Applied'
+  );
+
+  mapText(
+    'other_agricultural_practice',
+    'group_ol25s52/group_ge33v43/other_g2_2_practice'
+  );
+
+  mapText(
+    'drying_method',
+    'group_ol25s52/group_ax9vm71/G_3_1_How_do_you_dry_roduce_after_harvest'
+  );
+
+  mapText(
+    'other_drying_method',
+    'group_ol25s52/group_ax9vm71/other_g3_1_method'
+  );
+
+  mapText(
+    'total_harvest_amount',
+    'group_ol25s52/group_ax9vm71/group_qb6sl57/A_Total_harvest_amount'
+  );
+
+  mapText(
+    'unit_total_harvest_amount',
+    'group_ol25s52/group_ax9vm71/group_qb6sl57/Unit_of_total_harvest_amount'
+  );
+
+  mapText(
+    'specify_other_harvest_unit',
+    'group_ol25s52/group_ax9vm71/group_qb6sl57/Specify_other_unit_o_total_harvest_amount'
+  );
+
+  mapText(
+    'amount_lost_or_spoiled',
+    'group_ol25s52/group_ax9vm71/group_qb6sl57/B_Amount_lost_or_spoiled'
+  );
+
+  mapText(
+    'unit_amount_lost_or_spoiled',
+    'group_ol25s52/group_ax9vm71/group_qb6sl57/Unit_of_amount_lost_or_spoiled'
+  );
+
+  mapText(
+    'other_unit_lost_or_spoiled',
+    'group_ol25s52/group_ax9vm71/Specify_other_unit_o_unt_lost_or_spaoiled'
+  );
+
+  mapText(
+    'main_causes_post_harvest_loss',
+    'group_ol25s52/G_3_3_Main_causes_of_ss_at_the_farm_level'
+  );
+
+  mapText(
+    'other_post_harvest_loss_cause',
+    'group_ol25s52/Specify_other_cause_ss_at_the_farm_level'
+  );
+
+  mapText(
+    'buyers_of_produce',
+    'group_ol25s52/G_4_1_Who_buys_your_produce'
+  );
+
+  mapText(
+    'other_buyers_of_produce',
+    'group_ol25s52/Specify_other_buyers_of_your_produce'
+  );
+
+  mapNumber(
+    'average_selling_price_per_unit',
+    'group_ol25s52/group_pp1qb95/Average_Selling_Price_per_Unit'
+  );
+
+  mapText(
+    'selling_price_unit',
+    'group_ol25s52/group_pp1qb95/Price_unit'
+  );
+
+  mapKoboArray(
+    'payment_terms',
+    'group_ol25s52/group_pp1qb95/Payment_terms'
+  );
+
+  mapText(
+    'farmer_harvester_ownership_status',
+    'group_ol25s52/group_eo8qx62/G_5_1_Farmer_Harvester_Ownership_Status'
+  );
+
+  mapText(
+    'farmer_harvester_ownership_other',
+    'group_ol25s52/group_eo8qx62/G_5_1_Farmer_Harvester_Ownership_Status_other_specify'
+  );
+
+  mapText(
+    'top_three_production_challenges',
+    'group_ol25s52/group_eo8qx62/G_5_2_Top_3_Challeng_Production_Expansion'
+  );
+
+  // ---------------------------------------------------
+  // Additional nutritional information
+  // ---------------------------------------------------
+
+  mapDoubleNumber(
+    'iron_content',
+    'group_kt9nn55/group_lh3ly24/Iron_Fe_WHO_RDA_6_1_mg_day_mg_100g'
+  );
+
+  mapDoubleNumber(
+    'zinc_content',
+    'group_kt9nn55/group_lh3ly24/Zinc_Zn_WHO_RDA_mg_day_mg_100g'
+  );
+
+  mapDoubleNumber(
+    'vitamin_a_content',
+    'group_kt9nn55/group_lh3ly24/Vitamin_A_Beta_Caro_g_day_g_RAE_100g'
+  );
+
+  mapDoubleNumber(
+    'calcium_content',
+    'group_kt9nn55/group_lh3ly24/Calcium_Ca_Target_0_mg_day_mg_100g'
+  );
+
+  // ---------------------------------------------------
+  // Retail product information
+  // ---------------------------------------------------
+
+  mapNumber(
+    'retail_product_1_price',
+    'group_pg1io48/group_wg2bc77/retail_product_1_group/_6_2_1_Retail_Price_per_Pack_TZS'
+  );
+
+  mapDoubleNumber(
+    'retail_product_1_weight',
+    'group_pg1io48/group_wg2bc77/retail_product_1_group/_6_2_2_Net_Weight_per_Unit'
+  );
+
+  mapText(
+    'retail_product_1_unit',
+    'group_pg1io48/group_wg2bc77/retail_product_1_group/_6_2_3_Net_weight_unit'
+  );
+
+  mapDoubleNumber(
+    'retail_product_1_cost_50g_kg',
+    'group_pg1io48/group_wg2bc77/retail_product_1_group/retail_product_1_cost_50g_kg'
+  );
+
+  mapNumber(
+    'retail_product_2_price',
+    'group_pg1io48/group_wg2bc77/retail_product_2_group/retail_product_2_price'
+  );
+
+  mapDoubleNumber(
+    'retail_product_2_weight',
+    'group_pg1io48/group_wg2bc77/retail_product_2_group/retail_product_2_weight'
+  );
+
+  mapText(
+    'retail_product_2_unit',
+    'group_pg1io48/group_wg2bc77/retail_product_2_group/retail_product_2_unit'
+  );
+
+  mapDoubleNumber(
+    'retail_product_2_cost_50g_kg',
+    'group_pg1io48/group_wg2bc77/retail_product_2_group/retail_product_2_cost_50g_kg'
+  );
+
+  mapNumber(
+    'retail_product_3_price',
+    'group_pg1io48/group_wg2bc77/retail_product_3_group/retail_product_3_price'
+  );
+
+  mapDoubleNumber(
+    'retail_product_3_weight',
+    'group_pg1io48/group_wg2bc77/retail_product_3_group/retail_product_3_weight'
+  );
+
+  mapText(
+    'retail_product_3_unit',
+    'group_pg1io48/group_wg2bc77/retail_product_3_group/retail_product_3_unit'
+  );
+
+  mapDoubleNumber(
+    'retail_product_3_cost_50g_kg',
+    'group_pg1io48/group_wg2bc77/retail_product_3_group/retail_product_3_cost_50g_kg'
+  );
+
+  // ---------------------------------------------------
+  // Packaging compliance
+  // ---------------------------------------------------
+
+  const packagingCompliancePrefix =
+    'group_pg1io48/packaging_labelling_compliance/';
+
+  for (const [key, value] of Object.entries(data || {})) {
+    if (
+      key.startsWith(packagingCompliancePrefix) &&
+      key.endsWith('_status')
+    ) {
+      const column = key
+        .replace(packagingCompliancePrefix, '')
+        .replace(/_status$/, '');
+
+      payload[`packaging_compliance_${column}`] = value;
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+  // ---------------------------------------------------
+  // Download and map producer photographs
+  // ---------------------------------------------------
+
+  const downloadedPhotos = await downloadKoboImages(data);
+
+  for (const [column, filename] of Object.entries(downloadedPhotos)) {
+    payload[column] = filename;
+  }
+
+
+
   
-
-
-
-
-mapText(
-  'ownership_structure_other',
-  'group_tt2fr91/_1_4b_Specify_other_ered_legal_structure'
-);
-mapText(
-  'facility_exterior_photo',
-  'group_ms1ds36/Photo_1_Facility_Exterior'
-);
-
-mapText(
-  'processing_floor_photo',
-  'group_ms1ds36/Photo_2_Processing_Floor'
-);
-
-mapText(
-  'packaged_end_product_photo',
-  'group_ms1ds36/Photo_3_Packaged_End_Product'
-);
-
-mapText(
-  'raw_material_storage_photo',
-  'group_ms1ds36/Photo_4_Raw_Material_Storage'
-);
-
   // ---------------------------------------------------
   // 4. GPS coordinates
   // ---------------------------------------------------
@@ -395,7 +843,7 @@ mapText(
   // 6. SME screening information
   // ---------------------------------------------------
 
-  mapArray('registration_type',
+  mapKoboArray('registration_type',
     'sme_screening/registration');
 
   mapText('registration_type_other',
@@ -506,7 +954,7 @@ mapText(
   mapNumber('equity_score',
     SME + 'sme_cat_equity/equity_score');
 
-  mapArray('applicable_tiers',
+  mapKoboArray('applicable_tiers',
     SME + 'applicable_tiers');
 
   mapText('remarks_sme_screening',
@@ -519,13 +967,13 @@ mapText(
   // 7. Raw materials and sourcing
   // ---------------------------------------------------
 
-  mapArray('product_types',
+  mapKoboArray('product_types',
     'sme_screening/product_types');
 
-  mapArray('primary_raw_materials',
+  mapKoboArray('primary_raw_materials',
     'group_ol25s52/_2_1_Primary_Raw_Materials_Sour');
 
-  mapArray('primary_sourcing_channels',
+  mapKoboArray('primary_sourcing_channels',
     'group_ol25s52/_2_2_Primary_Sourcing_Channels');
 
   mapText('adequate_warehouse_storage_available',
@@ -537,7 +985,7 @@ mapText(
   mapText('functional_dis_logistics_available',
     'group_ol25s52/group_bi6dd29/_2_3_2_Functional_dis_logistics_available');
 
-  mapArray('shortage_months',
+  mapKoboArray('shortage_months',
     'group_ol25s52/group_bi6dd29/_2_3_3_Months_of_Sev_tage_or_Price_Spikes');
 
   // ---------------------------------------------------
@@ -556,10 +1004,10 @@ mapText(
   mapText('machinery_grade_and_processing_setup',
     'group_in2zi20/_3_3_1_Machinery_Grad_and_Processing_Setup');
 
-  mapArray('equipment_installed',
+  mapKoboArray('equipment_installed',
     'group_in2zi20/_3_3_2_Equipment_Inst_Check_all_that_apply');
 
-  mapArray('facility_type',
+  mapKoboArray('facility_type',
     'group_in2zi20/_3_3b_Facility_Type');
 
   mapText('processing_pre_t_i_nutrient_reduction',
@@ -602,7 +1050,7 @@ mapText(
   mapText('polyunsaturated_fatty_acids',
     'group_kt9nn55/group_uu6rr68/Polyunsaturated_Fatty_Acids_PUFAs');
 
-  mapArray('pro_vitamin_a_biofortification_source',
+  mapKoboArray('pro_vitamin_a_biofortification_source',
     'group_kt9nn55/group_uu6rr68/Pro_Vitamin_A_Biofortification_Source');
 
   mapText('has_laboratory_molar_on_finished_product',
@@ -636,7 +1084,7 @@ mapText(
   mapText('nd_batch_record_logs',
     'group_vz9uu61/group_rc6ev70/group_ed6sx51/Does_the_enterprise_ND_batch_record_logs');
 
-  mapArray('quality_control_infrastructure',
+  mapKoboArray('quality_control_infrastructure',
     'group_vz9uu61/group_rc6ev70/_5_3_Quality_Control_sting_Infrastructure');
 
   mapText('quality_control_testing_protocols', 
@@ -670,7 +1118,7 @@ mapText(
   mapText('is_any_packaging_material_specified',
     'group_vz9uu61/group_rc6ev70/group_dj46v51/group_xv65w58/Is_any_packaging_material_spec');
 
-  mapArray('has_the_suitability_tested_with_the_product',
+  mapKoboArray('has_the_suitability_tested_with_the_product',
     'group_vz9uu61/group_rc6ev70/group_dj46v51/Has_the_suitability_ted_with_the_product');
 
   mapText('primary_method_used_to_seal_the_package',
@@ -686,10 +1134,10 @@ mapText(
   // 12. Distribution
   // ---------------------------------------------------
 
-  mapArray('distribution_channels',
+  mapKoboArray('distribution_channels',
     'group_pg1io48/_6_1_Distribution_Channels_Place');
 
-  mapArray('geographic_distribution_scope',
+  mapKoboArray('geographic_distribution_scope',
     'group_pg1io48/_6_1_1_Geographic_Distribution_Scope');
 
   mapText('packaging_supply_constraints',

@@ -250,6 +250,399 @@ ownership_structure_other: {
   type: DataTypes.TEXT,
   allowNull: true
 },
+
+
+
+
+
+
+
+
+
+// ---------------------------------------------------
+// Additional enterprise and product information
+// ---------------------------------------------------
+
+ingredients: {
+  type: DataTypes.TEXT,
+  allowNull: true
+},
+
+commercial_brand_names: {
+  type: DataTypes.ARRAY(DataTypes.STRING),
+  allowNull: true
+},
+
+commercial_product_1: {
+  type: DataTypes.STRING(255),
+  allowNull: true
+},
+
+// ---------------------------------------------------
+// Additional storage information
+// ---------------------------------------------------
+
+total_quantity_required_per_season_month: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+quantity_handled_stored_low_season: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+quantity_stored_unit: {
+  type: DataTypes.STRING(50),
+  allowNull: true
+},
+
+quantity_lost_or_spoiled: {
+  type: DataTypes.STRING(100),
+  allowNull: true
+},
+
+unit_lost_or_spoiled: {
+  type: DataTypes.STRING(50),
+  allowNull: true
+},
+
+main_storage_capacity_unit: {
+  type: DataTypes.STRING(50),
+  allowNull: true
+},
+
+// main_storage_challenges already exists in your model.
+// Its type is ARRAY(DataTypes.STRING).
+
+// ---------------------------------------------------
+// Agricultural production information
+// ---------------------------------------------------
+
+total_area_crops_cultivated: {
+  type: DataTypes.STRING(50),
+  allowNull: true
+},
+
+total_area_harvested: {
+  type: DataTypes.STRING(50),
+  allowNull: true
+},
+
+ropes_for_seaweed_harvested: {
+  type: DataTypes.STRING(50),
+  allowNull: true
+},
+
+amount_of_seaweed_harvested: {
+  type: DataTypes.STRING(50),
+  allowNull: true
+},
+
+number_of_boats_for_dagaa: {
+  type: DataTypes.STRING(50),
+  allowNull: true
+},
+
+average_crop_yield_per_harvest: {
+  type: DataTypes.STRING(50),
+  allowNull: true
+},
+
+source_of_seed_material: {
+  type: DataTypes.STRING(100),
+  allowNull: true
+},
+
+other_seed_source: {
+  type: DataTypes.STRING(255),
+  allowNull: true
+},
+
+good_agricultural_practices: {
+  type: DataTypes.STRING(255),
+  allowNull: true
+},
+
+other_agricultural_practice: {
+  type: DataTypes.STRING(255),
+  allowNull: true
+},
+
+drying_method: {
+  type: DataTypes.STRING(100),
+  allowNull: true
+},
+
+other_drying_method: {
+  type: DataTypes.STRING(255),
+  allowNull: true
+},
+
+total_harvest_amount: {
+  type: DataTypes.STRING(50),
+  allowNull: true
+},
+
+unit_total_harvest_amount: {
+  type: DataTypes.STRING(50),
+  allowNull: true
+},
+
+specify_other_harvest_unit: {
+  type: DataTypes.STRING(100),
+  allowNull: true
+},
+
+amount_lost_or_spoiled: {
+  type: DataTypes.STRING(50),
+  allowNull: true
+},
+
+unit_amount_lost_or_spoiled: {
+  type: DataTypes.STRING(50),
+  allowNull: true
+},
+
+other_unit_lost_or_spoiled: {
+  type: DataTypes.STRING(100),
+  allowNull: true
+},
+
+main_causes_post_harvest_loss: {
+  type: DataTypes.STRING(255),
+  allowNull: true
+},
+
+other_post_harvest_loss_cause: {
+  type: DataTypes.STRING(255),
+  allowNull: true
+},
+
+buyers_of_produce: {
+  type: DataTypes.STRING(255),
+  allowNull: true
+},
+
+other_buyers_of_produce: {
+  type: DataTypes.STRING(255),
+  allowNull: true
+},
+
+average_selling_price_per_unit: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+selling_price_unit: {
+  type: DataTypes.STRING(50),
+  allowNull: true
+},
+
+payment_terms: {
+  type: DataTypes.ARRAY(DataTypes.STRING),
+  allowNull: true
+},
+
+farmer_harvester_ownership_status: {
+  type: DataTypes.STRING(100),
+  allowNull: true
+},
+
+farmer_harvester_ownership_other: {
+  type: DataTypes.STRING(255),
+  allowNull: true
+},
+
+top_three_production_challenges: {
+  type: DataTypes.TEXT,
+  allowNull: true
+},
+
+// ---------------------------------------------------
+// Additional nutritional information
+// ---------------------------------------------------
+
+iron_content: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+zinc_content: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+vitamin_a_content: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+calcium_content: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+// ---------------------------------------------------
+// Retail product information
+// ---------------------------------------------------
+
+retail_product_1_price: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+retail_product_1_weight: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+retail_product_1_unit: {
+  type: DataTypes.STRING(50),
+  allowNull: true
+},
+
+retail_product_1_cost_50g_kg: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+retail_product_2_price: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+retail_product_2_weight: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+retail_product_2_unit: {
+  type: DataTypes.STRING(50),
+  allowNull: true
+},
+
+retail_product_2_cost_50g_kg: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+retail_product_3_price: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+retail_product_3_weight: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+retail_product_3_unit: {
+  type: DataTypes.STRING(50),
+  allowNull: true
+},
+
+retail_product_3_cost_50g_kg: {
+  type: DataTypes.DOUBLE,
+  allowNull: true
+},
+
+// ---------------------------------------------------
+// Packaging compliance
+// ---------------------------------------------------
+
+packaging_compliance_group_ga2fx66_row_11: {
+  type: DataTypes.STRING(20),
+  allowNull: true
+},
+
+packaging_compliance_group_ga2fx66_row_1: {
+  type: DataTypes.STRING(20),
+  allowNull: true
+},
+
+packaging_compliance_group_ga2fx66_row_3: {
+  type: DataTypes.STRING(20),
+  allowNull: true
+},
+
+packaging_compliance_group_ga2fx66_row_9: {
+  type: DataTypes.STRING(20),
+  allowNull: true
+},
+
+packaging_compliance_group_ga2fx66_row_14: {
+  type: DataTypes.STRING(20),
+  allowNull: true
+},
+
+packaging_compliance_group_ga2fx66_row_12: {
+  type: DataTypes.STRING(20),
+  allowNull: true
+},
+
+packaging_compliance_group_ga2fx66_row_4: {
+  type: DataTypes.STRING(20),
+  allowNull: true
+},
+
+packaging_compliance_group_ga2fx66_row_7: {
+  type: DataTypes.STRING(20),
+  allowNull: true
+},
+
+packaging_compliance_group_ga2fx66_row_16: {
+  type: DataTypes.STRING(20),
+  allowNull: true
+},
+
+packaging_compliance_group_ga2fx66_row: {
+  type: DataTypes.STRING(20),
+  allowNull: true
+},
+
+packaging_compliance_group_ga2fx66_row_8: {
+  type: DataTypes.STRING(20),
+  allowNull: true
+},
+
+packaging_compliance_group_ga2fx66_row_5: {
+  type: DataTypes.STRING(20),
+  allowNull: true
+},
+
+packaging_compliance_group_ga2fx66_row_10: {
+  type: DataTypes.STRING(20),
+  allowNull: true
+},
+
+packaging_compliance_group_ga2fx66_row_15: {
+  type: DataTypes.STRING(20),
+  allowNull: true
+},
+
+packaging_compliance_group_ga2fx66_row_13: {
+  type: DataTypes.STRING(20),
+  allowNull: true
+},
+
+packaging_compliance_group_ga2fx66_row_2: {
+  type: DataTypes.STRING(20),
+  allowNull: true
+},
+
+packaging_compliance_group_ga2fx66_row_6: {
+  type: DataTypes.STRING(20),
+  allowNull: true
+},
+
+
+
+
+
+
+
+
 facility_exterior_photo: {
   type: DataTypes.STRING(500),
   allowNull: true

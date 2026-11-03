@@ -1,7 +1,4 @@
 
-
-this is the submitted data
-
 Kobo submission: {
    _id: 906368801,
    'formhub/uuid': 'cd4db032252e4e8fba35b92d57377bfa',
@@ -306,7 +303,6 @@ Kobo submission: {
    _validation_status: {},
    _submitted_by: null
  }
-
  Creating producer from Kobo submission
  Location: {
    region: 'Dar Es Salaam',
@@ -341,6 +337,11 @@ Kobo submission: {
    physical_address: 'Kiyombo Street-Kitunda',
    business_owner: '1. Method Thomas Misalaba 2. Charles Thomas Misalaba',
    business_owner_email: 'longlifenaturalfoods@gmail.com',
+   ownership_structure_other: 'Registered and Certified by TBS',
+   facility_exterior_photo: 'WhatsApp Image 2026-11-02 at 4.36.23 PM-16_38_42.jpeg',
+   processing_floor_photo: 'WhatsApp Image 2026-11-02 at 5.07.50 PM-17_8_28.jpeg',
+   packaged_end_product_photo: 'WhatsApp Image 2026-11-02 at 4.34.09 PM (2)-16_40_49.jpeg',
+   raw_material_storage_photo: 'WhatsApp Image 2026-11-02 at 4.34.09 PM (1)-16_39_51.jpeg',
    latitude: -2.527954,
    longitude: 32.907506,
    region: 'Dar Es Salaam',
@@ -402,6 +403,7 @@ Kobo submission: {
    shortage_months: [ 'january february november december' ],
    production_capacity: 2000,
    production_capacity_ton_month: 40000,
+   actual_operational_output_ton_month: 40000,
    machinery_grade_and_processing_setup: 'moderate_grade__semi_automated_machinery',
    equipment_installed: [
      'hammer_mill',
@@ -461,17 +463,35 @@ Kobo submission: {
    casual_male_employees: 0,
    casual_female_employees: 0,
    financial_inclusiveness_infrastructure: 'formal_registered_business_bank_account active_mobile_money_business_till___payb',
-   specify_financial_inclusiveness_infrastructure: 'None'
+   specify_financial_inclusiveness_infrastructure: 'None',
+   financial_remarks: 'None',
+   innovation_awareness: 'no',
+   innovation_remarks: 'None'
  }
 
 
- error: value too long for type character varying(100) {"method":"POST","path":"/api/producers/","timestamp":"2026-11-02T15:29:34.111Z"}
- 54.173.119.119 - kobo_integration [02/Nov/2026:15:29:34 +0000] "POST /api/producers/ HTTP/1.1" 500 33 "-" "KoboToolbox external service #hwBXTYqnRhJpAdFLmmQufY"
+in the create method below get the missing fields in the Kobo submission data above and add write a javascript code to get the images and save them to a local directory (./images/) using download_medium_url, 
+they should be save with names similar to their original filenames. as in the variables below
 
+mapText(
+  'facility_exterior_photo',
+  'group_ms1ds36/Photo_1_Facility_Exterior'
+);
 
- below is my create method, add all the missing fields to the payload object and ensure that the data is correctly mapped from the Kobo submission to the payload.
-also add the missing fields to the producer model below
+mapText(
+  'processing_floor_photo',
+  'group_ms1ds36/Photo_2_Processing_Floor'
+);
 
+mapText(
+  'packaged_end_product_photo',
+  'group_ms1ds36/Photo_3_Packaged_End_Product'
+);
+
+mapText(
+  'raw_material_storage_photo',
+  'group_ms1ds36/Photo_4_Raw_Material_Storage'
+);
 
 async function create(data, userId) {
   console.log('Creating producer from Kobo submission');
@@ -583,9 +603,14 @@ async function create(data, userId) {
 
   const mapDoubleNumber = (column, key) => {
     const rawValue = getValue(key);
-    const value = parseFloat(rawValue);
 
-    if (!isNaN(value)) {
+    if (rawValue === undefined || rawValue === 'None' || rawValue === 'NA') {
+      return;
+    }
+
+    const value = Number(rawValue);
+
+    if (Number.isFinite(value)) {
       payload[column] = value;
     }
   };
@@ -641,6 +666,31 @@ async function create(data, userId) {
 
   mapText('business_owner_email',
     'group_tt2fr91/group_gt2bp34/E_mail_address_of_an_owner');
+
+
+mapText(
+  'ownership_structure_other',
+  'group_tt2fr91/_1_4b_Specify_other_ered_legal_structure'
+);
+mapText(
+  'facility_exterior_photo',
+  'group_ms1ds36/Photo_1_Facility_Exterior'
+);
+
+mapText(
+  'processing_floor_photo',
+  'group_ms1ds36/Photo_2_Processing_Floor'
+);
+
+mapText(
+  'packaged_end_product_photo',
+  'group_ms1ds36/Photo_3_Packaged_End_Product'
+);
+
+mapText(
+  'raw_material_storage_photo',
+  'group_ms1ds36/Photo_4_Raw_Material_Storage'
+);
 
   // ---------------------------------------------------
   // 4. GPS coordinates
@@ -856,7 +906,7 @@ async function create(data, userId) {
     'group_in2zi20/_3_2_2_Installed_pro_g_capacity_ton_month');
 
   mapDoubleNumber('actual_operational_output_ton_month',
-    'group_in2zi20/group_in2zi20/_3_2_3_Actual_Operat_al_Output_ton_month');
+    'group_in2zi20/_3_2_3_Actual_Operat_al_Output_ton_month');
 
   mapText('machinery_grade_and_processing_setup',
     'group_in2zi20/_3_3_1_Machinery_Grad_and_Processing_Setup');
@@ -944,7 +994,7 @@ async function create(data, userId) {
   mapArray('quality_control_infrastructure',
     'group_vz9uu61/group_rc6ev70/_5_3_Quality_Control_sting_Infrastructure');
 
-  mapText('quality_control_testing_protocols',
+  mapText('quality_control_testing_protocols', 
     'group_vz9uu61/group_rc6ev70/_5_4_Quality_Control_ty_Testing_Protocols');
 
   mapText('external_specialized_testing_utilization',
@@ -1025,6 +1075,21 @@ async function create(data, userId) {
   mapText('specify_financial_inclusiveness_infrastructure',
     'group_mu73u63/Specify_Financial_In_iness_Infrastructure');
 
+  mapText(
+    'financial_remarks',
+    'group_mu73u63/remarks_group_mu73u63'
+  );
+
+  mapText(
+    'innovation_awareness',
+    'group_nw4oo06/Do_you_know_any_othe_a_groundnuts_senene'
+  );
+
+  mapText(
+    'innovation_remarks',
+    'group_nw4oo06/remarks_group_nw4oo06'
+  );
+
   // ---------------------------------------------------
   // 14. Validate required fields
   // ---------------------------------------------------
@@ -1087,7 +1152,6 @@ async function create(data, userId) {
     kobotoolbox_submission_id: getValue('_id'),
     enumerator: getValue('group_tt2fr91/Enumerator_s_name'),
     data_stream_source: getValue('group_tt2fr91/Data_Stream_Source'),
-    source: 'kobotoolbox'
   };
 
   await db.survey.create(survey_payload);
@@ -1098,8 +1162,8 @@ async function create(data, userId) {
 }
 
 
-below in my producer model
-what a re the missing field from the kobo data
+
+below is the produce model, add the missing fields in the model
 
 module.exports = (sequelize, DataTypes) => {
   const Producer = sequelize.define(
@@ -1183,8 +1247,8 @@ module.exports = (sequelize, DataTypes) => {
       incubation_status: { type: DataTypes.STRING(100), allowNull: true },
       nd_batch_record_logs: { type: DataTypes.STRING(100), allowNull: true },
       quality_control_infrastructure: { type: DataTypes.ARRAY(DataTypes.STRING), allowNull: true },
-      
-      quality_control_testing_protocols: { type: DataTypes.STRING(100), allowNull: true },
+    
+      quality_control_testing_protocols: { type: DataTypes.STRING(500), allowNull: true },
       external_specialized_testing_utilization: { type: DataTypes.STRING(100), allowNull: true },
       type_of_packaging_currently_used: { type: DataTypes.STRING(100), allowNull: true },
       packaging_material: { type: DataTypes.STRING(100), allowNull: true },
@@ -1330,6 +1394,46 @@ financial_inclusiveness_infrastructure: {
 
 specify_financial_inclusiveness_infrastructure: {
   type: DataTypes.STRING(255),
+  allowNull: true
+},
+
+
+
+financial_remarks: {
+  type: DataTypes.TEXT,
+  allowNull: true
+},
+
+innovation_awareness: {
+  type: DataTypes.STRING(100),
+  allowNull: true
+},
+
+innovation_remarks: {
+  type: DataTypes.TEXT,
+  allowNull: true
+},
+ownership_structure_other: {
+  type: DataTypes.TEXT,
+  allowNull: true
+},
+facility_exterior_photo: {
+  type: DataTypes.STRING(500),
+  allowNull: true
+},
+
+processing_floor_photo: {
+  type: DataTypes.STRING(500),
+  allowNull: true
+},
+
+packaged_end_product_photo: {
+  type: DataTypes.STRING(500),
+  allowNull: true
+},
+
+raw_material_storage_photo: {
+  type: DataTypes.STRING(500),
   allowNull: true
 },
 
