@@ -1,0 +1,39 @@
+
+
+*** APP LOCALIZATION GENERATE COMMANDS ***
+flutter gen-l10n
+
+*** ANDROID COMMANDS ***
+
+flutter build appbundle --release
+
+
+*** WEB COMMANDS ***
+flutter build web
+flutter build web --pwa-strategy=none
+
+scp -r .\web ubuntu@telabs.co.tz:~/
+
+ssh ubuntu@telabs.co.tz
+
+cd /var/www/nutrimap/
+
+sudo rm -r web/
+
+sudo mv ~/web/ ./
+
+sudo chown -R www-data:www-data /var/www/nutrimap/web
+
+sudo chmod -R 755 /var/www/nutrimap/web
+
+Taking a MySQL database backup
+scp ubuntu@telabs.co.tz:"/home/ubuntu/backups/nutrimap_backup.sql" ./backups
+
+
+
+sequelize db:migrate:undo --name 011-create-surveys.js
+sequelize db:migrate:undo --name 010-create-certifications.js
+sequelize db:migrate:undo --name 009-create-nutrient-profiles.js
+sequelize db:migrate:undo --name 008-create-raw-materials.js
+sequelize db:migrate:undo --name 007-create-products.js
+sequelize db:migrate:undo --name 006-create-producers.js

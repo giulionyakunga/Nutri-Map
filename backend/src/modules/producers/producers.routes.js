@@ -1,4 +1,5 @@
 const express = require('express');
+const path = require('path');
 const { body, param } = require('express-validator');
 const controller = require('./producers.controller');
 const { authenticate } = require('../../middleware/auth');
@@ -12,6 +13,22 @@ router.get('/', controller.list);
 router.get('/geojson', controller.geojson);
 router.get('/:id', param('id').isInt(), validate, controller.getOne);
 router.get('/:id/profile', param('id').isInt(), validate, controller.getProfile);
+
+// Route to get an image by name
+router.get('/image/:imageName', (req, res) => {
+    const imageName = req.params.imageName;
+    const imagePath = path.resolve(__dirname, '../../../images', imageName);
+
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> Getting image, imageName : ", imageName, ", imagePath : ", imagePath);
+
+    // Check if the image exists and send it
+    res.sendFile(imagePath, (err) => {
+        if (err) {
+            console.log("An Error Occured: ", err)
+            res.status(404).json({ error: 'Image not found' });
+        }
+    });
+});
 
 router.post(
   '/',

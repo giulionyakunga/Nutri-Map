@@ -2,6 +2,8 @@
 
 module.exports = {
   async up(queryInterface, Sequelize) {
+    const DataTypes = Sequelize.DataTypes;
+
     await queryInterface.createTable('surveys', {
       id: {
         type: Sequelize.INTEGER,
