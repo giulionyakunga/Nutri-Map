@@ -32,7 +32,7 @@ router.get('/image/:imageName', (req, res) => {
 
 router.post(
   '/',
-  // authenticate,
+  authenticate,
   // requireRole(...WRITE_ROLES),
   // [
   //   body('registrationType').optional({ nullable: true }).isIn(['formal', 'informal']),
