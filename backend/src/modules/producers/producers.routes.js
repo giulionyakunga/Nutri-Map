@@ -24,8 +24,8 @@ router.get('/image/:imageName', (req, res) => {
     // Check if the image exists and send it
     res.sendFile(imagePath, (err) => {
         if (err) {
-            console.log("An Error Occured: ", err)
-            res.status(404).json({ error: 'Image not found' });
+          console.log("An Error Occured: ", err)
+          res.status(404).json({ error: 'Image not found' });
         }
     });
 });
@@ -33,24 +33,9 @@ router.get('/image/:imageName', (req, res) => {
 router.post(
   '/',
   authenticate,
-  // requireRole(...WRITE_ROLES),
-  // [
-  //   body('registrationType').optional({ nullable: true }).isIn(['formal', 'informal']),
-  //   body('businessName').trim().notEmpty().isLength({ max: 255 }),
-  //   body('physicalAddress').trim().notEmpty().isLength({ max: 500 }),
-  //   body('regionId').isInt({ min: 1 }),
-  //   body('districtId').optional({ nullable: true }).isInt({ min: 1 }),
-  //   body('wardId').optional({ nullable: true }).isInt({ min: 1 }),
-  //   body('latitude').isFloat({ min: -90, max: 90 }),
-  //   body('longitude').isFloat({ min: -180, max: 180 }),
-  //   body('productionCapacity').optional({ nullable: true }).isInt({ min: 0 }),
-  //   body('dailyOutput').optional({ nullable: true }).isInt({ min: 0 }),
-  //   body('numberOfEmployees').optional({ nullable: true }).isInt({ min: 0 }),
-  //   body('email').optional({ nullable: true }).isEmail(),
-  //   body('phone').optional({ nullable: true }).isString().isLength({ max: 30 })
-  // ],
-  // validate,
-  controller.create
+  requireRole(...WRITE_ROLES),
+  validate,
+  controller.create 
 );
 
 router.put(

@@ -32,7 +32,14 @@ const allowedOrigins = (process.env.CORS_ALLOWED_ORIGINS || '').split(',').map((
 // );
 
 app.use(cors({
-    exposedHeaders: ['X-Custom-Header']
+    exposedHeaders: ['X-Custom-Header'],
+    allowedHeaders: [
+      'Content-Type',
+      'Authorization',
+      'X-Client-Id',
+      'X-Client-Secret',
+      'X-API-Key'
+    ]
 }))
 
 app.use(compression());

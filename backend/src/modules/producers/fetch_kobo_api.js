@@ -1,9 +1,9 @@
 // resubmit-kobo.js
 // Run with: node resubmit-kobo.js
 
-const KOBO_BASE_URL = 'https://kf.kobotoolbox.org';   // EU: https://eu.kobotoolbox.org
-const KOBO_TOKEN = 'efcbe55609323fae7442cad564a90d4e57ba7f2a';
-const FORM_UID      = 'a3cfYtYiAW5BnDJ7TreKeU';      // your form's asset UID
+const KOBO_BASE_URL = 'https://kf.kobotoolbox.org';
+const KOBO_TOKEN = process.env.KOBO_TOKEN;
+const FORM_UID      = process.env.FORM_UID;
 
 const YOUR_API_URL  = 'https://nutrimap.telabs.co.tz/api/producers/';
 const YOUR_API_TOKEN = process.env.MY_API_TOKEN;     // if your API needs auth

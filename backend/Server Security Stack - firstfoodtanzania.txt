@@ -1,0 +1,93 @@
+
+
+1. SSH security stack (Port 2222)
+
+                 INTERNET
+                    │
+                    ▼
+                TCP :2222
+                    │
+                    ▼
+              ┌───────────┐
+              │    UFW    │
+              └─────┬─────┘
+                    │
+                    ▼
+              ┌───────────┐
+              │ Fail2ban  │
+              └─────┬─────┘
+                    │
+                    ▼
+                  sshd
+                    │
+          ┌─────────┼──────────────┐
+          │         │              │
+          ▼         ▼              ▼
+    PermitRoot   Password      Public-key
+    Login no     Auth no       Auth yes
+                    │
+                    ▼
+                  ubuntu
+                    │
+                    ▼
+               MaxAuthTries 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+               
+
+
+2. HTTP/HTTPS security stack (Ports 80/443)
+
+                       INTERNET
+                          │
+                          ▼
+                 ┌─────────────────┐
+                 │  UFW FIREWALL   │ NOT ENFORCED
+                 │  TCP :80/:443   │
+                 └────────┬────────┘
+                          │
+                          ▼
+                 ┌─────────────────┐
+                 │     NGINX       │
+                 │ Reverse Proxy   │
+                 └────────┬────────┘
+                          │
+                 ┌────────▼─────────┐
+                 │  Rate Limiting   │
+                 │  Request Limits  │
+                 └────────┬─────────┘
+                          │
+                          ▼
+                 ┌─────────────────────┐
+                 │ API AUTHORIZATION/  │
+                 │ AUTHENTICATION KEYS │
+                 └────────┬────────────┘
+                          │
+                    ┌─────▼───────┐
+                    │ Validate    │
+                    │ Credentials │
+                    └─────┬───────┘
+                          │
+                  ┌───────┴────────┐
+                  │                │
+                VALID            INVALID
+                  │                │
+                  ▼                ▼
+             Applications      HTTP 401/403
+                  │
+          ┌───────┴────────┐
+          │                │
+          ▼                ▼
+       Backend          Database
+       APIs             Services
