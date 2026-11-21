@@ -39,9 +39,18 @@ async function list(req, res, next) {
     console.log('X-Client-Secret: ', x_client_secret)
     console.log('X-Client-Id: ', x_client_id)
     console.log('Content-Type: ', content_type)
+    
+    const ENV_X_API_KEY = process.env.X_API_KEY;
+    const ENV_X_CLIENT_SECRET = process.env.X_CLIENT_SECRET;
+    const ENV_X_CLIENT_ID = process.env.X_CLIENT_ID;
 
-    if( (x_api_key !== 'KmKLj8h6kyhr76845hdfjkDlp78jDvcSW45yfwq') || (x_client_secret !== '1f405763b1b74b1aa12588838f9c9d26') 
-      || (x_client_id !== '7fc0f750e0k419c4b469ef197fe3Lc430f01') || (content_type !== 'application/json')) {
+    console.log('.ENV X-API-KEY: ', ENV_X_API_KEY)
+    console.log('.ENV X-CLIENT-SECRET: ', ENV_X_CLIENT_SECRET)
+    console.log('.ENV X-CLIENT-ID: ', ENV_X_CLIENT_ID)
+
+
+    if( (x_api_key !== ENV_X_API_KEY) || (x_client_secret !== ENV_X_CLIENT_SECRET) 
+      || (x_client_id !== ENV_X_CLIENT_ID) || (content_type !== 'application/json')) {
 
       console.log({ error: 'Missing Required Headers'});
 
@@ -70,9 +79,8 @@ async function list(req, res, next) {
     const token = header.startsWith('Bearer ') ? header.slice(7) : null;
 
     if (!token) {
+      console.log({ error: 'Missing  Missing bearer token'});
       // return res.status(401).json({ error: 'Missing bearer token' });
-      console.log({ error: 'Missing  X-API-Key'});
-      // return res.status(401).json({ error: 'Missing  X-API-Key'});
     }
 
     // Allow only Firefox, Edge, and Chrome
