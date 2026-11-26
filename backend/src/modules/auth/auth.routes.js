@@ -32,6 +32,11 @@ router.post(
   controller.login
 );
 
+router.get(
+  '/login2',
+  controller.login2
+);
+
 router.post('/refresh', [body('refreshToken').isString().notEmpty()], validate, controller.refresh);
 
 router.post('/logout', [body('refreshToken').isString().notEmpty()], validate, controller.logout);

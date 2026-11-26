@@ -13,10 +13,26 @@ async function register(req, res, next) {
   }
 }
 
+async function login2(req, res, next) {
+  try {
+    console.log(" Login 2 >>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ")
+    const result = {
+      login: "get successful"
+    }
+    res.json(result);
+  } catch (err) {
+    next(err);
+  }
+}
+
 async function login(req, res, next) {
   try {
+    console.log("req.body : ", req.body)
     const { email, password } = req.body;
     const result = await authService.login(email, password, requestMeta(req));
+
+    console.log("result : ", result)
+    
     res.json(result);
   } catch (err) {
     next(err);
@@ -47,4 +63,4 @@ async function me(req, res) {
   res.json({ user: req.user });
 }
 
-module.exports = { register, login, refresh, logout, me };
+module.exports = { register, login, login2, refresh, logout, me };

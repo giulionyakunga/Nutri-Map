@@ -76,15 +76,21 @@ async function login(email, password, meta) {
     throw err;
   }
 
-  if (user.locked_until && user.locked_until > new Date()) {
-    const err = new Error('Account temporarily locked due to repeated failed login attempts');
-    err.status = 423;
-    throw err;
-  }
+  // if (user.locked_until && user.locked_until > new Date()) {
+  //   const err = new Error('Account temporarily locked due to repeated failed login attempts');
+  //   err.status = 423;
+  //   throw err;
+  // }
+
+  
+  console.log("password : ", password)
 
   const valid = await bcrypt.compare(password, user.password_hash);
 
   if (!valid) {
+
+    console.log("Invalid password : ", password)
+
     const attempts = user.failed_login_attempts + 1;
     const update = { failed_login_attempts: attempts };
     if (attempts >= MAX_ATTEMPTS) {
@@ -98,16 +104,25 @@ async function login(email, password, meta) {
   }
 
   if (user.status !== 'active') {
+    console.log(`Account is ${user.status}`)
+
     const err = new Error(`Account is ${user.status}`);
     err.status = 403;
     throw err;
   }
 
+  console.log(`success`)
+
   await user.update({ failed_login_attempts: 0, locked_until: null, last_login_at: new Date() });
+
+  console.log(`success 2`)
 
   const accessToken = signAccessToken(user);
   const refreshToken = signRefreshToken(user);
   await persistRefreshToken(user.id, refreshToken, meta);
+
+    console.log(`success 3`)
+
 
   return {
     accessToken,
