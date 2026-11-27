@@ -147,8 +147,8 @@ Ensure you have the following installed:
 ### 1. Clone the Repository
 
 ```bash
-git clone <BACKEND_REPOSITORY_URL>
-cd <BACKEND_REPOSITORY_NAME>
+git clone git@github.com:giulionyakunga/Nutri-Map.git
+cd Nutri-Map
 ```
 
 ### 2. Install Dependencies
