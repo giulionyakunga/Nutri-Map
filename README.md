@@ -1,5 +1,3 @@
-﻿# tito-devsec sync note
-
 # First Foods Tanzania – Backend API
 
 ## Overview
