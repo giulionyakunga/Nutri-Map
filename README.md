@@ -1,12 +1,13 @@
+
 # First Foods Tanzania – Backend API
 
 ## Overview
 
 The First Foods Tanzania (FFT) Food Producer Mapping System is a digital platform developed to support the identification, mapping, documentation and management of local producers of nutritious foods across selected regions of Tanzania.
 
-This repository contains the backend API that powers the First Foods Tanzania web platform, providing the data management, database connectivity and API services required to manage food producer information and support geographic visualization of producers.
+This repository contains the backend API that powers the First Foods Tanzania platform. It provides database management, data processing, API services and integration with KoboToolbox for digital data collection.
 
-The system is being developed to support the First Foods Tanzania initiative in mapping local food producers, including small-scale processors, food enterprises, farmer groups and cooperatives involved in producing, processing or supplying nutritious foods.
+Food producer data collected through KoboToolbox is transmitted to the backend system through REST API integration, enabling collected field data to be processed, stored and made available to the frontend application for visualization and management.
 
 Website: https://firstfoodtanzania.co.tz/
 
@@ -16,18 +17,80 @@ Website: https://firstfoodtanzania.co.tz/
 - **Express.js** – REST API framework.
 - **Sequelize** – ORM for database management and data modeling.
 - **PostgreSQL** – Relational database management system.
-- **REST API** – Communication between the backend and frontend applications.
+- **KoboToolbox** – Digital field data collection and survey platform.
+- **REST API** – Integration and communication between systems.
 
 ## Key Features
 
 - Food producer information management.
 - Producer registration and profile management.
+- KoboToolbox REST API integration for field data collection.
+- Automated transfer of collected survey data from KoboToolbox to the backend.
+- Processing and storage of food producer data collected from field surveys.
 - Structured relational database for producer information.
 - Management of producer locations and geographical coordinates.
 - API endpoints for retrieving producer data.
 - Support for geographic mapping and location-based visualization.
 - Data management for nutritious food producers and their products.
 - Integration with the Flutter frontend application.
+
+## KoboToolbox Integration and Data Collection
+
+The First Foods Tanzania mapping initiative uses KoboToolbox for digital field data collection. Field teams use KoboToolbox forms to capture information about nutritious food producers, their business operations, products, production capacity, locations and other relevant information.
+
+Collected data is transferred from KoboToolbox to the First Foods Tanzania backend through REST API integration.
+
+### Data Collection Workflow
+
+1. Field teams collect producer information using digital forms deployed through KoboToolbox.
+2. Survey submissions are recorded and stored within KoboToolbox.
+3. The backend system retrieves or receives submitted data through REST API integration.
+4. The backend processes and structures the collected information.
+5. Validated data is stored in the PostgreSQL database through Sequelize.
+6. Producer data is exposed through backend API endpoints.
+7. The frontend application retrieves the data and displays producers through the interactive mapping platform.
+
+### Data Pipeline
+
+```text
+Field Data Collection
+        |
+        v
+   KoboToolbox
+        |
+        | REST API Integration
+        v
+ Node.js / Express Backend
+        |
+        v
+ Data Processing & Validation
+        |
+        v
+ Sequelize ORM
+        |
+        v
+ PostgreSQL Database
+        |
+        v
+ Flutter Frontend Application
+        |
+        v
+ Interactive Producer Mapping
+```
+
+### Data Collected
+
+The digital field mapping forms are designed to support the collection of relevant information about local nutritious food producers, including:
+
+- Producer and business information.
+- Contact and identification details.
+- Geographic coordinates and location information.
+- Food products and product categories.
+- Production and processing information.
+- Production capacity and related operational information.
+- Other information required for the First Foods Tanzania mapping initiative.
+
+The data structure and collection fields depend on the deployed KoboToolbox survey forms.
 
 ## Project Scope
 
@@ -45,21 +108,30 @@ The mapping initiative aims to improve the visibility of local nutritious food p
 
 ## System Architecture
 
-The backend API serves as the central data management layer between the PostgreSQL database and the frontend application.
+The backend API serves as the central data management layer between KoboToolbox, the PostgreSQL database and the frontend application.
 
 ```text
+KoboToolbox
+     |
+     | REST API
+     v
+Express.js Backend API
+     |
+     v
+Data Processing
+     |
+     v
+Sequelize ORM
+     |
+     v
+PostgreSQL Database
+     |
+     | REST API
+     v
 Flutter Frontend
-       |
-       | HTTP / REST API
-       |
-       v
-   Express.js API
-       |
-       v
-    Sequelize ORM
-       |
-       v
-   PostgreSQL Database
+     |
+     v
+Google Maps Visualization
 ```
 
 ## Installation and Setup
@@ -129,7 +201,9 @@ npm start
 
 ## API
 
-The backend exposes REST API endpoints for the frontend application to access and manage food producer information.
+The backend exposes REST API endpoints for the frontend application and integration with external data collection services.
+
+The API supports the exchange and management of producer information collected through KoboToolbox and data retrieval by the frontend application.
 
 API endpoints, request parameters, authentication requirements and response formats should be documented as the API evolves.
 
@@ -137,7 +211,7 @@ API endpoints, request parameters, authentication requirements and response form
 
 The backend is designed to support secure data access and application integration through appropriate server-side validation, controlled database access and secure handling of application configuration.
 
-Sensitive credentials should be managed through environment variables and must not be committed to the repository.
+Sensitive credentials, API tokens and database passwords should be managed through environment variables and must not be committed to the repository.
 
 ## Contribution
 
